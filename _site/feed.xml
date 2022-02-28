@@ -1,4 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="http://localhost:4000/Ryu_Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/Ryu_Blog/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-03-01T06:47:27+09:00</updated><id>http://localhost:4000/Ryu_Blog/feed.xml</id><title type="html">Ryu’s Blog</title><subtitle>Coding, Diary, Studying etc..</subtitle><author><name>Geonyeol Ryu</name></author><entry><title type="html">Purdue IITP Program</title><link href="http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post.html" rel="alternate" type="text/html" title="Purdue IITP Program" /><published>2022-01-18T00:00:00+09:00</published><updated>2022-01-18T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post.html"><![CDATA[<h1 id="1st-post">1st post</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="http://localhost:4000/Ryu_Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/Ryu_Blog/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-03-01T07:34:44+09:00</updated><id>http://localhost:4000/Ryu_Blog/feed.xml</id><title type="html">Ryu’s Blog</title><subtitle>Coding, Diary, Studying etc..</subtitle><author><name>Geonyeol Ryu</name></author><entry><title type="html">Purdue IITP Program 3rd post</title><link href="http://localhost:4000/Ryu_Blog/purdue/2022/02/25/Purdue_3rd_post.html" rel="alternate" type="text/html" title="Purdue IITP Program 3rd post" /><published>2022-02-25T00:00:00+09:00</published><updated>2022-02-25T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/purdue/2022/02/25/Purdue_3rd_post</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/purdue/2022/02/25/Purdue_3rd_post.html"><![CDATA[<h1 id="3rd-post">3rd post</h1>
+
+<h3 id="topic">Topic</h3>
+
+<ul>
+  <li>Our project’s topic is <b>“Finding optimal routes &amp; fire emergency evacuation routes inside the building by using beacon”</b>.</li>
+</ul>
+
+<h3 id="current-role">Current role</h3>
+
+<ul>
+  <li>I(Geonyeol Ryu) am in charge of <b>creating App</b>.</li>
+  <li>Namho Kim is in charge of <b>bluetooth connection and server</b>.</li>
+  <li>Minsu Sun is in charge of <b>image scanning &amp; finding route</b>.</li>
+  <li>Junseong Moon and Migyeong Kim are in charge of <b>IEEE &amp; arduino</b>.</li>
+</ul>
+
+<h3 id="big-goals-we-should-achieve">Big goals we should achieve</h3>
+
+<ol>
+  <li>Provide users with the fastest escape route in the event of a fire.</li>
+  <li>Act as indoor navigation in peacetime.</li>
+</ol>
+
+<h3 id="what-i-did">What I did?</h3>
+
+<ul>
+  <li>Uploading building’s blueprints for each floor.</li>
+  <li>Signup &amp; login</li>
+  <li>Navigation stack</li>
+  <li>Beacon detecting</li>
+  <li>Modifiying building’s blueprints for each floor.</li>
+  <li>Taking &amp; modifiying coordinates for each floor’s room.</li>
+  <li>Setting &amp; modifying beacons for each floor’ room.</li>
+  <li>Finding optimal route for general &amp; fire event.</li>
+</ul>
+
+<h3 id="difficulty">Difficulty</h3>
+
+<ul>
+  <li>Connection with the server was the hardest.</li>
+  <li>I used svg to take coordinates, but it was also difficult to match the ratio.</li>
+  <li>Sometimes the distance between the device and the beacon is accurate, but sometimes the value is strange, so it was difficult to test.</li>
+</ul>
+
+<h3 id="app-view">App view</h3>
+
+<ul>
+  <li>Uploading building’s blueprints for each floor.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/156067750-1010c739-2698-4835-b588-ed242a73a7e3.PNG" width="250" height="500" /> 
+<img src="https://user-images.githubusercontent.com/34560965/156067761-20dab52a-2bba-4237-8884-0d15c56af3c2.PNG" width="250" height="500" /></p>
+
+<hr />
+
+<ul>
+  <li>Modifiying building’s blueprints for each floor.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/156067713-e08af68a-38f4-42f6-95b7-01a6188e0456.PNG" width="250" height="500" />
+<img src="https://user-images.githubusercontent.com/34560965/156067695-f895123d-7203-47a6-9aba-dd96550c1e19.PNG" width="250" height="500" /></p>
+
+<hr />
+
+<ul>
+  <li>Taking &amp; modifiying coordinates for each floor’s room.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/156067493-e835d68d-1012-43e6-ba91-0f0b76fe0981.PNG" width="250" height="500" />
+<img src="https://user-images.githubusercontent.com/34560965/156067490-50a6c4fe-ab98-40f2-92fa-e46d1264e479.PNG" width="250" height="500" />
+<img src="https://user-images.githubusercontent.com/34560965/156067477-9161a88e-2213-436c-ac91-79a9f9133a69.PNG" width="250" height="500" />
+<img src="https://user-images.githubusercontent.com/34560965/156067487-81a5395d-8ca4-41b6-b86a-da099cf27342.PNG" width="250" height="500" /></p>
+
+<hr />
+
+<ul>
+  <li>Setting &amp; modifying beacons for each floor’ room.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/156067531-6e96496f-b0e6-4b17-8d80-710fa1e639db.PNG" width="250" height="500" />
+<img src="https://user-images.githubusercontent.com/34560965/156067577-80bb6d53-5134-486c-bbcd-8597be015d5a.PNG" width="250" height="500" />
+<img src="https://user-images.githubusercontent.com/34560965/156067556-a99afc8a-d863-4d72-bd47-6dd976d2502f.PNG" width="250" height="500" />
+<img src="https://user-images.githubusercontent.com/34560965/156067573-7b7e003b-797f-44e6-ba1b-f180ff061c29.PNG" width="250" height="500" /></p>
+
+<hr />
+
+<ul>
+  <li>Finding optimal route for general &amp; fire event.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/156067143-88f1ef1f-a053-4d03-9616-bdf88bcf521d.PNG" width="250" height="500" />
+<img src="https://user-images.githubusercontent.com/34560965/156067169-f810e048-0cc4-4584-9e6e-7b4dc6a8542e.PNG" width="250" height="500" />
+<img src="https://user-images.githubusercontent.com/34560965/156067167-6bd52c91-c7a0-49ee-aa10-a2dbfb94b193.PNG" width="250" height="500" /></p>]]></content><author><name>류건열</name></author><category term="purdue" /><category term="purdue" /><category term="IITP" /><category term="react-native" /><summary type="html"><![CDATA[3rd post]]></summary></entry><entry><title type="html">Purdue IITP Program 2nd post</title><link href="http://localhost:4000/Ryu_Blog/purdue/2022/01/30/Purdue_2nd_post.html" rel="alternate" type="text/html" title="Purdue IITP Program 2nd post" /><published>2022-01-30T00:00:00+09:00</published><updated>2022-01-30T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/purdue/2022/01/30/Purdue_2nd_post</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/purdue/2022/01/30/Purdue_2nd_post.html"><![CDATA[<h1 id="2nd-post">2nd post</h1>
+
+<h3 id="topic">Topic</h3>
+
+<ul>
+  <li>Our project’s topic is <b>“Finding optimal routes &amp; fire emergency evacuation routes inside the building by using beacon”</b>.</li>
+</ul>
+
+<h3 id="current-role">Current role</h3>
+
+<ul>
+  <li>I(Geonyeol Ryu) am in charge of <b>creating App</b>.</li>
+  <li>Namho Kim is in charge of <b>bluetooth connection and server</b>.</li>
+  <li>Minsu Sun is in charge of <b>image scanning &amp; finding route</b>.</li>
+  <li>Junseong Moon and Migyeong Kim are in charge of <b>IEEE &amp; arduino</b>.</li>
+</ul>
+
+<h3 id="big-goals-we-should-achieve">Big goals we should achieve</h3>
+
+<ol>
+  <li>Provide users with the fastest escape route in the event of a fire.</li>
+  <li>Act as indoor navigation in peacetime.</li>
+</ol>
+
+<h3 id="what-i-did">What I did?</h3>
+
+<ul>
+  <li>Uploading building’s blueprints for each floor.</li>
+  <li>Signup &amp; login</li>
+  <li>Navigation stack</li>
+  <li>Beacon detecting</li>
+</ul>
+
+<h3 id="difficulty">Difficulty</h3>
+
+<ul>
+  <li>It was my first time developing React Native, so it took a long time to study.</li>
+  <li>I had difficulty connecting beacons to start a project only when I could connect them.</li>
+  <li>As a result of experimenting with several packages, it was found that the react-native-kontaktio worked well.</li>
+</ul>
+
+<h3 id="app-view">App view</h3>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/156065070-f69e8de0-e51f-4b2d-ace0-d8f0ea733d13.PNG" width="200" height="400" /> 
+<img src="https://user-images.githubusercontent.com/34560965/156065087-4dd0bcc9-a83b-4e24-a595-98aa22beb32b.PNG" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/34560965/156065095-3817ad10-9ff6-495a-95d9-85bf757799cc.PNG" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/34560965/156065103-de9cd447-164e-4edd-aaf7-877a5850b9c1.PNG" width="200" height="400" /></p>]]></content><author><name>류건열</name></author><category term="purdue" /><category term="purdue" /><category term="IITP" /><category term="react-native" /><summary type="html"><![CDATA[2nd post]]></summary></entry><entry><title type="html">Purdue IITP Program 1st post</title><link href="http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post.html" rel="alternate" type="text/html" title="Purdue IITP Program 1st post" /><published>2022-01-18T00:00:00+09:00</published><updated>2022-01-18T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post.html"><![CDATA[<h1 id="1st-post">1st post</h1>
 
 <h3 id="topic">Topic</h3>
 
@@ -648,141 +787,4 @@
       </li>
     </ul>
   </li>
-</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[4주차 과제 : decision tree]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 3주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/03/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_3%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 3주차" /><published>2021-10-03T00:00:00+09:00</published><updated>2021-10-03T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/03/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_3%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/03/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_3%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
-  <li>
-    <p>3주차 과제 : KNN-Classifier</p>
-
-    <p><img src="https://user-images.githubusercontent.com/34560965/136653590-2d21b16a-feb5-4104-92d7-1a44912f5926.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/136653594-499245f6-c508-4385-b557-89d9fccd1e91.png" alt="image" /></p>
-
-    <ul>
-      <li>사용 언어 : python</li>
-      <li>
-        <p>해결 날짜 : 2021-10-03</p>
-      </li>
-      <li>
-        <p>코드 설명 :</p>
-
-        <p>1.</p>
-
-        <ul>
-          <li>pandas의 read_csv 함수로 iris.csv 파일을 읽어오고, 0~3열의 값들은 data로, 4열의 값들은 target으로 설정한다.</li>
-          <li>KNeighborsClassfier로 k의 개수를 설정해주고(1,5,10), training set과 test set으로 3:1로 랜덤하게 나눈 다음 훈련 데이터를 이용해 모델을 훈련하고(kn.fit), 훈련된 모델로 정확도를 측정하였다(kn.score).</li>
-          <li>이 결과 K=1, 5, 10일 때 모두 정확도는 0.973…로 모두 동일하였다.</li>
-        </ul>
-
-        <p>2.</p>
-
-        <ul>
-          <li>1번과 마찬가지로 pandas의 read_csv 함수로 iris_mod.csv 파일을 읽어오고, 0~3열의 값들은 data로, 4열의 값들은 target으로 설정한다.</li>
-          <li>normalization 하기 전의 테스트 셑의 정확도는 1번과 동일하게 진행하였고, normalization 수행 후 테스트 셑의 정확도는 MinMaxScaler를 사용하여 normalization 수행 후 측정하였다.</li>
-          <li>MinMaxScaler를 사용한 이유는, 이번 과제에서 주어진 iris_mod가 데이터가 모여져 있기 보다는 넓게 분포되어 있기 때문에 사용하였다. 반대로 StandardScaler( (x – 평균) / 표준편차 )는 모여진 데이터에서 정확도가 높기 때문에 사용하지 않았다. 정규화 진행 후 정확도가 약 0.657에서 0.973으로 상당히 높아진 결과를 볼 수 있었다.</li>
-        </ul>
-      </li>
-      <li>
-        <p>코드</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># In[131]:
-</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'C:/Users/rjsdu/OneDrive/바탕 화면/3-2/기계학습(박정희 교수님)/과제/3주차/iris.csv'</span><span class="p">,</span>
-                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">'Sepal length'</span><span class="p">,</span> <span class="s">'Sepal width'</span><span class="p">,</span> <span class="s">'Petal length'</span><span class="p">,</span> <span class="s">'Petal width'</span><span class="p">,</span> <span class="s">'Species'</span><span class="p">])</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">kn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"K=1일 때 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
-
-<span class="n">kn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"K=5일 때 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
-
-<span class="n">kn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"K=10일 때 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
-
-
-<span class="c1"># In[151]:
-</span>
-
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'C:/Users/rjsdu/OneDrive/바탕 화면/3-2/기계학습(박정희 교수님)/과제/3주차/iris_mod.csv'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">kn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"K=1일 때 normalization 수행 전 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
-<span class="n">scaler</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"K=1일 때 normalization 수행 후 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
-
-<span class="c1"># from sklearn.preprocessing import StandardScaler
-# scaler = StandardScaler()
-# scaler.fit(data)
-# data = scaler.transform(data)
-# train_input, test_input, train_target, test_target = train_test_split(data, target, random_state=0)
-# kn.fit(train_input, train_target)
-# print("K=1일 때 normalization 수행 후 테스트 셑의 정확도: " + str(kn.score(test_input, test_target)))
-</span></code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[3주차 과제 : KNN-Classifier]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 2주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/09/18/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_2%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 2주차" /><published>2021-09-18T00:00:00+09:00</published><updated>2021-09-18T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/09/18/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_2%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/09/18/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_2%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
-  <li>
-    <p>2주차 과제 : csv 파일 읽기</p>
-
-    <p><img src="https://user-images.githubusercontent.com/34560965/136653483-b7f058e2-7a16-487f-be50-892c8dedbf99.png" alt="image" /></p>
-
-    <ul>
-      <li>사용 언어 : python</li>
-      <li>
-        <p>해결 날짜 : 2021-09-18</p>
-      </li>
-      <li>
-        <p>코드 설명 :</p>
-
-        <ul>
-          <li>pandas의 read_csv 함수로 small_iris.csv 파일을 읽어온다.</li>
-          <li>groupby 함수로 Species 열의 같은 값을 가진 종들끼리 묶고, 그 평균값을 소수 셋째 자리까지 계산하여 변수 gb에 저장한다.</li>
-          <li>그 후 for in 문 속 iterrows 함수로 행에 대한 순환을 반복하여 각 행의 값(평균 벡터)들을 순서대로 출력하였다.</li>
-        </ul>
-      </li>
-      <li>
-        <p>코드</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'C:/Users/rjsdu/OneDrive/바탕 화면/3-2/기계학습(박정희 교수님)/과제/2주차/small_iris.csv'</span><span class="p">,</span>
-                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">'Sepal length'</span><span class="p">,</span> <span class="s">'Sepal width'</span><span class="p">,</span> <span class="s">'Petal length'</span><span class="p">,</span> <span class="s">'Petal width'</span><span class="p">,</span> <span class="s">'Species'</span><span class="p">])</span>
-<span class="n">gb</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'Species'</span><span class="p">]).</span><span class="n">mean</span><span class="p">().</span><span class="nb">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">species</span><span class="p">,</span> <span class="n">rows</span> <span class="ow">in</span> <span class="n">gb</span><span class="p">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"클래스 "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">+</span> <span class="s">"의 평균 벡터는 ["</span> <span class="o">+</span>
-        <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="s">'Sepal length'</span><span class="p">])</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span>
-        <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="s">'Sepal width'</span><span class="p">])</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span>
-        <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="s">'Petal length'</span><span class="p">])</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span>
-        <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="s">'Petal width'</span><span class="p">])</span> <span class="o">+</span> <span class="s">"]"</span>
-        <span class="p">)</span>
-</code></pre></div>        </div>
-      </li>
-    </ul>
-  </li>
-</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[2주차 과제 : csv 파일 읽기]]></summary></entry></feed>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[4주차 과제 : decision tree]]></summary></entry></feed>
