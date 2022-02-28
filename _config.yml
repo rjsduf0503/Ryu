@@ -3,6 +3,8 @@ description: Coding, Diary, Studying etc..
 author: Geonyeol Ryu
 avatar: /logo.png
 email: rjsduf0503@gmail.com
+url: "https://rjsduf0503.github.io"
+baseurl: "/Ryu_Blog"
 
 plugins:
   - jekyll-seo-tag
@@ -25,7 +27,7 @@ paginate: 10
 
 # Jekyll
 # ======
-skin: Midnight
+skin: midnight
 
 exclude:
   - scripts/
