@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021년 1학기 알고리즘응용 7주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021년 1학기 알고리즘응용 7주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="7주차 과제 - 섬 간 이동(dfs / bfs)" />
+<meta property="og:description" content="7주차 과제 - 섬 간 이동(dfs / bfs)" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/26/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_7%EC%A3%BC%EC%B0%A8_%EC%84%AC-%EA%B0%84-%EC%9D%B4%EB%8F%99.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/26/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_7%EC%A3%BC%EC%B0%A8_%EC%84%AC-%EA%B0%84-%EC%9D%B4%EB%8F%99.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-26T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021년 1학기 알고리즘응용 7주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021년 1학기 알고리즘응용 7주차","dateModified":"2021-04-26T00:00:00+09:00","datePublished":"2021-04-26T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/26/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_7%EC%A3%BC%EC%B0%A8_%EC%84%AC-%EA%B0%84-%EC%9D%B4%EB%8F%99.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/26/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_7%EC%A3%BC%EC%B0%A8_%EC%84%AC-%EA%B0%84-%EC%9D%B4%EB%8F%99.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"7주차 과제 - 섬 간 이동(dfs / bfs)","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021년 1학기 알고리즘응용 7주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-04-26T00:00:00+09:00" itemprop="datePublished">
+        Apr 26, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>7주차 과제 - 섬 간 이동(dfs / bfs)</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/116008698-cce3ae80-a650-11eb-826a-02b45a1226a6.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/116008699-cead7200-a650-11eb-8616-2429fd358237.png" alt="image" /></p>
+
+<ul>
+  <li>
+    <p>사용 언어 : python</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2021-04-26</p>
+  </li>
+  <li>
+    <p>느낀점 및 해결 과정 :</p>
+
+    <ul>
+      <li>dfs 함수를 통해 각각의 섬에 번호를 붙여서 초기화를 해준다. (1번 섬은 전부 -1로, 2번 섬은 전부 -2로 등)</li>
+      <li>
+        <p>bfs 함수를 통해 각 섬에서 다른 섬으로의 최단 거리를 찾는다.
+이 때 방향 벡터를 사용하여 상, 하, 좌, 우 로의 다음 위치 값을 비교하여 다음 위치가 주어진 범위를 벗어나는 경우 continue, 다음 위치도 현재 섬일 때 섬에서 방문하지 않았던 부분이라면 방문 처리 후 queue에 추가, 다음 위치가 바다인 경우는 거리를 표시해 주고 queue에 추가, 다른 섬을 만난 경우 거리를 계산하여 작은 값으로 교체 후 bfs를 종료하는 방법으로 문제를 해결하였다.</p>
+      </li>
+      <li>
+        <p>시간 복잡도 :</p>
+
+        <ul>
+          <li>dfs : O(N2)</li>
+          <li>bfs : 섬의 개수만큼 bfs를 호출, 함수 내부에서는 인접 행렬이므로 O(N2)</li>
+          <li>따라서 O(N2 + K*N2) = O(N2) 의 시간 복잡도를 갖는다.</li>
+        </ul>
+      </li>
+      <li>코드</li>
+    </ul>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+
+<span class="c1"># 각 섬의 값을 순서대로 -1, -2 , -3... 넘버링
+</span><span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">island_number</span>
+    <span class="c1"># 주어진 범위를 벗어나는 경우 종료
+</span>    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">N</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">N</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="c1"># 방문하지 않은 노드 중 섬인 노드
+</span>    <span class="k">if</span> <span class="n">island</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">visited</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># 섬의 첫 방문인 경우 좌표 값을 queue에 추가해줌
+</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">island_info</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">island_number</span><span class="p">:</span>
+            <span class="n">island_info</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">island</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">island_number</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">answer</span>
+    <span class="n">visited_island</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="c1"># 깊은 복사를 통해 섬마다 bfs 할 때 마다 섬의 거리가 초기화
+</span>    <span class="n">island_copy</span> <span class="o">=</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">island</span><span class="p">)</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+    <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+
+    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+        <span class="n">visited_island</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">nx</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">ny</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="c1"># 다음 위치가 주어진 범위를 벗어나는 경우
+</span>            <span class="k">if</span> <span class="n">nx</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">nx</span> <span class="o">&gt;=</span> <span class="n">N</span> <span class="ow">or</span> <span class="n">ny</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">ny</span> <span class="o">&gt;=</span> <span class="n">N</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="c1"># 다음 위치도 현재 섬인 경우
+</span>            <span class="k">if</span> <span class="n">island_copy</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">==</span> <span class="n">island_copy</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">b</span><span class="p">]:</span>
+                <span class="c1"># 섬에서 방문하지 않은 부분인 경우
+</span>                <span class="k">if</span> <span class="n">visited_island</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">visited_island</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+                <span class="k">continue</span>
+            <span class="c1"># 다음 위치가 바다인 경우
+</span>            <span class="k">if</span> <span class="n">island_copy</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># 현재 위치가 섬이라면 음수이므로 거리는 1로 초기화
+</span>                <span class="k">if</span> <span class="n">island_copy</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">island_copy</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">island_copy</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">island_copy</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">=</span> <span class="n">island_copy</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">queue</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+            <span class="c1"># 다른 섬을 만난 경우
+</span>            <span class="k">if</span> <span class="n">island_copy</span><span class="p">[</span><span class="n">nx</span><span class="p">][</span><span class="n">ny</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="n">island_copy</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span>
+                <span class="c1"># 작은 값으로 교체
+</span>                <span class="n">answer</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+                <span class="k">return</span>
+
+
+<span class="c1"># 섬 초기화
+</span><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">island</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="n">visited</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+
+<span class="c1"># 방향벡터 R, D, L, U
+</span><span class="n">dx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 각 섬을 bfs하기 위한 queue
+</span><span class="n">island_info</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+<span class="n">island_number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># 섬이 대각선으로 있는 경우의 최대 값
+</span><span class="n">answer</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">3</span>
+
+<span class="c1"># dfs를 통해 섬 넘버링
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># 한 섬을 완료하면 다른 섬에는 다른 번호를 붙여줌
+</span>        <span class="k">if</span> <span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+            <span class="n">island_number</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># bfs를 통해 최단 거리 찾기
+</span><span class="k">while</span> <span class="n">island_info</span><span class="p">:</span>
+    <span class="n">popped</span> <span class="o">=</span> <span class="n">island_info</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+    <span class="n">bfs</span><span class="p">(</span><span class="n">popped</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">popped</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9">알고리즘응용</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#algorithm">algorithm</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B3%BC%EC%A0%9C">과제</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9">알고리즘응용</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/database/2021/04/26/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_8%EC%A3%BC%EC%B0%A8_%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2021년 1학기 database 8주차
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/30/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_8%EC%A3%BC%EC%B0%A8_%EA%B0%80%EC%9E%A5-%ED%81%B0-%EC%88%98.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            2021년 1학기 알고리즘응용 8주차
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021 하계 모각코 1주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021 하계 모각코 1주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="오늘의 계획 Inflean을 통한 react 공부하기 수업 소개 공부 전략 개발환경의 종류 npm을 이용해서 create react app 설치 create react app을 이용해서 개발환경구축 샘플 웹앱 실행 JS 코딩하는 법 프로그래머스/백준 사이트에서 알고리즘 문제 풀이(그리디 알고리즘)" />
+<meta property="og:description" content="오늘의 계획 Inflean을 통한 react 공부하기 수업 소개 공부 전략 개발환경의 종류 npm을 이용해서 create react app 설치 create react app을 이용해서 개발환경구축 샘플 웹앱 실행 JS 코딩하는 법 프로그래머스/백준 사이트에서 알고리즘 문제 풀이(그리디 알고리즘)" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/%EB%AA%A8%EA%B0%81%EC%BD%94/2021/07/01/2021_07_01_%ED%95%98%EA%B3%84_%EB%AA%A8%EA%B0%81%EC%BD%94_week01.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/%EB%AA%A8%EA%B0%81%EC%BD%94/2021/07/01/2021_07_01_%ED%95%98%EA%B3%84_%EB%AA%A8%EA%B0%81%EC%BD%94_week01.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-01T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021 하계 모각코 1주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021 하계 모각코 1주차","dateModified":"2021-07-01T00:00:00+09:00","datePublished":"2021-07-01T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/%EB%AA%A8%EA%B0%81%EC%BD%94/2021/07/01/2021_07_01_%ED%95%98%EA%B3%84_%EB%AA%A8%EA%B0%81%EC%BD%94_week01.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/%EB%AA%A8%EA%B0%81%EC%BD%94/2021/07/01/2021_07_01_%ED%95%98%EA%B3%84_%EB%AA%A8%EA%B0%81%EC%BD%94_week01.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"오늘의 계획 Inflean을 통한 react 공부하기 수업 소개 공부 전략 개발환경의 종류 npm을 이용해서 create react app 설치 create react app을 이용해서 개발환경구축 샘플 웹앱 실행 JS 코딩하는 법 프로그래머스/백준 사이트에서 알고리즘 문제 풀이(그리디 알고리즘)","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021 하계 모각코 1주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-07-01T00:00:00+09:00" itemprop="datePublished">
+        Jul 1, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>오늘의 계획
+    <ul>
+      <li>Inflean을 통한 react 공부하기
+        <ul>
+          <li>수업 소개
+            <ul>
+              <li>공부 전략</li>
+              <li>개발환경의 종류</li>
+              <li>npm을 이용해서 create react app 설치</li>
+              <li>create react app을 이용해서 개발환경구축</li>
+              <li>샘플 웹앱 실행</li>
+              <li>JS 코딩하는 법</li>
+            </ul>
+          </li>
+          <li>프로그래머스/백준 사이트에서 알고리즘 문제 풀이(그리디 알고리즘)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>
+    <p>오늘의 회고</p>
+
+    <ul>
+      <li>react 정리
+        <ul>
+          <li>리액트에서는 사용자 정의 태그를 Component라고 한다.
+            <ol>
+              <li>가독성</li>
+              <li>재사용성</li>
+              <li>유지보수</li>
+            </ol>
+          </li>
+          <li>npm은 프로그램을 설치하는, npx는 create-react-app이라는 프로그램을 임시로 설치하고 지우는 차이점이 있다.
+            <ol>
+              <li>npx는 공간 낭비하지 않는다.</li>
+              <li>실행할 때 마다 다운로드를 새로 하기 때문에 항상 최신 버전이다.</li>
+            </ol>
+          </li>
+          <li>create-react-app을 통해 react-app을 생성하고, npm run start를 통해 실행한다.</li>
+          <li>처음 실행 시 생기는 public 폴더 속 index.html의 id가 root인 div 태그 안쪽에 리액트를 통해 만든 컴포넌트를 넣도록 약속했다.
+            <ol>
+              <li>이는 src 폴더의 파일들을 수정함으로 만들 수 있다.</li>
+              <li>대부분의 파일을 src 폴더에 넣어야 한다.</li>
+              <li>진입 파일은 index.js</li>
+              <li>아래의 사진에서 App /이라고 하는 컴포넌트는 실제 구현이 하단의 App.js의 div 태그 전체이다.
+<img src="https://user-images.githubusercontent.com/34560965/124121432-d99cdc80-daaf-11eb-8f47-6ccc4055592c.png" alt="image" /></li>
+              <li>리액트는 저장을 하면 바로 reload가 된다.
+<img src="https://user-images.githubusercontent.com/34560965/124121973-7cedf180-dab0-11eb-8977-d8cd4582be62.png" alt="image" /></li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>그리디 알고리즘 문제 풀이 : 큰 수 만들기(프로그래머스 LEVEL 2)
+<img src="https://user-images.githubusercontent.com/34560965/124137259-77000c80-dac0-11eb-82c8-bd04f5c6ebe2.png" alt="image" /></p>
+
+        <ul>
+          <li>해결 방법 :
+            <ul>
+              <li>처음에 내장 함수 combination을 import하여 모든 경우의 수로 만든 값을 heapq에 maxHeap의 형태로 넣어 heapq의 heappop을 통해 문제를 해결하고자 하였지만 시간 초과 문제가 발생하여 다른 방식으로 문제를 해결하였다.</li>
+              <li>그리디 알고리즘을 활용하여 문제를 해결하였는데, 숫자가 담긴 number를 돌며 가장 큰 값이 나올 때 그 위치를 지정한 다음 그 다음 위치부터 다시 값 비교를 하는 형식으로 문제를 해결하였다.</li>
+              <li>이 때 시간 초과 문제가 발생하여 str형을 int형으로 변환하지 않고 그대로 비교하고, 9라는 값이 나왔을 때 바로 다음 인덱스로 넘어가도록 함으로 문제를 해결할 수 있었다.</li>
+            </ul>
+          </li>
+          <li>
+            <p>코드 :</p>
+
+            <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="n">tempPos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="o">-</span><span class="n">k</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">tempMax</span> <span class="o">=</span> <span class="s">'0'</span>
+        <span class="k">if</span> <span class="n">number</span><span class="p">[</span><span class="n">tempPos</span><span class="p">]</span> <span class="o">==</span> <span class="s">'9'</span><span class="p">:</span>
+            <span class="n">tempMax</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">tempPos</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tempPos</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">-</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tempMax</span><span class="p">:</span>
+                    <span class="n">tempMax</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">tempPos</span> <span class="o">=</span> <span class="n">i</span>
+                    <span class="k">if</span> <span class="n">tempMax</span> <span class="o">==</span> <span class="s">'9'</span><span class="p">:</span>
+                        <span class="k">break</span>
+        <span class="n">tempPos</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">size</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">answer</span> <span class="o">+=</span> <span class="n">tempMax</span>
+
+    <span class="k">return</span> <span class="n">answer</span>
+</code></pre></div>            </div>
+          </li>
+        </ul>
+      </li>
+      <li>2문제를 해결하는 것을 목표로 하였으나 1문제 밖에 해결하지 못하였다. 다음부터는 더 열심히 풀어보도록 해야겠다.</li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#%EB%AA%A8%EA%B0%81%EC%BD%94">모각코</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#algorithm">algorithm</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#self-study">self-study</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EB%AA%A8%EA%B0%81%EC%BD%94">모각코</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/%EB%AA%A8%EA%B0%81%EC%BD%94/2021/06/24/Summer-Plan.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2021 하계 모각코 계획서
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/%EB%AA%A8%EA%B0%81%EC%BD%94/2021/07/08/2021_07_08_%ED%95%98%EA%B3%84_%EB%AA%A8%EA%B0%81%EC%BD%94_week02.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            2021 하계 모각코 2주차
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

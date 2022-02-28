@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021년 1학기 알고리즘응용 4주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021년 1학기 알고리즘응용 4주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="4주차 과제 - 대표 선발(그리디 알고리즘)" />
+<meta property="og:description" content="4주차 과제 - 대표 선발(그리디 알고리즘)" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/02/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_4%EC%A3%BC%EC%B0%A8_%EB%8C%80%ED%91%9C-%EC%84%A0%EB%B0%9C.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/02/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_4%EC%A3%BC%EC%B0%A8_%EB%8C%80%ED%91%9C-%EC%84%A0%EB%B0%9C.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-02T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021년 1학기 알고리즘응용 4주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021년 1학기 알고리즘응용 4주차","dateModified":"2021-04-02T00:00:00+09:00","datePublished":"2021-04-02T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/02/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_4%EC%A3%BC%EC%B0%A8_%EB%8C%80%ED%91%9C-%EC%84%A0%EB%B0%9C.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/02/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_4%EC%A3%BC%EC%B0%A8_%EB%8C%80%ED%91%9C-%EC%84%A0%EB%B0%9C.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"4주차 과제 - 대표 선발(그리디 알고리즘)","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021년 1학기 알고리즘응용 4주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-04-02T00:00:00+09:00" itemprop="datePublished">
+        Apr 2, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>4주차 과제 - 대표 선발(그리디 알고리즘)</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/113331885-6cb46200-935b-11eb-8d20-ee5a1d37b88e.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/113331890-7047e900-935b-11eb-9210-051d14f72e1b.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/113331897-72aa4300-935b-11eb-8743-7b0681a53577.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 사용 언어 : python
+- 해결 날짜 : 2021-04-02
+
+- 느낀점 및 해결 과정 :
+
+    - 이번 과제는 지원자의 수와 각 지원자의 두 과목의 성적이 입력되면 list에 tuple 형태로 저장하고, tuple의 first 값을 기준으로 정렬하여 second 값을 비교하는 방법을 통해 해결하였다.
+    - 우선 사용자로부터 지원자의 수(n), 지원자의 두 과목 성적을 입력 받아 공백을 기준으로 잘라서 A, B 임시 변수에 저장하고, int형으로 변환한 뒤 tuple의 형태로 subject라는 list에 저장하였다.
+    그 후 sort() 함수로 subject list 속 tuple의 first 값을 기준으로 정렬하였고, 대표팀으로 선발된 학생의 수를 구하는 함수인 find_num_of_selected을 적용한다.
+    find_num_of_selected에서 인자로 받은 given_list는 first 값으로 정렬이 되어 있으므로 second 값만을 비교하면 된다. for문으로 given_list를 돌며 현재 인덱스(temp)로부터 이전 인덱스들의 second 값 중 가장 작은 값(flag)와 비교하여 temp가 flag보다 작다면 대표팀으로 선발 가능하다는 소리이므로 flag를 temp로 다시 설정해주고, count 값을 1 증가시켜준다.
+    여기서 정렬된 list의 첫번째 인덱스의 first 값은 1등으로 무조건 선발이 가능하므로 두번째 인덱스부터 시작하되, count 변수의 초기값은 1로, flag 변수의 초기값은 given_list[0][1]로 설정해 주었다.
+    최종적으로 count값을 반환하여 만들 수 있는 대표팀의 최대 인원수를 출력하였다.
+    - 과제를 해결하며 처음에는 완전 탐색인 O(N^2)밖에 떠오르지 않았는데, 입력의 개수가 100000개 이므로 무조건 O(NlogN)보다는 작은 시간 복잡도의 알고리즘을 생각해 냈는데, sort 함수를 통하여 O(NlogN)를 생각해 해결할 수 있었다.
+
+- 시간 복잡도 :
+
+    - 지원자의 수, 지원자의 두 과목 성적 입력 받기 : N
+    - list 속 tuple의 first 값을 기준으로 정렬(sort) : NlogN
+    - 대표팀으로 선발된 학생 수 구하기(given_list를 돌되 두번째 인덱스부터 시작하므로) : N-1
+    - 따라서 최종 시간 복잡도는 N + NlogN + N – 1 = NlogN + 2N + 1이므로 가장 높은 차수인 NlogN을 제외하고는 전부 제외되어 O(NlogN)이 된다.
+
+
+
+- 코드
+
+```python
+# 대표팀으로 선발된 학생의 수를 구하는 함수 - O(N)
+def find_num_of_selected(given_list):
+    # 정렬된 list의 첫번째 인덱스의 first 값은 1로 무조건 선발가능
+    # first 값으로 정렬이 되어 있으므로 second 값을 비교한다.
+    # 현재 인덱스(temp)로부터 이전 인덱스들의 second 값 중 가장 작은값(flag)과 비교하여
+    # temp가 flag보다 작다면 대표팀으로 선발 가능
+    count = 1
+    flag = given_list[0][1]
+    for idx in range(1, len(given_list)):
+        temp = given_list[idx][1]
+        if temp &lt; flag:
+            flag = temp
+            count += 1
+        if flag == 1:
+            break
+    return count
+
+
+# 사용자로부터 지원자의 수, 지원자의 2 과목 성적 입력 받기 - O(N)
+subject = list()
+n = int(input())
+for i in range(0, n):
+    A, B = input().split(" ")
+    subject.append((int(A), int(B)))
+
+# list 속 tuple의 first 값을 기준으로 정렬 - O(NlogN)
+subject.sort()
+
+num_of_selected = find_num_of_selected(subject)
+print(num_of_selected)
+```
+</code></pre></div></div>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9">알고리즘응용</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#algorithm">algorithm</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B3%BC%EC%A0%9C">과제</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9">알고리즘응용</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/database/2021/04/02/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_5%EC%A3%BC%EC%B0%A8_GROUPBY,HAVING,ORDERBY.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2021년 1학기 database 5주차
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/react/2021/04/04/react_study_01.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            2021 리액트 스터디 1주차
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

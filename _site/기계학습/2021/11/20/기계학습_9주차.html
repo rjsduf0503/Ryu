@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021년 2학기 기계학습 9주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021년 2학기 기계학습 9주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="9주차 과제 : Text data 처리 2" />
+<meta property="og:description" content="9주차 과제 : Text data 처리 2" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-20T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021년 2학기 기계학습 9주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021년 2학기 기계학습 9주차","dateModified":"2021-11-20T00:00:00+09:00","datePublished":"2021-11-20T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"9주차 과제 : Text data 처리 2","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021년 2학기 기계학습 9주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-11-20T00:00:00+09:00" itemprop="datePublished">
+        Nov 20, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>
+    <p>9주차 과제 : Text data 처리 2</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/142651979-c6c532d1-536f-4199-b596-7aac58574f35.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>해결 날짜 : 2021-11-20</li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>bbcsport 데이터를 다운 받아 불러온 후 데이터 인코딩 방식 변경 및 전처리 과정을 진행한다.</li>
+          <li>그 후 Tfidvectorizer를 이용해 불용어 처리와 tf-idf, L2-normalization을 적용하고 5-cross-validation을 이용해 분류 정확도를 측정한다. 이 때 분류 정확도의 평균은 0.9755837470123184로 측정되었다.</li>
+          <li>다음으로 PCA 사용을 위해 x값을 todense()함수로 행렬로 변환 시켜 주고, 각 2차원과 10차원으로 감소시킨다. 이 때 마찬가지로 5-cross-validation을 이용해 분류 정확도를 측정한다. 2차원으로 감소시킬 때의 분류 정확도의 평균은 0.8656554513697371로 가장 낮았고, 10차원으로 감소시킬 때의 분류 정확도의 평균은 0.9701415701415701로 차원 감소 전 분류 정확도와 유사했다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>결과 :
+<img src="https://user-images.githubusercontent.com/34560965/142652023-9bdbf39e-8461-41a1-a288-8c94942588cf.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/142652041-02eb54f5-81d6-424c-87fb-34cf7507f55c.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/142652056-ab2d7c21-7108-4683-a361-5381389dd39c.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">chardet</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_files</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="s">'./bbcsport/'</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">files</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">files</span><span class="p">.</span><span class="n">target</span>
+
+<span class="c1">#데이터 인코딩 방식 변경
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">chardet</span><span class="p">.</span><span class="n">detect</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">!=</span><span class="s">'utf-8'</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">decode</span><span class="p">(</span><span class="n">chardet</span><span class="p">.</span><span class="n">detect</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])[</span><span class="s">'encoding'</span><span class="p">]).</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">)</span>
+
+<span class="c1">#데이터 전처리
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">''</span><span class="p">,</span><span class="sa">b</span><span class="s">''</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="sa">b</span><span class="s">' '</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">cross_val_score</span>
+
+<span class="c1">#기존 데이터
+</span><span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">kfold</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">stop_words</span> <span class="o">=</span> <span class="s">'english'</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s">'l2'</span><span class="p">)</span>
+<span class="n">x_transformed</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">x_transformed</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
+<span class="n">score_mean</span> <span class="o">=</span> <span class="n">score</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="c1">#PCA 사용을 위해 행렬로 변환
+</span><span class="n">x_dense</span> <span class="o">=</span> <span class="n">x_transformed</span><span class="p">.</span><span class="n">todense</span><span class="p">()</span>
+
+<span class="c1">#2차원으로 감소
+</span><span class="n">pca_2</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pca_2</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
+<span class="n">x_pca_2</span> <span class="o">=</span> <span class="n">pca_2</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
+<span class="n">score_2</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">x_pca_2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
+<span class="n">score_2_mean</span> <span class="o">=</span> <span class="n">score_2</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1">#10차원으로 감소
+</span><span class="n">pca_10</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">pca_10</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
+<span class="n">x_pca_10</span> <span class="o">=</span> <span class="n">pca_10</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
+<span class="n">score_10</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">x_pca_10</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
+<span class="n">score_10_mean</span> <span class="o">=</span> <span class="n">score_10</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"기존 데이터 크기 : {size}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x_transformed</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"데이터 차원 2로 감소시킨 데이터 크기 : {size}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x_pca_2</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"데이터 차원 10으로 감소시킨 데이터 크기 : {size}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x_pca_10</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"기존 데이터 분류 정확도 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 2일 때 분류 정확도 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 10일 때 분류 정확도 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_10</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"기존 데이터 분류 정확도의 평균 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_mean</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 2일 때 분류 정확도의 평균 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_2_mean</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 10일 때 분류 정확도의 평균 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_10_mean</span><span class="p">))</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5">기계학습</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#machine-learning">machine-learning</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B3%BC%EC%A0%9C">과제</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5">기계학습</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/15/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_8%EC%A3%BC%EC%B0%A8.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2021년 2학기 기계학습 8주차
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            2021년 2학기 기계학습 10주차
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

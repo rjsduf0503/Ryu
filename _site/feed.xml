@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="http://localhost:4000/Ryu_Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/Ryu_Blog/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-03-01T06:47:27+09:00</updated><id>http://localhost:4000/Ryu_Blog/feed.xml</id><title type="html">Ryu’s Blog</title><subtitle>Coding, Diary, Studying etc..</subtitle><author><name>Geonyeol Ryu</name></author><entry><title type="html">Purdue IITP Program</title><link href="http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post.html" rel="alternate" type="text/html" title="Purdue IITP Program" /><published>2022-01-18T00:00:00+09:00</published><updated>2022-01-18T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post.html"><![CDATA[<h1 id="1st-post">1st post</h1>
+
+<h3 id="topic">Topic</h3>
+
+<ul>
+  <li>First, our project’s topic is <b>“Finding optimal routes &amp; fire emergency evacuation routes inside the building by using beacon”</b>.</li>
+</ul>
+
+<h3 id="current-role">Current role</h3>
+
+<ul>
+  <li>I(Geonyeol Ryu) am in charge of <b>creating App</b>.</li>
+  <li>Namho Kim is in charge of <b>bluetooth connection and server</b>.</li>
+  <li>Minsu Sun is in charge of <b>image scanning</b>.</li>
+  <li>Junseong Moon and Migyeong Kim are in charge of <b>IEEE &amp; arduino</b>.</li>
+</ul>
+
+<h3 id="big-goals-we-should-achieve">Big goals we should achieve</h3>
+
+<ol>
+  <li>Provide users with the fastest escape route in the event of a fire.</li>
+  <li>Act as indoor navigation in peacetime.</li>
+</ol>
+
+<h3 id="how-to">How to?</h3>
+
+<ul>
+  <li>When the manager uploads a blueprint for each floor, the app converts it to a map, and the administrator enters the name of each room.</li>
+  <li>Using a Bluetooth beacon, the user’s location data is obtained.</li>
+  <li>In peacetime, the app shows an optimized route to the destination that the user wants.</li>
+  <li>In the event of a fire, a fire alarm that is linked to the server notifies the server of the occurrence of the fire, and the server notifies the user of the fire through the app.</li>
+  <li>And the app displays the current population cluster and the fastest escape route from the current user location on the map.</li>
+</ul>
+
+<h3 id="app-view">App view</h3>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/149961426-92775496-031d-4a4e-b400-0d090acdc817.png" width="200" height="400" /> 
+<img src="https://user-images.githubusercontent.com/34560965/149961464-35bd3a15-e17a-4298-8597-17798b23d887.png" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/34560965/149961496-e9198ff1-bcf6-40dc-adea-1ba81f3dbe52.png" width="200" height="400" /></p>]]></content><author><name>류건열</name></author><category term="purdue" /><category term="purdue" /><category term="IITP" /><category term="react-native" /><summary type="html"><![CDATA[1st post]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 10주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 10주차" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
+  <li>
+    <p>10주차 과제 : MLP</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/144801387-fc812211-9e36-4472-9dc8-56c00dca2559.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>해결 날짜 : 2021-12-06</li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>mnist 데이터를 다운 받아 불러온 후 1, 5, 8 클래스 데이터만 가지도록 재구성한다.</li>
+          <li>그 후 데이터를 train set : validation set : test set = 7 : 1 : 2 가 되도록 나눈다.</li>
+          <li>다음으로 validation을 set을 이용해 가장 좋은 모델을 가지도록, 노드의 개수를 10씩 늘려가며 solver의 옵션은 “adam, sgd”, activation function의 옵션은 “relu, logistic(sigmoid)”, 은닉층 수는 “2, 3”으로 검증한다. 총 경우의 수는 80개이다.</li>
+          <li>그 결과, 노드의 개수=90, solver=adam, activation function=relu, 은닉층 개수=3일 때의 validation 정확도가 0.9938…으로 가장 좋은 것으로 나타났고, 이에 동일한 모델에 train + validation set을 학습하여 test set으로 분류 정확도를 측정한 결과 0.99000…으로 약 99%의 분류 정확도를 가진다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>결과 :
+<img src="https://user-images.githubusercontent.com/34560965/144801390-03421e16-a86f-45ab-9c79-c05d34061e1a.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801398-f9c8258a-2907-426d-9c06-f04d8c47b381.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801403-7d3ce6a8-97fc-4d04-8f75-d9c25cadc725.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801407-08e4f9a3-42bf-4603-8a19-0f9d94e7c6a1.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801409-8f821ee2-036a-4c98-bde4-626d3d9026a7.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801413-d0a8225d-b618-4d27-a387-8e23e76e4dee.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801417-28380a60-7b2c-4cc8-9a5b-6269e07124aa.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801425-5a328c51-d287-4337-93e6-ecb833d5445c.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801427-52fb9029-6e88-47c4-9ae7-3130e51f00cb.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801440-43751840-6708-4b01-84e4-28390053cf32.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801449-c22bdba9-9dcb-4666-8890-8567633ad1e9.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801451-e1fc1024-429e-4512-a438-0e33e1afd81f.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801459-8f3671cc-5c2f-4b88-aa24-f03be43da3f2.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801468-f988220d-b72d-4c3c-a916-67a2180584de.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s">'mnist_784'</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="n">data</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="n">target</span>
+
+<span class="c1"># 1,5,8 클래스 데이터만 가지도록 구성
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">Y</span><span class="o">==</span><span class="s">'1'</span><span class="p">,</span> <span class="n">Y</span><span class="o">==</span><span class="s">'5'</span><span class="p">),</span> <span class="n">Y</span><span class="o">==</span><span class="s">'8'</span><span class="p">)]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">Y</span><span class="o">==</span><span class="s">'1'</span><span class="p">,</span> <span class="n">Y</span><span class="o">==</span><span class="s">'5'</span><span class="p">),</span> <span class="n">Y</span><span class="o">==</span><span class="s">'8'</span><span class="p">)]</span>
+
+<span class="c1"># train : validation : test = 7 : 1 : 2 가 되도록 나눔
+</span><span class="n">train_x</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                                                            <span class="n">target</span><span class="p">,</span>
+                                                            <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                            <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">train_input</span><span class="p">,</span> <span class="n">val_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">val_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span>
+                                                <span class="n">train_y</span><span class="p">,</span>
+                                                <span class="n">test_size</span><span class="o">=</span><span class="mf">0.125</span><span class="p">,</span>
+                                                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="kn">import</span> <span class="nn">mglearn</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+
+<span class="n">final_mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+<span class="n">final_mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">final_mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">))</span>
+
+
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[10주차 과제 : MLP]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 9주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 9주차" /><published>2021-11-20T00:00:00+09:00</published><updated>2021-11-20T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
+  <li>
+    <p>9주차 과제 : Text data 처리 2</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/142651979-c6c532d1-536f-4199-b596-7aac58574f35.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>해결 날짜 : 2021-11-20</li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>bbcsport 데이터를 다운 받아 불러온 후 데이터 인코딩 방식 변경 및 전처리 과정을 진행한다.</li>
+          <li>그 후 Tfidvectorizer를 이용해 불용어 처리와 tf-idf, L2-normalization을 적용하고 5-cross-validation을 이용해 분류 정확도를 측정한다. 이 때 분류 정확도의 평균은 0.9755837470123184로 측정되었다.</li>
+          <li>다음으로 PCA 사용을 위해 x값을 todense()함수로 행렬로 변환 시켜 주고, 각 2차원과 10차원으로 감소시킨다. 이 때 마찬가지로 5-cross-validation을 이용해 분류 정확도를 측정한다. 2차원으로 감소시킬 때의 분류 정확도의 평균은 0.8656554513697371로 가장 낮았고, 10차원으로 감소시킬 때의 분류 정확도의 평균은 0.9701415701415701로 차원 감소 전 분류 정확도와 유사했다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>결과 :
+<img src="https://user-images.githubusercontent.com/34560965/142652023-9bdbf39e-8461-41a1-a288-8c94942588cf.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/142652041-02eb54f5-81d6-424c-87fb-34cf7507f55c.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/142652056-ab2d7c21-7108-4683-a361-5381389dd39c.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">chardet</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_files</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="s">'./bbcsport/'</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">files</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">files</span><span class="p">.</span><span class="n">target</span>
+
+<span class="c1">#데이터 인코딩 방식 변경
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">chardet</span><span class="p">.</span><span class="n">detect</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">!=</span><span class="s">'utf-8'</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">decode</span><span class="p">(</span><span class="n">chardet</span><span class="p">.</span><span class="n">detect</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])[</span><span class="s">'encoding'</span><span class="p">]).</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">)</span>
+
+<span class="c1">#데이터 전처리
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">''</span><span class="p">,</span><span class="sa">b</span><span class="s">''</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="sa">b</span><span class="s">' '</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">cross_val_score</span>
+
+<span class="c1">#기존 데이터
+</span><span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">kfold</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">stop_words</span> <span class="o">=</span> <span class="s">'english'</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s">'l2'</span><span class="p">)</span>
+<span class="n">x_transformed</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">x_transformed</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
+<span class="n">score_mean</span> <span class="o">=</span> <span class="n">score</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="c1">#PCA 사용을 위해 행렬로 변환
+</span><span class="n">x_dense</span> <span class="o">=</span> <span class="n">x_transformed</span><span class="p">.</span><span class="n">todense</span><span class="p">()</span>
+
+<span class="c1">#2차원으로 감소
+</span><span class="n">pca_2</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pca_2</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
+<span class="n">x_pca_2</span> <span class="o">=</span> <span class="n">pca_2</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
+<span class="n">score_2</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">x_pca_2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
+<span class="n">score_2_mean</span> <span class="o">=</span> <span class="n">score_2</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1">#10차원으로 감소
+</span><span class="n">pca_10</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">pca_10</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
+<span class="n">x_pca_10</span> <span class="o">=</span> <span class="n">pca_10</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
+<span class="n">score_10</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">x_pca_10</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
+<span class="n">score_10_mean</span> <span class="o">=</span> <span class="n">score_10</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"기존 데이터 크기 : {size}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x_transformed</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"데이터 차원 2로 감소시킨 데이터 크기 : {size}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x_pca_2</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"데이터 차원 10으로 감소시킨 데이터 크기 : {size}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x_pca_10</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"기존 데이터 분류 정확도 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 2일 때 분류 정확도 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 10일 때 분류 정확도 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_10</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"기존 데이터 분류 정확도의 평균 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_mean</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 2일 때 분류 정확도의 평균 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_2_mean</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 10일 때 분류 정확도의 평균 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_10_mean</span><span class="p">))</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[9주차 과제 : Text data 처리 2]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 8주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/15/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_8%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 8주차" /><published>2021-11-15T00:00:00+09:00</published><updated>2021-11-15T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/15/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/15/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_8%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
+  <li>
+    <p>8주차 과제 : Text data 처리</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/141695398-38151577-0b29-4c73-a74c-b5650acd55d6.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/141695401-c38ae5f0-20d2-4c0b-9755-6c59020b1133.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>해결 날짜 : 2021-11-15</li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>aclimdb 데이터를 train과 test로 나누어서 가져오고, train/test 데이터 안의 HTML 줄바꿈 태그인 <br />을 삭제해준다.</li>
+          <li>CounterVectorizer()로 텍스트에서 단위별로 등장 횟수를 카운팅하여 수치 벡터화 하되, 불용어를 사용하지 않은 BOW 표현법/불용어를 사용한 BOW 표현법과 min_df 값을 변화시킬 때의 4가지 경우를 측정하였다.</li>
+          <li>또한 train/data 데이터를 각각 BOW 방법으로 나타낼 경우 각 feature의 값이 달라 같은 분류기를 사용하지 못하기 때문에 두 데이터 모두 사용하여 단어 사전 구축 및 불용어 처리를 하였다.</li>
+          <li>분류기로는 LogisticRegression을 사용하였고, 그 결과 데이터 단어 사전 미구축 및 불용어 처리를 안한 경우가 0.88943999999로 가장 높은 성능을 가졌다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>결과 :
+<img src="https://user-images.githubusercontent.com/34560965/141695403-a5b1d545-d295-45b6-a9e8-3c1e59c431d1.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/141695405-25134af5-ad10-428e-81e3-a0b87f1f622f.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/141695407-59aa7351-c768-4d0c-91c1-303c271c86d0.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/141695410-b012a5ae-7406-400f-ae97-d009f0876813.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/141695412-3daff2f8-3f00-4bac-b20b-2e6a0070e470.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_files</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">reviews_train</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="s">"./aclimdb/train/"</span><span class="p">)</span>
+<span class="n">reviews_test</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="s">"./aclimdb/test/"</span><span class="p">)</span>
+
+<span class="n">train_text</span><span class="p">,</span> <span class="n">train_target</span> <span class="o">=</span> <span class="n">reviews_train</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">reviews_train</span><span class="p">.</span><span class="n">target</span>
+<span class="n">test_text</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">reviews_test</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">reviews_test</span><span class="p">.</span><span class="n">target</span>
+
+<span class="n">train_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">"&lt;br /&gt;"</span><span class="p">,</span> <span class="sa">b</span><span class="s">" "</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">train_text</span><span class="p">]</span>
+<span class="n">test_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">"&lt;br /&gt;"</span><span class="p">,</span> <span class="sa">b</span><span class="s">" "</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">test_text</span><span class="p">]</span>
+
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">ENGLISH_STOP_WORDS</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="c1"># train, test 데이터 모두 단어 사전 구축 및 불용어 처리한 경우 (min df = 5)
+</span><span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="s">"english"</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text</span> <span class="o">+</span> <span class="n">test_text</span><span class="p">)</span>
+<span class="n">train_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
+<span class="n">test_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_text</span><span class="p">)</span>
+
+<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text_transformed</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">logreg</span><span class="p">,</span> <span class="n">test_text_transformed</span><span class="p">,</span> <span class="n">test_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+
+
+<span class="c1"># train, test 데이터 단어 사전 구축만 한 경우 (불용어 처리 x)
+</span><span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span> <span class="o">=</span> <span class="mi">5</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text</span> <span class="o">+</span> <span class="n">test_text</span><span class="p">)</span>
+<span class="n">train_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
+<span class="n">test_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_text</span><span class="p">)</span>
+
+<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text_transformed</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">logreg</span><span class="p">,</span> <span class="n">test_text_transformed</span><span class="p">,</span> <span class="n">test_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+
+
+<span class="c1"># train, test 불용어 처리 한 경우 (min_df = default)
+</span><span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s">"english"</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text</span> <span class="o">+</span> <span class="n">test_text</span><span class="p">)</span>
+<span class="n">train_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
+<span class="n">test_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_text</span><span class="p">)</span>
+
+<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text_transformed</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">logreg</span><span class="p">,</span> <span class="n">test_text_transformed</span><span class="p">,</span> <span class="n">test_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+
+
+<span class="c1"># train, test 데이터 단어 사전 구축 및 불용어 처리 둘 다 안한 경우
+</span><span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">().</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text</span> <span class="o">+</span> <span class="n">test_text</span><span class="p">)</span>
+<span class="n">train_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
+<span class="n">test_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_text</span><span class="p">)</span>
+
+<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text_transformed</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">logreg</span><span class="p">,</span> <span class="n">test_text_transformed</span><span class="p">,</span> <span class="n">test_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[8주차 과제 : Text data 처리]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 7주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/07/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_7%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 7주차" /><published>2021-11-07T00:00:00+09:00</published><updated>2021-11-07T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/07/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_7%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/07/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_7%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
+  <li>
+    <p>7주차 과제 : SVM</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/140646570-6f8275f0-90e7-46f8-b3ed-35bd1b69fb07.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/140646573-8869af06-72bf-49db-abb3-8c08032c6e54.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/140646576-926df7ba-da4c-48de-94f0-be03571526a9.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>해결 날짜 : 2021-11-07</li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>Mnist data를 Sklearn 라이브러리를 이용하여 가져오고, 이 값은 총 7만개지만 train 데이터와 test 데이터가 섞여 있으므로 train_test_split을 사용하여 6:1로 나누어 주었다.</li>
+          <li>처음에 스케일링을 하지 않고 c값만 변화시켜 정확도를 측정했더니 최대치가 0.85로 매우 낮았다. 성능을 높이기 위하여, 데이터 스케일링이 필요하다고 생각되어 QuantileTransformer 스케일러를 사용하여 데이터를 균등분포 시켰다.</li>
+          <li>그 다음 최대 성능을 내는 C값을 찾기 위해 반복문을 사용하여 우선 0부터 10까지 1씩 늘려가며 (단 C는 양수여야 하기 때문에 0일 때는 0.1로 하였다.) 최적의 C값을 찾았고, 가장 클 때는 0.1이었다. 그 다음 최대일 때는 2로 그 차이가 미미하다고 생각되었기 때문에 C값을 0.1부터 2.9까지 0.1씩 늘려가며 다시 최적의 C값을 찾았다.</li>
+          <li>이 때 훈련 및 성능 측정 모델로 SVC가 아닌 LinearSVC를 사용했는데, SVC를 사용하려니 몇시간 동안 훈련이 되지 않아 진행이 되지 않아서 어쩔 수 없이 LinearSVC를 사용했다.</li>
+          <li>최적의 C값인 1.7로 성능을 측정한 결과 0.882의 정확도를 얻을 수 있었다. 아마 LInearSVC가 아닌 그냥 SVC를 사용했다면 더 높은 결과를 얻었을 수도 있을 것 같다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>결과 :
+<img src="https://user-images.githubusercontent.com/34560965/140646579-66d56113-2585-4a9d-af46-35dc92d331dd.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/140646584-3b288a9d-dc63-4120-ad6d-ab8ff807a932.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/140646588-0133b184-0d9b-4563-9d71-b7bcdf1ed931.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/140646590-adbedefe-ab7f-42b7-ae30-f0fa37c8eb21.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/140646594-61fd5fe6-16f6-4f5a-a04b-3391f4165f1f.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/140646602-57953dc1-d780-4eb8-8a79-9e5cc0c31dc2.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s">'mnist_784'</span><span class="p">)</span>
+
+<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">mnist</span><span class="p">[</span><span class="s">'data'</span><span class="p">],</span>
+                                                                    <span class="n">mnist</span><span class="p">[</span><span class="s">'target'</span><span class="p">],</span>
+                                                                    <span class="n">test_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">),</span>
+                                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">train_input</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">QuantileTransformer</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">QuantileTransformer</span><span class="p">()</span>
+<span class="n">scaler</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">)</span>
+<span class="n">train_input_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_input</span><span class="p">)</span>
+<span class="n">test_input_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_input</span><span class="p">)</span>
+
+
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span>
+
+<span class="n">c_max</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">c_max</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input_scaled</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="n">score_max</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input_scaled</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">score_max</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input_scaled</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="n">temp_score</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input_scaled</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">score_max</span> <span class="o">&lt;</span> <span class="n">temp_score</span><span class="p">:</span>
+        <span class="n">score_max</span> <span class="o">=</span> <span class="n">temp_score</span>
+        <span class="n">c_max</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">temp_score</span><span class="p">)</span>
+
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">li</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input_scaled</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="n">temp_score</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input_scaled</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">score_max</span> <span class="o">&lt;</span> <span class="n">temp_score</span><span class="p">:</span>
+        <span class="n">score_max</span> <span class="o">=</span> <span class="n">temp_score</span>
+        <span class="n">c_max</span> <span class="o">=</span> <span class="n">i</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="s">"C값이 {c}일 때 Accuracy : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">c_max</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">score</span><span class="o">=</span><span class="n">score_max</span><span class="p">))</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[7주차 과제 : SVM]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 6주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 6주차" /><published>2021-11-01T00:00:00+09:00</published><updated>2021-11-01T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
+  <li>
+    <p>6주차 과제 : K-Means++</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/139595445-ebdb1fed-24aa-4b40-b269-cd435460c365.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/139595446-ab0e6949-fceb-4536-9912-cd4ff08adc30.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>해결 날짜 : 2021-11-01</li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>1번 코드 설명
+            <ul>
+              <li>pandas의 read_csv 함수로 iris.csv 파일을 읽어오고, 0~3열의 값들은 data로, 4열의 값들은 target으로 설정한다.</li>
+              <li>plt.scatter를 사용하여 특징 값 네 개중 처음 두 개의 특징 값을 x축과 y축의 값으로 사용하고, target값으로 클래스(점 색깔)을 나눈다.</li>
+            </ul>
+          </li>
+          <li>2번 코드 설명
+            <ul>
+              <li>이 전에 사용한 plt를 clf()함수로 초기화한다.</li>
+              <li>cluster의 개수를 3으로 지정하여 KMeans++ Clustering을 시행하고, 1번에서의 data로 훈련시킨다. 그 후 1번과 마찬가지로 scatter를 사용하여 특징 값 네 개중 처음 두 개의 특징 값을 x축과 y축의 값으로 사용하고, target값으로 방금 훈련시킨 모델의 라벨을 사용하여 점을 찍는다.</li>
+            </ul>
+          </li>
+          <li>3번 코드 설명
+            <ul>
+              <li>2번에서와 마찬가지로 KMeans++ Clustering을 수행하되, cluster의 개수를 2,3,4,5,6으로 변화해가며 수행한다. Adjusted Rand Index(ARI)를 사용하여 실제 정답 cluster와 비교하여 평가한다. 이 결과 2일 때 0.54, 3일 때 0.73, 4일 때 0.65, 5일 때 0.62, 6일 때 0.45로 cluster의 개수가 3일 때가 적합도가 가장 높으므로 가장 적합하다고 볼 수 있다.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>결과 :
+<img src="https://user-images.githubusercontent.com/34560965/139595454-8bc286b2-a9be-4f74-ba76-eaa0139909a1.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/139595455-c9a465da-e8c3-44bd-ba14-fd39b5099eef.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/139595458-9ea2b918-2faf-4b3f-8c70-4e46022190c3.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'iris.csv'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'feature1'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'feature2'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># In[33]:
+</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">model_3</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_3</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">model_3</span><span class="p">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># In[36]:
+</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics.cluster</span> <span class="kn">import</span> <span class="n">adjusted_rand_score</span>
+
+<span class="n">model_2</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_2</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">model_4</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_4</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">model_5</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_5</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">model_6</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_6</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 2일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_2</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 3일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_3</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 4일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_4</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 5일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_5</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 6일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_6</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[6주차 과제 : K-Means++]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 5주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/17/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_5%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 5주차" /><published>2021-10-17T00:00:00+09:00</published><updated>2021-10-17T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/17/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_5%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/17/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_5%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
+  <li>
+    <p>5주차 과제 : Random Forest</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/137598032-cd933ebc-ed45-4416-9f84-8a3f554afa90.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/137598033-31ef4460-6d53-428a-b2ea-1bc8145c1dd7.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>해결 날짜 : 2021-10-17</li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>pandas의 read_csv 함수로 wdbc.data 파일을 읽어오고, 2열 이후의 값들은 data로, 2열의 값들은 target으로 설정한다.</li>
+          <li>train_test_split 함수로 data와 target을 3:1로 랜덤하게 분리한다.</li>
+          <li>decision tree, Random Forest(5), Random Forest(100)를 각 classifier로 생성 후 cross_val_score 함수를 통해 5-cross validation을 진행한 다음 평균을 프린트하였다.</li>
+          <li>그 결과 트리의 개수가 100개인 Random Forest 방식의 성능이 가장 높았기 때문에 트리의 개수가 100개인 랜덤 포레스트에 데이터를 학습시키고, score 함수로 Test data에 대한 성능을 측정하였다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>결과 :
+<img src="https://user-images.githubusercontent.com/34560965/137598041-e9c9fdac-bdca-4d07-8503-e71fd8903d73.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python
+# coding: utf-8
+</span>
+<span class="c1"># In[63]:
+</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+
+<span class="n">datas</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'wdbc.data'</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">datas</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">datas</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># decision tree
+</span><span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"한 개의 DecisionTree일 때 교차 검증 점수 평균 : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">.</span><span class="n">mean</span><span class="p">()))</span>
+
+<span class="c1"># Random Forest (트리 개수 5개)
+</span><span class="n">forest_1</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">score_1</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">forest_1</span><span class="p">,</span> <span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"트리 개수 5개인 RandomForest일 때 교차 검증 점수 평균 : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score_1</span><span class="p">.</span><span class="n">mean</span><span class="p">()))</span>
+
+<span class="c1"># Random Forest (트리 개수 100개)
+</span><span class="n">forest_100</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">score_100</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">forest_100</span><span class="p">,</span> <span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"트리 개수 100개인 RandomForest일 때 교차 검증 점수 평균 : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score_100</span><span class="p">.</span><span class="n">mean</span><span class="p">()))</span>
+
+<span class="n">forest_100</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Test Data에 대한 성능 : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">forest_100</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[5주차 과제 : Random Forest]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 4주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/09/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_4%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 4주차" /><published>2021-10-09T00:00:00+09:00</published><updated>2021-10-09T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/09/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_4%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/09/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_4%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
+  <li>
+    <p>4주차 과제 : decision tree</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/136653762-6f27003b-3c22-41c3-8ad2-7b176d34e5bb.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>
+        <p>해결 날짜 : 2021-10-09</p>
+      </li>
+      <li>
+        <p>트리 그림 :</p>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/136653745-7e241dd2-c16d-4186-b903-f275c11b523b.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>어떤 클래스가 예측될까 ?</p>
+
+        <ul>
+          <li>첫 번째 데이터 샘플 : feature4가 0.2로 0.8보다 작으므로 True, 따라서 좌측으로 내려가서 class 1로 예측된다.</li>
+          <li>두 번째 데이터 샘플 : feature4가 1.4로 0.8보다 크므로 False, 따라서 우측으로 내려간 다음 feature4가 1.4로 1.75보다 작으므로 True, 따라서 좌측으로 내려간 다음 feature3가 4.7로 4.95보다 작으므로 True, 따라서 좌측으로 내려가서 class 2로 예측된다.</li>
+          <li>세 번째 데이터 샘플 : feature4가 2.5로 0.8보다 크므로 False, 따라서 우측으로 내려간 다음 feature4가 2.5로 1.75보다 크므로 False, 따라서 우측으로 내려간 다음feature3가 6.1로 4.85보다 크므로 False, 따라서 우측으로 내려가서 class 3으로 예측된다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>pandas의 read_csv 함수로 iris-3.csv 파일을 읽어오고, 0~3열들의 값들은 data로, 4열의 값들은 target으로 설정한다.</li>
+          <li>최대 깊이를 3으로 설정한 tree에 data와 target을 모델링하여 graphviz를 통해 시각화 하였다. 이 때, feature_names와 class_name을 달아주어 구분하기 편하게 하였다.</li>
+          <li>이후 iris+3.csv 파일을 읽어와 방금 전 모델링한 tree를 통해 예측한 결과를 프린트하였다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># In[16]:
+</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
+<span class="kn">import</span> <span class="nn">graphviz</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'C:/Users/rjsdu/OneDrive/바탕 화면/3-2/기계학습(박정희 교수님)/과제/4주차/iris-3.csv'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">columns</span><span class="p">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">target_name</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">])</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">tree</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="s">"tree.dot"</span><span class="p">,</span>
+            <span class="n">feature_names</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">,</span>
+            <span class="n">class_names</span> <span class="o">=</span> <span class="n">target_name</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"tree.dot"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dot_graph</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">graphviz</span><span class="p">.</span><span class="n">Source</span><span class="p">(</span><span class="n">dot_graph</span><span class="p">))</span>
+
+
+<span class="c1"># In[17]:
+</span>
+
+<span class="n">csv2</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'C:/Users/rjsdu/OneDrive/바탕 화면/3-2/기계학습(박정희 교수님)/과제/4주차/iris+3.csv'</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">tree</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">csv2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[4주차 과제 : decision tree]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 3주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/03/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_3%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 3주차" /><published>2021-10-03T00:00:00+09:00</published><updated>2021-10-03T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/03/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_3%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/03/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_3%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
+  <li>
+    <p>3주차 과제 : KNN-Classifier</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/136653590-2d21b16a-feb5-4104-92d7-1a44912f5926.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/136653594-499245f6-c508-4385-b557-89d9fccd1e91.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>
+        <p>해결 날짜 : 2021-10-03</p>
+      </li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <p>1.</p>
+
+        <ul>
+          <li>pandas의 read_csv 함수로 iris.csv 파일을 읽어오고, 0~3열의 값들은 data로, 4열의 값들은 target으로 설정한다.</li>
+          <li>KNeighborsClassfier로 k의 개수를 설정해주고(1,5,10), training set과 test set으로 3:1로 랜덤하게 나눈 다음 훈련 데이터를 이용해 모델을 훈련하고(kn.fit), 훈련된 모델로 정확도를 측정하였다(kn.score).</li>
+          <li>이 결과 K=1, 5, 10일 때 모두 정확도는 0.973…로 모두 동일하였다.</li>
+        </ul>
+
+        <p>2.</p>
+
+        <ul>
+          <li>1번과 마찬가지로 pandas의 read_csv 함수로 iris_mod.csv 파일을 읽어오고, 0~3열의 값들은 data로, 4열의 값들은 target으로 설정한다.</li>
+          <li>normalization 하기 전의 테스트 셑의 정확도는 1번과 동일하게 진행하였고, normalization 수행 후 테스트 셑의 정확도는 MinMaxScaler를 사용하여 normalization 수행 후 측정하였다.</li>
+          <li>MinMaxScaler를 사용한 이유는, 이번 과제에서 주어진 iris_mod가 데이터가 모여져 있기 보다는 넓게 분포되어 있기 때문에 사용하였다. 반대로 StandardScaler( (x – 평균) / 표준편차 )는 모여진 데이터에서 정확도가 높기 때문에 사용하지 않았다. 정규화 진행 후 정확도가 약 0.657에서 0.973으로 상당히 높아진 결과를 볼 수 있었다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># In[131]:
+</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'C:/Users/rjsdu/OneDrive/바탕 화면/3-2/기계학습(박정희 교수님)/과제/3주차/iris.csv'</span><span class="p">,</span>
+                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">'Sepal length'</span><span class="p">,</span> <span class="s">'Sepal width'</span><span class="p">,</span> <span class="s">'Petal length'</span><span class="p">,</span> <span class="s">'Petal width'</span><span class="p">,</span> <span class="s">'Species'</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">kn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"K=1일 때 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
+
+<span class="n">kn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"K=5일 때 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
+
+<span class="n">kn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"K=10일 때 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
+
+
+<span class="c1"># In[151]:
+</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'C:/Users/rjsdu/OneDrive/바탕 화면/3-2/기계학습(박정희 교수님)/과제/3주차/iris_mod.csv'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">kn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"K=1일 때 normalization 수행 전 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">scaler</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">kn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"K=1일 때 normalization 수행 후 테스트 셑의 정확도: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">kn</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
+
+<span class="c1"># from sklearn.preprocessing import StandardScaler
+# scaler = StandardScaler()
+# scaler.fit(data)
+# data = scaler.transform(data)
+# train_input, test_input, train_target, test_target = train_test_split(data, target, random_state=0)
+# kn.fit(train_input, train_target)
+# print("K=1일 때 normalization 수행 후 테스트 셑의 정확도: " + str(kn.score(test_input, test_target)))
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[3주차 과제 : KNN-Classifier]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 2주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/09/18/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_2%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 2주차" /><published>2021-09-18T00:00:00+09:00</published><updated>2021-09-18T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/09/18/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_2%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/09/18/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_2%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
+  <li>
+    <p>2주차 과제 : csv 파일 읽기</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/136653483-b7f058e2-7a16-487f-be50-892c8dedbf99.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>
+        <p>해결 날짜 : 2021-09-18</p>
+      </li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>pandas의 read_csv 함수로 small_iris.csv 파일을 읽어온다.</li>
+          <li>groupby 함수로 Species 열의 같은 값을 가진 종들끼리 묶고, 그 평균값을 소수 셋째 자리까지 계산하여 변수 gb에 저장한다.</li>
+          <li>그 후 for in 문 속 iterrows 함수로 행에 대한 순환을 반복하여 각 행의 값(평균 벡터)들을 순서대로 출력하였다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'C:/Users/rjsdu/OneDrive/바탕 화면/3-2/기계학습(박정희 교수님)/과제/2주차/small_iris.csv'</span><span class="p">,</span>
+                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">'Sepal length'</span><span class="p">,</span> <span class="s">'Sepal width'</span><span class="p">,</span> <span class="s">'Petal length'</span><span class="p">,</span> <span class="s">'Petal width'</span><span class="p">,</span> <span class="s">'Species'</span><span class="p">])</span>
+<span class="n">gb</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'Species'</span><span class="p">]).</span><span class="n">mean</span><span class="p">().</span><span class="nb">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">species</span><span class="p">,</span> <span class="n">rows</span> <span class="ow">in</span> <span class="n">gb</span><span class="p">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"클래스 "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">+</span> <span class="s">"의 평균 벡터는 ["</span> <span class="o">+</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="s">'Sepal length'</span><span class="p">])</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="s">'Sepal width'</span><span class="p">])</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="s">'Petal length'</span><span class="p">])</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="s">'Petal width'</span><span class="p">])</span> <span class="o">+</span> <span class="s">"]"</span>
+        <span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[2주차 과제 : csv 파일 읽기]]></summary></entry></feed>

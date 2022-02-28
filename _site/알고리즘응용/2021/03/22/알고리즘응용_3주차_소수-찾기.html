@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021년 1학기 알고리즘응용 3주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021년 1학기 알고리즘응용 3주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="3주차 과제 - 소수 찾기" />
+<meta property="og:description" content="3주차 과제 - 소수 찾기" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/03/22/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_3%EC%A3%BC%EC%B0%A8_%EC%86%8C%EC%88%98-%EC%B0%BE%EA%B8%B0.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/03/22/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_3%EC%A3%BC%EC%B0%A8_%EC%86%8C%EC%88%98-%EC%B0%BE%EA%B8%B0.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-22T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021년 1학기 알고리즘응용 3주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021년 1학기 알고리즘응용 3주차","dateModified":"2021-03-22T00:00:00+09:00","datePublished":"2021-03-22T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/03/22/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_3%EC%A3%BC%EC%B0%A8_%EC%86%8C%EC%88%98-%EC%B0%BE%EA%B8%B0.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/03/22/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_3%EC%A3%BC%EC%B0%A8_%EC%86%8C%EC%88%98-%EC%B0%BE%EA%B8%B0.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"3주차 과제 - 소수 찾기","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021년 1학기 알고리즘응용 3주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-03-22T00:00:00+09:00" itemprop="datePublished">
+        Mar 22, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>3주차 과제 - 소수 찾기</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/112005277-f4cd8700-8b65-11eb-9bc6-53b3dff0c933.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/112005280-f5feb400-8b65-11eb-82c4-6a3f48652340.png" alt="image" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 사용 언어 : python
+- 해결 날짜 : 2021-03-23
+
+- 느낀점 및 해결 과정 :
+
+    - 이번 과제는 문자열로 숫자가 입력되면 한 자리 씩 떼어낸 숫자들로 만들 수 있는 모든 숫자를 알아내고, 그 숫자의 중복된 값을 제거한 다음 다시 정수형으로 이어 붙여 그 값들 중 소수인 숫자의 개수를 찾는 과정을 통해 해결하였다.
+    - 우선 입력 받은 문자열을 list로 만든 num_list를 돌며 permutations 내장 함수를 사용해 가능한 모든 조합을 찾아내어 all_list에 append 한다.
+    그 후 set 함수로 list를 집합으로 바꾸어 중복을 제거하고, 중복된 값이 제거된 리스트의 모든 원소에 리스트의 원소들을 같은 인덱스의 원소들끼리 붙이는 함수인 attach를 적용하여 붙이고 정수형으로 형변환 한다.
+    attach 함수에서, 주어진 ele의 type이 int형 혹은 str형이 아닌 경우 join 함수를 통해 붙여 반환한다.
+    마지막으로 소수의 개수를 찾는 함수인 find_num_of_prime을 리스트에 적용하여 리스트를 돌며 나머지가 0인 값이 2개면 소수라고 판명하였다.
+    - 과제를 해결하며 리스트의 원소 중 같은 인덱스의 원소들끼리 붙이는 방법을 고민하였는데, 저번 시간에 배운 join 함수를 통해 해결할 수 있었다.
+
+
+
+
+- 코드
+
+```python
+from itertools import permutations
+
+
+# 리스트의 원소들을 같은 인덱스의 원소들끼리 붙이는 함수
+def attach(ele):
+    if type(ele) in [int, str]:
+        return str(ele)
+    # 주어진 원소의 type이 int 혹은 str 형이 아닌 경우, join 내장 함수로 붙여 반환
+    return "".join(map(str, ele))
+
+
+# 리스트에서 소수인 원소의 개수를 찾는 함수
+def find_num_of_prime(given_list):
+    num_of_prime = 0
+    for number in given_list:
+        temp = 0
+        for idx in list(range(1, number+1)):
+            # 리스트를 돌며 나머지가 0인 값이 2개면 소수
+            if number % idx == 0:
+                temp += 1
+            if temp &gt; 2:
+                break
+        if temp == 2:
+            num_of_prime += 1
+    return num_of_prime
+
+
+# 사용자로부터 입력 받아 리스트로 변환
+num_list = list(input())
+all_list = list()
+
+# 리스트를 돌며 permutations 함수를 사용해 가능한 모든 조합을 찾아냄
+for i in range(len(num_list)):
+    if i &gt; 0:
+        perm = list(permutations(num_list, i + 1))
+    else:
+        perm = num_list
+    for j in perm:
+        all_list.append(j)
+
+# 중복된 값 제거
+all_list_without_duplication = list(set(all_list))
+# 중복된 값이 제거된 리스트의 모든 원소에 attach 함수를 적용하여 붙이고 정수형으로 형변환
+attached_list = list(map(int, map(attach, all_list_without_duplication)))
+# attached_list.sort()
+# print(attached_list)
+
+# 소수의 개수 찾기
+answer = find_num_of_prime(attached_list)
+print(answer)
+```
+</code></pre></div></div>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9">알고리즘응용</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#algorithm">algorithm</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B3%BC%EC%A0%9C">과제</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9">알고리즘응용</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/database/2021/03/19/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_3%EC%A3%BC%EC%B0%A8_DML,Where.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2021년 1학기 database 3주차
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/database/2021/03/26/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_4%EC%A3%BC%EC%B0%A8_%ED%95%A8%EC%88%98.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            2021년 1학기 database 4주차
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

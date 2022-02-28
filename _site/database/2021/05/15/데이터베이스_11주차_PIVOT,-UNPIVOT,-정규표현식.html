@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021년 1학기 database 11주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021년 1학기 database 11주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="11주차 과제 - PIVOT, UNPIVOT, 정규표현식 실습 환경 : Oracle 해결 날짜 : 2021-05-15" />
+<meta property="og:description" content="11주차 과제 - PIVOT, UNPIVOT, 정규표현식 실습 환경 : Oracle 해결 날짜 : 2021-05-15" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/database/2021/05/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_11%EC%A3%BC%EC%B0%A8_PIVOT,-UNPIVOT,-%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/database/2021/05/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_11%EC%A3%BC%EC%B0%A8_PIVOT,-UNPIVOT,-%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-15T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021년 1학기 database 11주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021년 1학기 database 11주차","dateModified":"2021-05-15T00:00:00+09:00","datePublished":"2021-05-15T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/database/2021/05/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_11%EC%A3%BC%EC%B0%A8_PIVOT,-UNPIVOT,-%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/database/2021/05/15/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_11%EC%A3%BC%EC%B0%A8_PIVOT,-UNPIVOT,-%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"11주차 과제 - PIVOT, UNPIVOT, 정규표현식 실습 환경 : Oracle 해결 날짜 : 2021-05-15","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021년 1학기 database 11주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-05-15T00:00:00+09:00" itemprop="datePublished">
+        May 15, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>11주차 과제 - PIVOT, UNPIVOT, 정규표현식</li>
+  <li>실습 환경 : Oracle</li>
+  <li>
+    <p>해결 날짜 : 2021-05-15</p>
+  </li>
+  <li>
+    <p>과제</p>
+
+    <ul>
+      <li>
+        <p>11-1. [예제1]~[예제5]를 참고하여 PLAYER 테이블에서 팀별로 각 포지션별 선수의 수와 평균 신장(키)을 구하는 뷰를 생성하고 생성된 뷰의 전체 데이터를 조회하는 SQL문을 작성하라. (단, PIVOT절을 사용하고 팀 ID순으로 정렬한다.) [2점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">V_PLAYER_HEIGHT</span> <span class="k">AS</span>
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">TEAM_ID</span><span class="p">,</span> <span class="k">POSITION</span><span class="p">,</span> <span class="n">HEIGHT</span> <span class="k">FROM</span> <span class="n">PLAYER</span><span class="p">)</span>
+<span class="n">PIVOT</span> <span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">HEIGHT</span><span class="p">)</span> <span class="err">평균키</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="nv">"선수의 수"</span>
+    <span class="k">FOR</span> <span class="k">POSITION</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'DF'</span> <span class="err">수비수</span><span class="p">,</span> <span class="s1">'GK'</span> <span class="err">골키퍼</span><span class="p">,</span> <span class="s1">'FW'</span> <span class="err">공격수</span><span class="p">,</span> <span class="s1">'MF'</span> <span class="err">미드필더</span><span class="p">))</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">TEAM_ID</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">V_PLAYER_HEIGHT</span><span class="p">;</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/118362406-62c48680-b5ca-11eb-9c0f-4479b392a602.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/118362407-648e4a00-b5ca-11eb-89ab-d9e6aef31091.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>11-2. [예제6]~[예제11]을 참고하여 [과제11-1]에서 생성한 뷰의 전체 데이터 조회 결과 중 각 팀에서 포지션이 ‘MF’인 선수들의 정보(선수의 수, 평균 신장(키))를 조회하는 SQL문을 작성하라. (단, UNPIVOT절을 사용하고 팀 ID순으로 정렬한다.) [2점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">TEAM_ID</span> <span class="err">팀명</span><span class="p">,</span> <span class="n">COL</span><span class="p">,</span> <span class="k">DATA</span>
+<span class="k">FROM</span> <span class="n">V_PLAYER_HEIGHT</span>
+<span class="n">UNPIVOT</span> <span class="p">(</span><span class="k">DATA</span>
+    <span class="k">FOR</span> <span class="n">COL</span> <span class="k">IN</span> <span class="p">(</span><span class="nv">"미드필더_선수의 수"</span><span class="p">,</span> <span class="nv">"미드필더_평균키"</span><span class="p">))</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">TEAM_ID</span><span class="p">;</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/118362463-8be51700-b5ca-11eb-9bd5-4e8b464f7425.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>11-3. EMP 테이블에서 이메일 주소가 ‘소문자+숫자@소문자+숫자.소문자’ 패턴인 직원의 직원번호, 직원이름, 직무, 이메일 주소를 출력하는 SQL문을 작성하라. (단, REGEXP_LIKE 함수를 사용하며 POSIX 연산자와 PERL 정규 표현식 연산자 두 가지 방법을 모두 사용하여 출력한다.) [2점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- with POSIX</span>
+<span class="k">SELECT</span> <span class="n">EMPNO</span> <span class="err">직원번호</span><span class="p">,</span> <span class="n">ENAME</span> <span class="err">직원이름</span><span class="p">,</span> <span class="n">JOB</span> <span class="err">직무</span><span class="p">,</span> <span class="n">EMAIL</span> <span class="nv">"이메일 주소"</span>
+<span class="k">FROM</span> <span class="n">EMP</span>
+<span class="k">WHERE</span> <span class="n">REGEXP_LIKE</span><span class="p">(</span><span class="n">EMAIL</span><span class="p">,</span> <span class="s1">'^[[:lower:][:digit:]]+@[[:lower:][:digit:]]+</span><span class="se">\.</span><span class="s1">[[:lower:]]+$'</span><span class="p">);</span>
+
+<span class="c1">--with PERL</span>
+<span class="k">SELECT</span> <span class="n">EMPNO</span> <span class="err">직원번호</span><span class="p">,</span> <span class="n">ENAME</span> <span class="err">직원이름</span><span class="p">,</span> <span class="n">JOB</span> <span class="err">직무</span><span class="p">,</span> <span class="n">EMAIL</span> <span class="nv">"이메일 주소"</span>
+<span class="k">FROM</span> <span class="n">EMP</span>
+<span class="k">WHERE</span> <span class="n">REGEXP_LIKE</span><span class="p">(</span><span class="n">EMAIL</span><span class="p">,</span> <span class="s1">'^</span><span class="se">\w</span><span class="s1">+?@</span><span class="se">\w</span><span class="s1">+?</span><span class="se">\.</span><span class="s1">(</span><span class="se">\w</span><span class="s1">)+?$'</span><span class="p">);</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/118362491-ab7c3f80-b5ca-11eb-871a-0db91b993d41.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/118362494-ae773000-b5ca-11eb-831e-925163d87c33.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>11-4. EMP 테이블에서 모든 직원의 직원번호, 직원이름, 기존의 핸드폰 번호, ‘숫자-숫자-숫자’ 패턴으로 변경한 핸드폰 번호를 출력하는 SQL문을 작성하라. (단, REGEXP_REPLACE 함수를 사용하며, POSIX 연산자와 PERL 정규 표현식 연산자 두 가지 방법을 모두 사용하여 출력한다.) [2점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- with POSIX</span>
+<span class="k">SELECT</span> <span class="n">EMPNO</span> <span class="err">직원번호</span><span class="p">,</span> <span class="n">ENAME</span> <span class="err">직원이름</span><span class="p">,</span> <span class="n">MOBILE</span> <span class="nv">"기존 핸드폰 번호"</span><span class="p">,</span>
+        <span class="n">REGEXP_REPLACE</span><span class="p">(</span><span class="n">MOBILE</span><span class="p">,</span> <span class="s1">'([[:digit:]]{3})</span><span class="se">\.</span><span class="s1">([[:digit:]]{4})</span><span class="se">\.</span><span class="s1">([[:digit:]]{4})'</span><span class="p">,</span> <span class="s1">'</span><span class="se">\1</span><span class="s1">-</span><span class="se">\2</span><span class="s1">-</span><span class="se">\3</span><span class="s1">'</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">"변경한 핸드폰 번호"</span>
+<span class="k">FROM</span> <span class="n">EMP</span><span class="p">;</span>
+
+<span class="c1">-- with PERL</span>
+<span class="k">SELECT</span> <span class="n">EMPNO</span> <span class="err">직원번호</span><span class="p">,</span> <span class="n">ENAME</span> <span class="err">직원이름</span><span class="p">,</span> <span class="n">MOBILE</span> <span class="nv">"기존 핸드폰 번호"</span><span class="p">,</span>
+        <span class="n">REGEXP_REPLACE</span><span class="p">(</span><span class="n">MOBILE</span><span class="p">,</span> <span class="s1">'(</span><span class="se">\d</span><span class="s1">{3}?)</span><span class="se">\.</span><span class="s1">(</span><span class="se">\d</span><span class="s1">{4}?)</span><span class="se">\.</span><span class="s1">(</span><span class="se">\d</span><span class="s1">{4}?)'</span><span class="p">,</span> <span class="s1">'</span><span class="se">\1</span><span class="s1">-</span><span class="se">\2</span><span class="s1">-</span><span class="se">\3</span><span class="s1">'</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">"변경한 핸드폰 번호"</span>
+<span class="k">FROM</span> <span class="n">EMP</span><span class="p">;</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/118362527-cf3f8580-b5ca-11eb-9c88-28dd05273abd.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/118362532-d1a1df80-b5ca-11eb-9333-08cd1426b229.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>11-5. EMP 테이블에서 개인 홈페이지가 있는 직원들의 직원번호, 직원이름, 기존의 개인 홈페이지 주소, 메인 URL만 분리한 개인 홈페이지 주소 (예시: http://www.naver.com/)를 출력하는 SQL문을 작성하라. (단, REGEXP_SUBSTR 함수를 사용하며 POSIX 연산자와 PERL 정규 표현식 연산자 두 가지 방법을 모두 사용하여 출력하고 개인 홈페이지 주소가 없는 직원은 제외한다.) [2점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- with POSIX</span>
+<span class="k">SELECT</span> <span class="n">EMPNO</span> <span class="err">직원번호</span><span class="p">,</span> <span class="n">ENAME</span> <span class="err">직원이름</span><span class="p">,</span> <span class="n">PERSONAL_HOMEPAGE</span> <span class="nv">"기존 홈페이지 주소"</span><span class="p">,</span>
+        <span class="n">REGEXP_SUBSTR</span><span class="p">(</span><span class="n">PERSONAL_HOMEPAGE</span><span class="p">,</span> <span class="s1">'http://([[:alnum:]]+</span><span class="se">\.</span><span class="s1">?){3,4}</span><span class="se">\/</span><span class="s1">'</span><span class="p">)</span> <span class="nv">"메인 URL"</span>
+<span class="k">FROM</span> <span class="n">EMP</span>
+<span class="k">WHERE</span> <span class="n">PERSONAL_HOMEPAGE</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">;</span>
+
+<span class="c1">-- with PERL</span>
+<span class="k">SELECT</span> <span class="n">EMPNO</span> <span class="err">직원번호</span><span class="p">,</span> <span class="n">ENAME</span> <span class="err">직원이름</span><span class="p">,</span> <span class="n">PERSONAL_HOMEPAGE</span> <span class="nv">"기존 홈페이지 주소"</span><span class="p">,</span>
+        <span class="n">REGEXP_SUBSTR</span><span class="p">(</span><span class="n">PERSONAL_HOMEPAGE</span><span class="p">,</span> <span class="s1">'http://(</span><span class="se">\w</span><span class="s1">+</span><span class="se">\.</span><span class="s1">?){3,4}</span><span class="se">\/</span><span class="s1">'</span><span class="p">)</span> <span class="nv">"메인 URL"</span>
+<span class="k">FROM</span> <span class="n">EMP</span>
+<span class="k">WHERE</span> <span class="n">PERSONAL_HOMEPAGE</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">;</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/118362597-0f9f0380-b5cb-11eb-89a4-0ae6c7eddc1f.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/118362601-12015d80-b5cb-11eb-813a-c31d82429d17.png" alt="image" /></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#database">database</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#database">database</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B3%BC%EC%A0%9C">과제</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/05/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_10%EC%A3%BC%EC%B0%A8_%EC%B9%BC%EB%A1%9C%EB%A6%AC-%EA%B3%84%EC%82%B0.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2021년 1학기 알고리즘응용 10주차
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/05/20/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_11%EC%A3%BC%EC%B0%A8_%EC%B5%9C%EC%86%8C-%EA%B0%9C%EC%88%98-%EA%B5%AC%ED%95%98%EA%B8%B0.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            2021년 1학기 알고리즘응용 11주차
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021년 2학기 기계학습 10주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021년 2학기 기계학습 10주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="10주차 과제 : MLP" />
+<meta property="og:description" content="10주차 과제 : MLP" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-06T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021년 2학기 기계학습 10주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021년 2학기 기계학습 10주차","dateModified":"2021-12-06T00:00:00+09:00","datePublished":"2021-12-06T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"10주차 과제 : MLP","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021년 2학기 기계학습 10주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-12-06T00:00:00+09:00" itemprop="datePublished">
+        Dec 6, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>
+    <p>10주차 과제 : MLP</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/144801387-fc812211-9e36-4472-9dc8-56c00dca2559.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>해결 날짜 : 2021-12-06</li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>mnist 데이터를 다운 받아 불러온 후 1, 5, 8 클래스 데이터만 가지도록 재구성한다.</li>
+          <li>그 후 데이터를 train set : validation set : test set = 7 : 1 : 2 가 되도록 나눈다.</li>
+          <li>다음으로 validation을 set을 이용해 가장 좋은 모델을 가지도록, 노드의 개수를 10씩 늘려가며 solver의 옵션은 “adam, sgd”, activation function의 옵션은 “relu, logistic(sigmoid)”, 은닉층 수는 “2, 3”으로 검증한다. 총 경우의 수는 80개이다.</li>
+          <li>그 결과, 노드의 개수=90, solver=adam, activation function=relu, 은닉층 개수=3일 때의 validation 정확도가 0.9938…으로 가장 좋은 것으로 나타났고, 이에 동일한 모델에 train + validation set을 학습하여 test set으로 분류 정확도를 측정한 결과 0.99000…으로 약 99%의 분류 정확도를 가진다.</li>
+        </ul>
+      </li>
+      <li>
+        <p>결과 :
+<img src="https://user-images.githubusercontent.com/34560965/144801390-03421e16-a86f-45ab-9c79-c05d34061e1a.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801398-f9c8258a-2907-426d-9c06-f04d8c47b381.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801403-7d3ce6a8-97fc-4d04-8f75-d9c25cadc725.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801407-08e4f9a3-42bf-4603-8a19-0f9d94e7c6a1.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801409-8f821ee2-036a-4c98-bde4-626d3d9026a7.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801413-d0a8225d-b618-4d27-a387-8e23e76e4dee.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801417-28380a60-7b2c-4cc8-9a5b-6269e07124aa.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801425-5a328c51-d287-4337-93e6-ecb833d5445c.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801427-52fb9029-6e88-47c4-9ae7-3130e51f00cb.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801440-43751840-6708-4b01-84e4-28390053cf32.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801449-c22bdba9-9dcb-4666-8890-8567633ad1e9.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801451-e1fc1024-429e-4512-a438-0e33e1afd81f.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801459-8f3671cc-5c2f-4b88-aa24-f03be43da3f2.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/144801468-f988220d-b72d-4c3c-a916-67a2180584de.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s">'mnist_784'</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="n">data</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="n">target</span>
+
+<span class="c1"># 1,5,8 클래스 데이터만 가지도록 구성
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">Y</span><span class="o">==</span><span class="s">'1'</span><span class="p">,</span> <span class="n">Y</span><span class="o">==</span><span class="s">'5'</span><span class="p">),</span> <span class="n">Y</span><span class="o">==</span><span class="s">'8'</span><span class="p">)]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">Y</span><span class="o">==</span><span class="s">'1'</span><span class="p">,</span> <span class="n">Y</span><span class="o">==</span><span class="s">'5'</span><span class="p">),</span> <span class="n">Y</span><span class="o">==</span><span class="s">'8'</span><span class="p">)]</span>
+
+<span class="c1"># train : validation : test = 7 : 1 : 2 가 되도록 나눔
+</span><span class="n">train_x</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                                                            <span class="n">target</span><span class="p">,</span>
+                                                            <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                            <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">train_input</span><span class="p">,</span> <span class="n">val_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">val_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span>
+                                                <span class="n">train_y</span><span class="p">,</span>
+                                                <span class="n">test_size</span><span class="o">=</span><span class="mf">0.125</span><span class="p">,</span>
+                                                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+<span class="kn">import</span> <span class="nn">mglearn</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
+    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
+
+
+<span class="n">final_mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+<span class="n">final_mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">final_mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">))</span>
+
+
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5">기계학습</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#machine-learning">machine-learning</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B3%BC%EC%A0%9C">과제</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5">기계학습</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2021년 2학기 기계학습 9주차
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            Purdue IITP Program
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021년 2학기 기계학습 6주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021년 2학기 기계학습 6주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="6주차 과제 : K-Means++" />
+<meta property="og:description" content="6주차 과제 : K-Means++" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-01T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021년 2학기 기계학습 6주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021년 2학기 기계학습 6주차","dateModified":"2021-11-01T00:00:00+09:00","datePublished":"2021-11-01T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"6주차 과제 : K-Means++","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021년 2학기 기계학습 6주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-11-01T00:00:00+09:00" itemprop="datePublished">
+        Nov 1, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>
+    <p>6주차 과제 : K-Means++</p>
+
+    <p><img src="https://user-images.githubusercontent.com/34560965/139595445-ebdb1fed-24aa-4b40-b269-cd435460c365.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/139595446-ab0e6949-fceb-4536-9912-cd4ff08adc30.png" alt="image" /></p>
+
+    <ul>
+      <li>사용 언어 : python</li>
+      <li>해결 날짜 : 2021-11-01</li>
+      <li>
+        <p>코드 설명 :</p>
+
+        <ul>
+          <li>1번 코드 설명
+            <ul>
+              <li>pandas의 read_csv 함수로 iris.csv 파일을 읽어오고, 0~3열의 값들은 data로, 4열의 값들은 target으로 설정한다.</li>
+              <li>plt.scatter를 사용하여 특징 값 네 개중 처음 두 개의 특징 값을 x축과 y축의 값으로 사용하고, target값으로 클래스(점 색깔)을 나눈다.</li>
+            </ul>
+          </li>
+          <li>2번 코드 설명
+            <ul>
+              <li>이 전에 사용한 plt를 clf()함수로 초기화한다.</li>
+              <li>cluster의 개수를 3으로 지정하여 KMeans++ Clustering을 시행하고, 1번에서의 data로 훈련시킨다. 그 후 1번과 마찬가지로 scatter를 사용하여 특징 값 네 개중 처음 두 개의 특징 값을 x축과 y축의 값으로 사용하고, target값으로 방금 훈련시킨 모델의 라벨을 사용하여 점을 찍는다.</li>
+            </ul>
+          </li>
+          <li>3번 코드 설명
+            <ul>
+              <li>2번에서와 마찬가지로 KMeans++ Clustering을 수행하되, cluster의 개수를 2,3,4,5,6으로 변화해가며 수행한다. Adjusted Rand Index(ARI)를 사용하여 실제 정답 cluster와 비교하여 평가한다. 이 결과 2일 때 0.54, 3일 때 0.73, 4일 때 0.65, 5일 때 0.62, 6일 때 0.45로 cluster의 개수가 3일 때가 적합도가 가장 높으므로 가장 적합하다고 볼 수 있다.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>결과 :
+<img src="https://user-images.githubusercontent.com/34560965/139595454-8bc286b2-a9be-4f74-ba76-eaa0139909a1.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/139595455-c9a465da-e8c3-44bd-ba14-fd39b5099eef.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/139595458-9ea2b918-2faf-4b3f-8c70-4e46022190c3.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>코드</p>
+
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'iris.csv'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'feature1'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'feature2'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># In[33]:
+</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">model_3</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_3</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">model_3</span><span class="p">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># In[36]:
+</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics.cluster</span> <span class="kn">import</span> <span class="n">adjusted_rand_score</span>
+
+<span class="n">model_2</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_2</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">model_4</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_4</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">model_5</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_5</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">model_6</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model_6</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 2일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_2</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 3일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_3</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 4일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_4</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 5일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_5</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 6일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_6</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5">기계학습</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#machine-learning">machine-learning</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B3%BC%EC%A0%9C">과제</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5">기계학습</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/17/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_5%EC%A3%BC%EC%B0%A8.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2021년 2학기 기계학습 5주차
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/07/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_7%EC%A3%BC%EC%B0%A8.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            2021년 2학기 기계학습 7주차
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

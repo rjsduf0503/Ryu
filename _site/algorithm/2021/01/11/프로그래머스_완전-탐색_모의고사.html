@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>알고리즘 문제 풀이(프로그래머스 - 모의고사) | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="알고리즘 문제 풀이(프로그래머스 - 모의고사)" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="완전 탐색 알고리즘 문제 : 프로그래머스 LEVEL 1(모의고사) - 사용 언어 : C++ - 해결 날짜 : 2021-01-11" />
+<meta property="og:description" content="완전 탐색 알고리즘 문제 : 프로그래머스 LEVEL 1(모의고사) - 사용 언어 : C++ - 해결 날짜 : 2021-01-11" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/algorithm/2021/01/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%99%84%EC%A0%84-%ED%83%90%EC%83%89_%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/algorithm/2021/01/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%99%84%EC%A0%84-%ED%83%90%EC%83%89_%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-11T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="알고리즘 문제 풀이(프로그래머스 - 모의고사)" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"알고리즘 문제 풀이(프로그래머스 - 모의고사)","dateModified":"2021-01-11T00:00:00+09:00","datePublished":"2021-01-11T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/algorithm/2021/01/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%99%84%EC%A0%84-%ED%83%90%EC%83%89_%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/algorithm/2021/01/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%99%84%EC%A0%84-%ED%83%90%EC%83%89_%EB%AA%A8%EC%9D%98%EA%B3%A0%EC%82%AC.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"완전 탐색 알고리즘 문제 : 프로그래머스 LEVEL 1(모의고사) - 사용 언어 : C++ - 해결 날짜 : 2021-01-11","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">알고리즘 문제 풀이(프로그래머스 - 모의고사)</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-01-11T00:00:00+09:00" itemprop="datePublished">
+        Jan 11, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>
+    <p>완전 탐색 알고리즘 문제 : 프로그래머스 LEVEL 1(모의고사)
+<img src="https://user-images.githubusercontent.com/34560965/104139158-bb053500-53ec-11eb-90e2-0ad1fdb08b6d.png" alt="image" /> - 사용 언어 : C++ - 해결 날짜 : 2021-01-11</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>**- 해결 방법** :
+
+    각각의 수포자들이 문제를 맞출 때 마다 그 수를 증가시키기 위해 a,b,c 라는 int형 변수를 선언하였다.
+
+    첫 수포자의 경우 5로 나누었을 때 나머지에 1을 더한 값과 일치하면 답을 맞춘 것이고,
+
+    두 번째 수포자의 경우 짝수 번째 일 경우는 2일 때, 홀수 번째 일 경우는 8로 나누었을 때 나머지가 1,3,5,7인 경우에 각각 답이 1,3,4,5 이면 답을 맞춘 것이고,
+
+    세 번째 수포자의 경우 10으로 나누었을 때 나머지가 0,1일 경우 답이 3이면, 나머지가 2,3일 경우 답이 1이면, 나머지가 4,5일 경우 답이 2면, 나머지가 6,7일 경우 답이 4면, 그 외의 경우 답이 5면 답을 맞춘 것이다.
+
+    이렇게 각각의 정답을 맞춘 횟수를 answer vector에 저장한 다음 compare 함수를 사용하여 최대 값을 찾아 최대 값을 갖는 인덱스를 반환하여 문제를 해결하였다.
+
+- 코드
+
+```
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+vector&lt;int&gt; compare(vector&lt;int&gt; compare) {
+    vector&lt;int&gt; answer;
+    int max = *max_element(compare.begin(), compare.end()); //최대 값 찾기
+
+    for (int i = 0; i &lt; compare.size(); i++) {
+        if (compare[i] == max) answer.push_back(i+1); //최대 값을 갖는 인덱스 찾기
+    }
+
+    return answer;
+}
+
+vector&lt;int&gt; solution(vector&lt;int&gt; answers) {
+    vector&lt;int&gt; answer;
+
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    for (int i = 0; i &lt; answers.size(); i++) {
+        //첫 수포자
+        if (((i % 5) + 1) == answers[i]) {
+            a++;
+        }
+
+        //두 번째 수포자
+        if (i % 2 == 0) {
+            if (answers[i] == 2) b++;
+        }
+        else if(i % 2 == 1) {
+            if (i % 8 == 1 &amp;&amp; answers[i] == 1) b++;
+            else if (i % 8 == 3 &amp;&amp; answers[i] == 3) b++;
+            else if (i % 8 == 5 &amp;&amp; answers[i] == 4) b++;
+            else if (i % 8 == 7 &amp;&amp; answers[i] == 5) b++;
+        }
+
+        //세 번째 수포자
+        if (i % 10 == 0 || i % 10 == 1) {
+            if (answers[i] == 3) c++;
+        }
+        else if (i % 10 == 2 || i % 10 == 3) {
+            if (answers[i] == 1) c++;
+        }
+        else if (i % 10 == 4 || i % 10 == 5) {
+            if (answers[i] == 2) c++;
+        }
+        else if (i % 10 == 6 || i % 10 == 7) {
+            if (answers[i] == 4) c++;
+        }
+        else {
+            if (answers[i] == 5) c++;
+        }
+    }
+
+    answer.push_back(a);
+    answer.push_back(b);
+    answer.push_back(c);
+    answer = compare(answer);
+
+    return answer;
+}
+```
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#algorithm">algorithm</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#algorithm">algorithm</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#self-study">self-study</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EC%99%84%EC%A0%84%ED%83%90%EC%83%89">완전탐색</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/%EB%AA%A8%EA%B0%81%EC%BD%94/2021/01/06/week02.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2020 동계 모각코 2주차
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/algorithm/2021/01/11/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%ED%95%B4%EC%8B%9C_%EC%99%84%EC%A3%BC%ED%95%98%EC%A7%80-%EB%AA%BB%ED%95%9C-%EC%84%A0%EC%88%98.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            알고리즘 문제 풀이(프로그래머스 - 완주하지 못한 선수)
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

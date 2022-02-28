@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021년 1학기 database 10주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021년 1학기 database 10주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="10주차 과제 - TCL, DCL 실습 환경 : Oracle 해결 날짜 : 2021-05-09" />
+<meta property="og:description" content="10주차 과제 - TCL, DCL 실습 환경 : Oracle 해결 날짜 : 2021-05-09" />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/database/2021/05/09/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_10%EC%A3%BC%EC%B0%A8_TCL,-DCL.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/database/2021/05/09/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_10%EC%A3%BC%EC%B0%A8_TCL,-DCL.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-09T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021년 1학기 database 10주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021년 1학기 database 10주차","dateModified":"2021-05-09T00:00:00+09:00","datePublished":"2021-05-09T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/database/2021/05/09/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_10%EC%A3%BC%EC%B0%A8_TCL,-DCL.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/database/2021/05/09/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_10%EC%A3%BC%EC%B0%A8_TCL,-DCL.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"10주차 과제 - TCL, DCL 실습 환경 : Oracle 해결 날짜 : 2021-05-09","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021년 1학기 database 10주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-05-09T00:00:00+09:00" itemprop="datePublished">
+        May 9, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>10주차 과제 - TCL, DCL</li>
+  <li>실습 환경 : Oracle</li>
+  <li>
+    <p>해결 날짜 : 2021-05-09</p>
+  </li>
+  <li>
+    <p>과제</p>
+
+    <ul>
+      <li>
+        <p>10-1. EMP 테이블에 데이터를 추가, 수정, 삭제하는 SQL문을 작성하고 그 중간에 저장점을 설정하세요. 그리고 그 실행 결과를 출력하세요. [1점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">EMP</span>
+    <span class="p">(</span><span class="n">EMPNO</span><span class="p">,</span> <span class="n">ENAME</span><span class="p">,</span> <span class="n">JOB</span><span class="p">,</span> <span class="n">MGR</span><span class="p">,</span> <span class="n">HIREDATE</span><span class="p">,</span> <span class="n">SAL</span><span class="p">,</span> <span class="n">DEPTNO</span><span class="p">)</span>
+    <span class="k">VALUES</span><span class="p">(</span><span class="mi">7777</span><span class="p">,</span> <span class="s1">'YERIN'</span><span class="p">,</span> <span class="s1">'SALESMAN'</span><span class="p">,</span> <span class="mi">7698</span><span class="p">,</span> <span class="s1">'89/01/01'</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+
+<span class="k">UPDATE</span> <span class="n">EMP</span>
+<span class="k">SET</span> <span class="n">SAL</span> <span class="o">=</span> <span class="mi">6000</span>
+<span class="k">WHERE</span> <span class="n">JOB</span> <span class="o">=</span> <span class="s1">'PRESIDENT'</span><span class="p">;</span>
+
+<span class="n">SAVEPOINT</span> <span class="n">SVP1</span><span class="p">;</span>
+
+<span class="k">DELETE</span> <span class="n">EMP</span>
+<span class="k">WHERE</span> <span class="n">ENAME</span> <span class="o">=</span> <span class="s1">'YERIN'</span><span class="p">;</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/117646922-4ccc5580-b1c7-11eb-8d64-e158df39f41e.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/117646926-4e961900-b1c7-11eb-9959-00e54788d7b0.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/117646933-4fc74600-b1c7-11eb-9c1d-8b172eac7ce6.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>10-2. [과제10-1]에서 작성한 SQL문들에 설정된 저장점까지 ROLLBACK을 수행하는 문장을 추가하세요. 그리고 실행 결과를 출력하세요. [1점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ROLLBACK</span> <span class="k">TO</span> <span class="n">SVP1</span><span class="p">;</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/117647028-6cfc1480-b1c7-11eb-94ea-dd02c0402ef2.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>10-3. [과제10-2]에서 작성한 SQL문들에 저장점을 지정하지 않는 ROLLBACK문장을 추가하세요. 그리고 그 실행 결과를 출력하세요. [1점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ROLLBACK</span><span class="p">;</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/117647096-7f764e00-b1c7-11eb-9f3f-6fa1b9dfe206.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>10-4. [예제1]~[예제3]을 참고하여 시스템 관리자로 접속하여 임의의 유저를 생성 후 생성한 유저로 접속하여 임의의 테이블을 생성하거나 기존 테이블에서 데이터를 조회하는 SQL문을 작성하고 실행해보세요. 그리고 그 실행 결과를 출력하세요. [1점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CONN</span> <span class="k">SYSTEM</span><span class="o">/</span><span class="n">PASSWORD</span>
+<span class="k">CREATE</span> <span class="k">USER</span> <span class="k">c</span><span class="o">##</span><span class="n">SAMPLE1</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="n">SAMPLE</span><span class="p">;</span>
+
+<span class="n">CONN</span> <span class="k">c</span><span class="o">##</span><span class="n">SAMPLE1</span><span class="o">/</span><span class="n">SAMPLE</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">MENU</span> <span class="p">(</span>
+    <span class="n">MENU_SEQ</span> <span class="n">NUMBER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">TITLE</span> <span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">);</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/117647221-aa60a200-b1c7-11eb-995d-09bdc71481bd.png" alt="image" /></p>
+      </li>
+      <li>
+        <p>10-5. [예제4]를 참고하여 시스템 관리자로 접속하여 [과제10-4]에서 생성한 유저에게 다른 유저, 세션, 테이블 생성 권한을 부여하세요. 그런 다음 그 유저로 접속하여 임의의 테이블을 생성한 뒤 데이터를 추가하고 그 데이터를 조회하는 SQL문을 작성하세요. 그리고 그 실행 결과를 출력하세요. [1점]</p>
+
+        <ul>
+          <li>SQL문 :</li>
+        </ul>
+
+        <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CONN</span> <span class="k">SYSTEM</span><span class="o">/</span><span class="n">PASSWORD</span>
+<span class="k">GRANT</span> <span class="k">CREATE</span> <span class="k">USER</span> <span class="k">TO</span> <span class="k">c</span><span class="o">##</span><span class="n">SAMPLE1</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">CREATE</span> <span class="k">SESSION</span> <span class="k">TO</span> <span class="k">c</span><span class="o">##</span><span class="n">SAMPLE1</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">TO</span> <span class="k">c</span><span class="o">##</span><span class="n">SAMPLE1</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">USER</span> <span class="k">c</span><span class="o">##</span><span class="n">SAMPLE1</span> <span class="k">DEFAULT</span> <span class="n">TABLESPACE</span> <span class="n">USERS</span> <span class="n">quota</span> <span class="n">unlimited</span> <span class="k">on</span> <span class="n">users</span><span class="p">;</span>
+
+<span class="n">CONN</span> <span class="k">c</span><span class="o">##</span><span class="n">SAMPLE1</span><span class="o">/</span><span class="n">SAMPLE</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">MENU</span> <span class="p">(</span>
+    <span class="n">MENU_SEQ</span> <span class="n">NUMBER</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">TITLE</span> <span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">MENU</span>
+    <span class="k">VALUES</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s1">'EXAMPLE'</span><span class="p">);</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">MENU</span><span class="p">;</span>
+</code></pre></div>        </div>
+
+        <ul>
+          <li>실행 결과 :</li>
+        </ul>
+
+        <p><img src="https://user-images.githubusercontent.com/34560965/117647321-c95f3400-b1c7-11eb-9f5f-38aa7fd02781.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/117647297-c19f8f80-b1c7-11eb-9d91-1f6d3207cee8.png" alt="image" /></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#database">database</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#database">database</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B3%BC%EC%A0%9C">과제</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/algorithm/2021/05/04/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%9D%B4%EB%B6%84%ED%83%90%EC%83%89_%EC%9E%85%EA%B5%AD%EC%8B%AC%EC%82%AC.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 알고리즘 문제 풀이(프로그래머스 - 입국심사)
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/05/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_10%EC%A3%BC%EC%B0%A8_%EC%B9%BC%EB%A1%9C%EB%A6%AC-%EA%B3%84%EC%82%B0.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            2021년 1학기 알고리즘응용 10주차
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

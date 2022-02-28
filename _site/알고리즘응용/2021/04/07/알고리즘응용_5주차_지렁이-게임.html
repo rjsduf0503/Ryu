@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>2021년 1학기 알고리즘응용 5주차 | Ryu’s Blog</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="2021년 1학기 알고리즘응용 5주차" />
+<meta name="author" content="류건열" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="5주차 과제 - 대표 선발(구현 알고리즘(시뮬레이션과 완전 탐색)) 단, turn은 10000 이하이다." />
+<meta property="og:description" content="5주차 과제 - 대표 선발(구현 알고리즘(시뮬레이션과 완전 탐색)) 단, turn은 10000 이하이다." />
+<link rel="canonical" href="http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/07/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_5%EC%A3%BC%EC%B0%A8_%EC%A7%80%EB%A0%81%EC%9D%B4-%EA%B2%8C%EC%9E%84.html" />
+<meta property="og:url" content="http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/07/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_5%EC%A3%BC%EC%B0%A8_%EC%A7%80%EB%A0%81%EC%9D%B4-%EA%B2%8C%EC%9E%84.html" />
+<meta property="og:site_name" content="Ryu’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-07T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="2021년 1학기 알고리즘응용 5주차" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"headline":"2021년 1학기 알고리즘응용 5주차","dateModified":"2021-04-07T00:00:00+09:00","datePublished":"2021-04-07T00:00:00+09:00","@type":"BlogPosting","url":"http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/07/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_5%EC%A3%BC%EC%B0%A8_%EC%A7%80%EB%A0%81%EC%9D%B4-%EA%B2%8C%EC%9E%84.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Ryu_Blog/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9/2021/04/07/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9_5%EC%A3%BC%EC%B0%A8_%EC%A7%80%EB%A0%81%EC%9D%B4-%EA%B2%8C%EC%9E%84.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/Ryu_Blog/logo.png"},"name":"류건열"},"author":{"@type":"Person","name":"류건열"},"description":"5주차 과제 - 대표 선발(구현 알고리즘(시뮬레이션과 완전 탐색)) 단, turn은 10000 이하이다.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Ryu_Blog/feed.xml" title="Ryu's Blog" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/main.css">
+<link rel="stylesheet" href="/Ryu_Blog/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/Ryu_Blog/">Ryu&#39;s Blog</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/Ryu_Blog/about/">About</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/years/">Years</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/categories/">Categories</a></li>
+            
+              <li><a class="" href="/Ryu_Blog/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/Ryu_Blog/faq/">FAQ</a>
+                    <a class="" href="/Ryu_Blog/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <div class="sidebar-section"><img src="/Ryu_Blog/assets/avatar.jpeg" class="author-avatar u-photo align-center" alt="Geonyeol Ryu">
+  </div>
+
+<div class="sidebar-section">
+  <ul class="contact-list">
+    <li>
+        <i class="sidebar-icon fas fa-at"></i>
+        <span class="contact-info p-name">Geonyeol Ryu</span>
+      </li>
+    <li>
+        <i class="sidebar-icon fas fa-envelope"></i>
+        <a class="contact-info u-email" href="mailto:rjsduf0503@gmail.com">rjsduf0503@gmail.com</a>
+      </li>
+    
+  </ul>
+</div>
+
+<div class="sidebar-section feed-subscribe">
+  <a href="/Ryu_Blog/feed.xml">
+    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+  </a>
+</div>
+
+<div class="sidebar-section">
+    <ul class="social-icons">
+      <li>
+          <a class="social-icon" href="https://twitter.com/ngzhio"><i class="fab fa-twitter fa-2x" title="Twitter"></i></a>
+        </li><li>
+          <a class="social-icon" href="https://github.com/ngzhio/jekyll-theme-hamilton"><i class="fab fa-github fa-2x" title="GitHub"></i></a>
+        </li>
+    </ul>
+  </div>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">2021년 1학기 알고리즘응용 5주차</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2021-04-07T00:00:00+09:00" itemprop="datePublished">
+        Apr 7, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">류건열</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li>5주차 과제 - 대표 선발(구현 알고리즘(시뮬레이션과 완전 탐색))
+단, turn은 10000 이하이다.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/113744815-01de9e80-9740-11eb-8f9b-c1b95fac5956.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/113744820-030fcb80-9740-11eb-9fa9-3908a703b7e5.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/34560965/113744828-04d98f00-9740-11eb-932a-a6e33511369e.png" alt="image" /></p>
+
+<ul>
+  <li>
+    <p>사용 언어 : python</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2021-04-07</p>
+  </li>
+  <li>
+    <p>느낀점 및 해결 과정 :</p>
+
+    <ul>
+      <li>이번 과제는 2차원 리스트에 판을 지렁이는 1, 먹이는 -1, 빈 공간은 0의 값을 가지도록 초기화 하였다. 또 R, D, L, U에 맞는 벡터인 dx, dy를 정의하여 각 turn 마다 x와 y에 각각 dx와 dy값을 더해주었다. 여기서 dx, dy의 인덱스는 0부터 3까지로 만약 R이 입력되면 +1, L이 입력되면 -1을 해주었다.(0일 때 -1은 3으로, 3일 때 +1은 0으로 처리)</li>
+      <li>판의 크기 N, 사과의 개수 K, 방향 전환 횟수 M, 사과의 위치, 방향 전환 정보 direction_change를 각각 입력 받는다.</li>
+      <li>초기화를 다 하고 난 뒤, 게임이 시작하면 현재 turn을 1씩 증가시키고 x와 y에 각각 현재 방향에 맞는 방향 벡터 값을 더해준다. 그 후 게임이 종료되는 조건인 판 밖으로 나가 게임이 끝나는 경우, 자신의 몸의 부딪혀 게임이 끝나는 경우, turn의 개수가 10000보다 커져 게임이 끝날 경우의 세가지 경우를 검사하여 만약 세 경우 중 하나라도 만족하면 break로 게임을 종료한다.
+세 조건 모두 만족하지 않는다면 게임이 지속되고, 방향 전환 정보가 저장된direction_change가 비어 있지 않다면 하나를 꺼내 와서 몇 번째 턴에 방향을 바꾸나(move_count)와 어느쪽으로 방향을 바꾸나(change)를 저장한다.
+그 후 방향 전환 turn이 됐다면(move_count == turn), 아까 저장했던 정보를 pop하여 queue에서도 없애주고, 방향을 바꾸어준다(d를 변경)
+마지막으로 이동할 때는 먹이가 없는 경우에는 worm.pop()으로 꼬리를 잘라 그 위치의 값을 0으로 만들어주고, 먹이가 있던 없던 이동은 하므로 이동하기 전의 지렁이 위치를 worm에 추가하고 이동한 곳의 지렁이 위치의 값을 1로 만들어준다.</li>
+      <li>
+        <p>과제를 해결하며 처음에는 단순히 사용자가 M을 얼마나 잘 입력받느냐에 따라 시간 복잡도가 결정될 것이라 생각했는데, turn의 조건이 생기고 turn에 따라 시간 복잡도가 결정될 것이라 예상했다.</p>
+      </li>
+      <li>
+        <p>시간 복잡도 :</p>
+
+        <ul>
+          <li>판 초기화 : N2</li>
+          <li>사과가 있는 인덱스 초기화 : K, 방향 전환 정보 초기화 : M</li>
+          <li>while문 : T(turn의 개수) + N</li>
+          <li>최악의 경우를 구하는 것이므로 turn이 10000일 때, N이 100일 때, K가 100일 때 이다. M은 아무리 커도 10000보다는 작다. 따라서 시간 복잡도는 O(N2+K+M+T+N) = O(2T) = O(T)일 것이라 예상한다.</li>
+        </ul>
+      </li>
+      <li>코드</li>
+    </ul>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="c1"># 판의 크기
+</span><span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="c1"># 사과의 개수
+</span><span class="n">M</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="c1"># 방향 전환 횟수
+</span>
+<span class="n">board</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span> <span class="c1"># 판 초기화
+</span><span class="n">board</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># 지렁이의 시작 위치는 1,1
+# 판 위에서 지렁이는 1, 먹이는 -1, 빈 공간은 0
+</span>
+<span class="n">turn</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="c1"># 처음 시작 위치
+</span><span class="n">worm</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span> <span class="c1"># 지렁이가 있는 위치를 저장(머리부터 꼬리까지)
+</span><span class="n">d</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 방향 ( R:0 D:1 L:2 U:3 )
+</span>
+<span class="c1"># R, D, L, U
+</span><span class="n">dx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># 사과가 있는 인덱스의 값은 -1로 초기화
+</span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+    <span class="n">board</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="c1"># 방향 전환 정보
+</span><span class="n">direction_change</span> <span class="o">=</span> <span class="n">collections</span><span class="p">.</span><span class="n">deque</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+    <span class="n">direction_change</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">j</span><span class="p">))</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">turn</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span><span class="p">[</span><span class="n">d</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span><span class="p">[</span><span class="n">d</span><span class="p">]</span>
+
+    <span class="c1"># 판 밖으로 나가 게임이 끝나는 경우
+</span>    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="c1"># 자신의 몸의 부딪혀 게임이 끝나는 경우
+</span>    <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="c1"># turn의 개수가 10,000보다 커져 게임이 끝날 경우
+</span>    <span class="k">if</span> <span class="n">turn</span> <span class="o">&gt;=</span> <span class="mi">10000</span><span class="p">:</span>
+        <span class="k">break</span>
+
+    <span class="c1"># 방향 전환 정보 저장(정보가 남아 있을 경우)
+</span>    <span class="k">if</span> <span class="n">direction_change</span><span class="p">:</span>
+        <span class="n">move_count</span><span class="p">,</span> <span class="n">change</span> <span class="o">=</span> <span class="n">direction_change</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># 방향 전환 turn이 됐을 때
+</span>    <span class="c1"># (pop(0)는 O(n)이므로) deque의 popleft() 사용
+</span>    <span class="k">if</span> <span class="n">move_count</span> <span class="o">==</span> <span class="n">turn</span><span class="p">:</span>
+        <span class="n">direction_change</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+
+        <span class="c1"># 방향 바꾸기
+</span>        <span class="k">if</span> <span class="n">change</span> <span class="o">==</span> <span class="s">'R'</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">change</span> <span class="o">==</span> <span class="s">'L'</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">3</span>
+
+    <span class="c1"># 먹이가 없는 경우 꼬리 자르기
+</span>    <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">tailX</span><span class="p">,</span> <span class="n">tailY</span> <span class="o">=</span> <span class="n">worm</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">board</span><span class="p">[</span><span class="n">tailX</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">tailY</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># 먹이가 있던 없던 전진
+</span>    <span class="n">worm</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">turn</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/Ryu_Blog/categories/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9">알고리즘응용</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#algorithm">algorithm</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#cnu">cnu</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EA%B3%BC%EC%A0%9C">과제</a>
+            </li>
+          
+            <li class="post-tag">
+              
+              <a href="/Ryu_Blog/tags/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%91%EC%9A%A9">알고리즘응용</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/Ryu_Blog/react/2021/04/04/react_study_01.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 2021 리액트 스터디 1주차
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/Ryu_Blog/database/2021/04/09/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_6%EC%A3%BC%EC%B0%A8_JOIN.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            2021년 1학기 database 6주차
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+  
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2020&nbsp;-&nbsp;2022 Geonyeol Ryu; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>Coding, Diary, Studying etc..</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
