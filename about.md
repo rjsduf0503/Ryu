@@ -13,4 +13,4 @@ permalink: /about/
 
 - 2017.03~ Attending CNU CSE
 - 2021.07~2021.08 SiliconValley Online Internship
-- 2021.01~2021.02 Purdue IITP Program
+- 2022.01~2022.02 Purdue IITP Program
