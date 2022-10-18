@@ -5,6 +5,7 @@ avatar: /assets/avatar.jpeg
 email: rjsduf0503@gmail.com
 url: "https://rjsduf0503.github.io"
 baseurl: "/Ryu_Blog"
+timezone: Asia/Seoul
 
 plugins:
   - jekyll-seo-tag
