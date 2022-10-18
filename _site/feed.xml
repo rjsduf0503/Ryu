@@ -1,767 +1,800 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="http://localhost:4000/Ryu_Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/Ryu_Blog/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-03-01T08:32:49+09:00</updated><id>http://localhost:4000/Ryu_Blog/feed.xml</id><title type="html">Ryu’s Blog</title><subtitle>Coding, Diary, Studying etc..</subtitle><author><name>Geonyeol Ryu</name></author><entry><title type="html">Purdue IITP Program 4th post</title><link href="http://localhost:4000/Ryu_Blog/purdue/2022/03/01/Purdue_4th_post.html" rel="alternate" type="text/html" title="Purdue IITP Program 4th post" /><published>2022-03-01T00:00:00+09:00</published><updated>2022-03-01T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/purdue/2022/03/01/Purdue_4th_post</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/purdue/2022/03/01/Purdue_4th_post.html"><![CDATA[<h1 id="4th-post">4th post</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://rjsduf0503.github.io/Ryu_Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://rjsduf0503.github.io/Ryu_Blog/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-10-19T01:45:25+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/feed.xml</id><title type="html">Ryu’s Blog</title><subtitle>Coding, Diary, Studying etc..</subtitle><author><name>Geonyeol Ryu</name></author><entry><title type="html">알고리즘 문제 풀이(프로그래머스 - 숫자 짝꿍)</title><link href="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/19/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%88%AB%EC%9E%90-%EC%A7%9D%EA%BF%8D.html" rel="alternate" type="text/html" title="알고리즘 문제 풀이(프로그래머스 - 숫자 짝꿍)" /><published>2022-10-19T00:00:00+09:00</published><updated>2022-10-19T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/19/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%88%AB%EC%9E%90%20%EC%A7%9D%EA%BF%8D</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/19/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%88%AB%EC%9E%90-%EC%A7%9D%EA%BF%8D.html"><![CDATA[<h1 id="프로그래머스-level-1숫자-짝꿍">프로그래머스 LEVEL 1(숫자 짝꿍)</h1>
 
-<h3 id="lafayette">Lafayette</h3>
-
-<p><img src="https://user-images.githubusercontent.com/34560965/156075977-890ef0d0-eb8f-4a87-b812-c6654e154592.jpg" alt="IMG_0171" /></p>
+<p><img src="https://user-images.githubusercontent.com/34560965/196216691-3aedbda5-63d2-4fc4-a65e-58151ecb4658.png" alt="image" /></p>
 
 <ul>
-  <li>라파예트 다운타운의 한 골목길.</li>
-  <li>미국에서의 거의 첫 외출이었는데 두려움 반 설렘 반으로 거리를 나섰다.</li>
-  <li>생각보다 조용해서 좋았다.</li>
+  <li>
+    <p>사용 언어 : javascript</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2022-10-19</p>
+  </li>
+  <li>해결 방법 :
+    <ul>
+      <li>처음에 X, Y에 중첩된 값을 찾을 때 splice()로 제거하였는데, 시간이 오래 걸리는 문제 발생</li>
+      <li>Map() 자료구조를 활용하여 map_x을 돌며 map_y에 key가 존재할 때 arr에 push()</li>
+      <li>arr이 빈 경우 ‘-1’, arr이 ‘0’으로만 이루어진 경우 ‘0’ 반환</li>
+      <li>그 외의 경우 내림차순 정렬 후 join() 수행</li>
+    </ul>
+  </li>
+  <li>회고 :
+    <ul>
+      <li>x</li>
+    </ul>
+  </li>
+  <li>
+    <p>코드</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">X</span><span class="p">,</span> <span class="nx">Y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">map_x</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">();</span>
+    <span class="kd">const</span> <span class="nx">map_y</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">();</span>
+    <span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+        
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">X</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">map_x</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">map_x</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">?</span> <span class="nx">map_x</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">y</span> <span class="k">of</span> <span class="nx">Y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">map_y</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span> <span class="nx">map_y</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="p">?</span> <span class="nx">map_y</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+        
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="p">[</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">]</span> <span class="k">of</span> <span class="nx">map_x</span><span class="p">.</span><span class="nx">entries</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">map_y</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">map_y</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">key</span><span class="p">));</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+        
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="dl">'</span><span class="s1">-1</span><span class="dl">'</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">every</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">e</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">))</span> <span class="k">return</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+        
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges</li>
+</ul>]]></content><author><name>류건열</name></author><category term="algorithm" /><category term="cnu" /><category term="algorithm" /><category term="self-study" /><category term="javascript" /><summary type="html"><![CDATA[프로그래머스 LEVEL 1(숫자 짝꿍)]]></summary></entry><entry><title type="html">프로그래머스 데브코스 TIL Day 2</title><link href="https://rjsduf0503.github.io/Ryu_Blog/programmers/2022/10/18/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8D%B0%EB%B8%8C%EC%BD%94%EC%8A%A4-TIL-Day-2.html" rel="alternate" type="text/html" title="프로그래머스 데브코스 TIL Day 2" /><published>2022-10-18T00:00:00+09:00</published><updated>2022-10-18T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/programmers/2022/10/18/%5B%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%20%EB%8D%B0%EB%B8%8C%EC%BD%94%EC%8A%A4%5D%20TIL%20Day%202</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/programmers/2022/10/18/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8D%B0%EB%B8%8C%EC%BD%94%EC%8A%A4-TIL-Day-2.html"><![CDATA[<p><img src="https://capsule-render.vercel.app/api?type=waving&amp;color=auto&amp;height=300&amp;section=header&amp;text=Today%20I%20Learned...&amp;fontAlign=30&amp;fontAlignY=30&amp;fontSize=55&amp;desc=Programmers%20Devcourse%203rd&amp;descAlign=80&amp;descAlignY=55" alt="header" /></p>
+
+<h1 id="day-2---20221018">Day 2 - 2022/10/18</h1>
+<h2 id="새롭게-알게된-점">💡 새롭게 알게된 점</h2>
+<h3 id="함수형-프로그래밍">함수형 프로그래밍</h3>
+<h4 id="함수형-패러다임">함수형 패러다임</h4>
+<p>프로그램은 순차, 분기, 반복, 참조로 구성되고, 패러다임은 이 4가지 요소를 어떻게 이용할 것인가를 다룬다.</p>
+<ul>
+  <li>객체지향 추상화의 최소 단위가 객체인 것처럼 <strong>함수형은 함수가 최소 단위 → 재사용성이 높다!</strong></li>
+  <li>불변성을 지향하기에 동작 예측이 쉽고 사이드 이펙트를 방지 → 쓰레드 등을 통한 동시성 문제를 해결할 수 있다.</li>
+  <li>객체지향은 <strong>제어 흐름의 간접적인 전환</strong>에 부과되는 규율이다.</li>
+  <li>함수형은 <strong>변수 할당</strong>에 부과되는 규율이다.</li>
 </ul>
 
-<h3 id="purdue-university">Purdue University</h3>
-
-<p><img src="https://user-images.githubusercontent.com/34560965/156076108-385a6dc3-e14a-4a4e-96d8-df80e96ec152.jpg" alt="IMG_5123" /></p>
-
+<h4 id="함수형-프로그래밍의-장단점">함수형 프로그래밍의 장단점</h4>
+<p><strong>장점</strong></p>
 <ul>
-  <li>퍼듀대학교 쪽문?</li>
-  <li>다들 정면에서 기념 사진을 찍었는데 소심한 우리는 옆에서 사진을 찍었다..</li>
-  <li>그래도 나름 잘 나온 것 같아 만족 :)</li>
+  <li>상태가 없기 때문에 사이드 이펙트가 없다.</li>
+  <li>함수 단위로 나눠지기 때문에 재사용성이 높다.</li>
+  <li>함수의 조합을 통해 코드가 짧고 간결하다.</li>
 </ul>
 
-<h3 id="basketball">Basketball</h3>
-
-<p><img src="https://user-images.githubusercontent.com/34560965/156075983-e56ce6ac-e6a9-4f3d-9c19-a3e0297033b3.jpg" alt="IMG_5444" /></p>
-
+<p><strong>단점</strong></p>
 <ul>
-  <li>퍼듀대학교와 인디애나대학교의 여자 농구 경기를 관람했다.</li>
-  <li>남자 농구 경기만큼 격렬하고 멋있는 장면은 나오지 않았지만(내심 덩크를 기대함), 모두 너무 멋있었다!</li>
-  <li>퍼듀대학교 식 응원을 직관하니 다 같이 따라하게 되는 마술</li>
+  <li>상태가 없다는 뜻은 변수 조작이 안된다는 뜻이므로 다른 방법(수정 후 복사한 다음 기존 값과 교체)을 사용해야 한다. → 쓸데없는 메모리와 성능 사용하는 문제점을 가진다.</li>
+  <li>높은 재사용성을 위해 함수를 작게 쪼개야 한다. → 쪼개진 함수가 많아져서 복잡성 증가하는 문제점이 발생한다.</li>
+  <li>코드를 짧고 간결하게 작성하기 위해 높은 숙련도를 요구한다.</li>
 </ul>
 
-<h3 id="movie">Movie</h3>
+<p><br /></p>
 
-<p><img src="https://user-images.githubusercontent.com/34560965/156075985-697c5635-f80e-4cb4-83c3-09c7d6bf3509.jpg" alt="IMG_5552" /></p>
+<h3 id="선언형-프로그래밍">선언형 프로그래밍</h3>
+<p><strong>선언형 프로그래밍</strong>이란 <strong>무엇을 해결해야 할지</strong>에 집중하고 해결 방법은 컴퓨터에게 위임하는 방법이다.</p>
 
-<ul>
-  <li>미국 현지에서 무자막으로 관람한 Scream!</li>
-  <li>자막 없이 두시간동안 보려니 힘들었다..</li>
-  <li>영화는 끔찍하게 재미 없었지만 그래도 좋은 경험이었다!</li>
-</ul>
+<p><strong>Date Flow</strong>(Stateless, Recursion, Pipe) 방식으로 코드 작성 시 데이터의 제어 없이 필요한 함수만 조합하여 문제 해결이 가능하다.</p>
 
-<h3 id="end">End..</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+	<span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">itme</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">));</span>
+</code></pre></div></div>
 
-<p><img src="https://user-images.githubusercontent.com/34560965/156070669-239f3cf6-5bd4-42c1-ad14-5a37af4740d7.jpg" alt="IMG_6457" /></p>
+<p><br /></p>
 
-<ul>
-  <li>2021.12.31 ~ 2022.02.26</li>
-  <li>이 외에도 사진이 많지만 기억에 남는 5장 요약</li>
-  <li>인생에서 가장 짧았던 것 같은 방학, 가장 추웠던 날씨, 처음 보는 폭설, 낯선 길거리, 처음 먹어보는 음식 …</li>
-  <li>좋은 사람들과, 특히 우리 팀원들과의 2달간의 추억은 절대 잊지 못할 것 같다.</li>
-  <li>모두에게 좋은 추억이 되었길 바라며 마지막으로 다들 살다가 힘이 들 때, 가끔씩 사진을 보며 웃을 수 있는 기억을 남겨주어서 감사합니다.</li>
-</ul>]]></content><author><name>류건열</name></author><category term="purdue" /><category term="purdue" /><category term="IITP" /><category term="diary" /><summary type="html"><![CDATA[4th post]]></summary></entry><entry><title type="html">Purdue IITP Program 3rd post</title><link href="http://localhost:4000/Ryu_Blog/purdue/2022/02/25/Purdue_3rd_post.html" rel="alternate" type="text/html" title="Purdue IITP Program 3rd post" /><published>2022-02-25T00:00:00+09:00</published><updated>2022-02-25T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/purdue/2022/02/25/Purdue_3rd_post</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/purdue/2022/02/25/Purdue_3rd_post.html"><![CDATA[<h1 id="3rd-post">3rd post</h1>
+<h3 id="멀티-패러다임">멀티 패러다임</h3>
+<p><strong>그렇다면 객체지향과 함수형으로 나눠서 각각 따로 사용해야 할까?</strong></p>
 
-<h3 id="topic">Topic</h3>
+<p>각각의 장점을 극대화하여 사용하기 위해 객체 지향과 함수형으로 나눌 필요가 없다. → JavaScript는 <strong>멀티 패러다임</strong>이 가능하기 때문!</p>
 
-<ul>
-  <li>Our project’s topic is <b>“Finding optimal routes &amp; fire emergency evacuation routes inside the building by using beacon”</b>.</li>
-</ul>
+<p><br /></p>
 
-<h3 id="current-role">Current role</h3>
+<h3 id="객체지향과-프로토타입">객체지향과 프로토타입</h3>
+<h4 id="객체지향">객체지향</h4>
+<p><strong>객체지향</strong>이란 객체 위주로 설계하고 프로그래밍하는 패러다임이다.</p>
 
-<ul>
-  <li>I(Geonyeol Ryu) am in charge of <b>creating App</b>.</li>
-  <li>Namho Kim is in charge of <b>bluetooth connection and server</b>.</li>
-  <li>Minsu Sun is in charge of <b>image scanning &amp; finding route</b>.</li>
-  <li>Junseong Moon and Migyeong Kim are in charge of <b>IEEE &amp; arduino</b>.</li>
-</ul>
+<p>객체지향의 객체는 현실에 있는 것을 추상화한 것이다. (= 추상화의 최소 단위가 객체)</p>
 
-<h3 id="big-goals-we-should-achieve">Big goals we should achieve</h3>
+<p>(추상이란? 사물이 지니고 있는 여러 측면 중 <strong>특정한 부분</strong>만 추출하여 보는 것)</p>
+
+<p><strong>객체지향의 오해</strong></p>
 
 <ol>
-  <li>Provide users with the fastest escape route in the event of a fire.</li>
-  <li>Act as indoor navigation in peacetime.</li>
+  <li>C언어에서 객체지향 프로그래밍이 불가능하다.
+    <ul>
+      <li><strong>Nope!</strong> 객체지향은 패러다임일 뿐 언어와는 관계가 없다.</li>
+      <li>클래스가 없는 JavaScript에서는 프로토타입을 통해 객체지향을 표현할 수 있다.</li>
+    </ul>
+  </li>
+  <li>패러다임에 우위가 있다. (객체지향 &gt; 절차지향)
+    <ul>
+      <li><strong>Nope!</strong> 만들어야 하는 프로그램에 따라 다르다. 간단한 프로그램은 절차지향 프로그래밍이, 복잡한 프로그램은 객체지향 프로그래밍이 효율적이다.</li>
+    </ul>
+  </li>
 </ol>
 
-<h3 id="what-i-did">What I did?</h3>
+<h4 id="프로토타입">프로토타입</h4>
+<p>JavaScript에서 객체는 클래스 기반 언어처럼 속성과 행위를 정의할 수 있기 때문에 객체만 활용해도 객체지향 프로그래밍이 가능하다.</p>
 
-<ul>
-  <li>Uploading building’s blueprints for each floor.</li>
-  <li>Signup &amp; login</li>
-  <li>Navigation stack</li>
-  <li>Beacon detecting</li>
-  <li>Modifiying building’s blueprints for each floor.</li>
-  <li>Taking &amp; modifiying coordinates for each floor’s room.</li>
-  <li>Setting &amp; modifying beacons for each floor’ room.</li>
-  <li>Finding optimal route for general &amp; fire event.</li>
-</ul>
+<p><strong>그렇다면 프로토타입이 왜 필요할까?</strong></p>
 
-<h3 id="difficulty">Difficulty</h3>
+<p>두 개의 인스턴스를 생성할 때 두 객체 모두 각각 메서드가 따로 정의되는데, 이 경우 같은 내용인데도 생성된 것이므로 메모리가 낭비될 수 있다! (예: getName, setName)</p>
 
-<ul>
-  <li>Connection with the server was the hardest.</li>
-  <li>I used svg to take coordinates, but it was also difficult to match the ratio.</li>
-  <li>Sometimes the distance between the device and the beacon is accurate, but sometimes the value is strange, so it was difficult to test.</li>
-</ul>
+<p>프로토타입을 이용하면 상위 객체를 참조할 수 있고 객체를 이용하여 새로운 객체를 추가적으로 만들어 나갈 수 있다.</p>
 
-<h3 id="app-view">App view</h3>
+<p><strong>프로토 타입 사용의 예시</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">company</span><span class="p">,</span> <span class="nx">move</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">company</span> <span class="o">=</span> <span class="nx">company</span><span class="p">;</span>
+	
+	<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+	<span class="p">};</span>
+	
+	<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+	<span class="p">};</span>
+<span class="p">}</span> 
+</code></pre></div></div>
 
-<ul>
-  <li>Uploading building’s blueprints for each floor.</li>
-</ul>
+<p><strong>프로토 타입을 더 잘 사용하려면?</strong></p>
+<ol>
+  <li>상속 흉내내기 1 - 부모 객체를 이용하여 프로토타입 함수 정의하기
+    <ul>
+      <li>엄밀히 따지면 상속이 아니라 상위 객체에서 하위 객체를 조금 더 잘 만드는 방법이다.</li>
+      <li>하위 객체로 만들 생성자 함수를 만든 후, 해당 생성자 함수의 프로토타입으로 상위 객체를 대입한다.</li>
+      <li>이렇게 하면 상위 객체의 함수가 링크되어 그대로 이용할 수 있지만, 내부적으로 생성된 프로토타입 변수는 이용할 수 없다.</li>
+      <li><strong>예시</strong>
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
 
-<p><img src="https://user-images.githubusercontent.com/34560965/156067750-1010c739-2698-4835-b588-ed242a73a7e3.PNG" width="250" height="500" /> 
-<img src="https://user-images.githubusercontent.com/34560965/156067761-20dab52a-2bba-4237-8884-0d15c56af3c2.PNG" width="250" height="500" /></p>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">건열</span><span class="dl">'</span>
+<span class="p">}</span>
 
-<hr />
+<span class="kd">function</span> <span class="nx">Korean</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{}</span>
+<span class="nx">Korean</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
 
-<ul>
-  <li>Modifiying building’s blueprints for each floor.</li>
-</ul>
+<span class="kd">const</span> <span class="nx">ryu</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">류건열</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">kim</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Korean</span><span class="p">(</span><span class="dl">'</span><span class="s1">김건열</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ryu</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// 류건열</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">kim</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// 건열</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>상속 흉내내기 2 - 부모 생성자 빌려쓰기
+    <ul>
+      <li>부모 생성자를 빌려쓴다면 변수도 그대로 담기게 되어 위에서의 문제점을 해결할 수 있다.</li>
+      <li><strong>예시</strong>
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
 
-<p><img src="https://user-images.githubusercontent.com/34560965/156067713-e08af68a-38f4-42f6-95b7-01a6188e0456.PNG" width="250" height="500" />
-<img src="https://user-images.githubusercontent.com/34560965/156067695-f895123d-7203-47a6-9aba-dd96550c1e19.PNG" width="250" height="500" /></p>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">건열</span><span class="dl">'</span>
+<span class="p">}</span>
 
-<hr />
+<span class="kd">function</span> <span class="nx">Korean</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Person</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">Korean</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="nx">Korean</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setName</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">};</span>
 
-<ul>
-  <li>Taking &amp; modifiying coordinates for each floor’s room.</li>
-</ul>
+<span class="kd">const</span> <span class="nx">ryu</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">류건열</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">kim</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Korean</span><span class="p">(</span><span class="dl">'</span><span class="s1">김건열</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ryu</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// 류건열</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">kim</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// 김건열</span>
+<span class="nx">kim</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="dl">'</span><span class="s1">박건열</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">kim</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// 박건열</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Object.create - 기존 객체 재활용
+    <ul>
+      <li><strong>에시</strong>
+        <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ryu</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">류건열</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">getName</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+  <span class="p">},</span>
+<span class="p">};</span>
 
-<p><img src="https://user-images.githubusercontent.com/34560965/156067493-e835d68d-1012-43e6-ba91-0f0b76fe0981.PNG" width="250" height="500" />
-<img src="https://user-images.githubusercontent.com/34560965/156067490-50a6c4fe-ab98-40f2-92fa-e46d1264e479.PNG" width="250" height="500" />
-<img src="https://user-images.githubusercontent.com/34560965/156067477-9161a88e-2213-436c-ac91-79a9f9133a69.PNG" width="250" height="500" />
-<img src="https://user-images.githubusercontent.com/34560965/156067487-81a5395d-8ca4-41b6-b86a-da099cf27342.PNG" width="250" height="500" /></p>
+<span class="kd">const</span> <span class="nx">kim</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">ryu</span><span class="p">);</span>
+<span class="nx">kim</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">김건열</span><span class="dl">'</span><span class="p">;</span>
 
-<hr />
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ryu</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// 류건열</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">kim</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span> <span class="c1">// 김건열</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lee</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">);</span> <span class="c1">// {}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">kim</span><span class="p">.</span><span class="nx">__proto__</span><span class="p">);</span> <span class="c1">// { name: '류건열', getName: [Function: getName] }</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
 
-<ul>
-  <li>Setting &amp; modifying beacons for each floor’ room.</li>
-</ul>
+<p><br /></p>
 
-<p><img src="https://user-images.githubusercontent.com/34560965/156067531-6e96496f-b0e6-4b17-8d80-710fa1e639db.PNG" width="250" height="500" />
-<img src="https://user-images.githubusercontent.com/34560965/156067577-80bb6d53-5134-486c-bbcd-8597be015d5a.PNG" width="250" height="500" />
-<img src="https://user-images.githubusercontent.com/34560965/156067556-a99afc8a-d863-4d72-bd47-6dd976d2502f.PNG" width="250" height="500" />
-<img src="https://user-images.githubusercontent.com/34560965/156067573-7b7e003b-797f-44e6-ba1b-f180ff061c29.PNG" width="250" height="500" /></p>
+<h3 id="이벤트-루프">이벤트 루프</h3>
+<p><strong>JavaScript는 Single Thread로 동작한다.</strong></p>
 
-<hr />
+<p><img width="30%" src="https://user-images.githubusercontent.com/34560965/196454114-d89bd18c-c294-4f21-beab-f4a5405fefe7.png" /></p>
 
-<ul>
-  <li>Finding optimal route for general &amp; fire event.</li>
-</ul>
+<p>실제로 위 그림처럼 JavaScript의 Call Stack은 하나만 존재한다.</p>
 
-<p><img src="https://user-images.githubusercontent.com/34560965/156067143-88f1ef1f-a053-4d03-9616-bdf88bcf521d.PNG" width="250" height="500" />
-<img src="https://user-images.githubusercontent.com/34560965/156067169-f810e048-0cc4-4584-9e6e-7b4dc6a8542e.PNG" width="250" height="500" />
-<img src="https://user-images.githubusercontent.com/34560965/156067167-6bd52c91-c7a0-49ee-aa10-a2dbfb94b193.PNG" width="250" height="500" /></p>]]></content><author><name>류건열</name></author><category term="purdue" /><category term="purdue" /><category term="IITP" /><category term="react-native" /><summary type="html"><![CDATA[3rd post]]></summary></entry><entry><title type="html">Purdue IITP Program 2nd post</title><link href="http://localhost:4000/Ryu_Blog/purdue/2022/01/30/Purdue_2nd_post.html" rel="alternate" type="text/html" title="Purdue IITP Program 2nd post" /><published>2022-01-30T00:00:00+09:00</published><updated>2022-01-30T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/purdue/2022/01/30/Purdue_2nd_post</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/purdue/2022/01/30/Purdue_2nd_post.html"><![CDATA[<h1 id="2nd-post">2nd post</h1>
+<p>그렇다면 브라우저에서 실행되는 스크립트는 어떻게 비동기적으로 불러오고 애니메이션을 실행할까? 어떤 원리로 애니메이션과 클릭 이벤트를 같이 처리할 수 있을까?</p>
 
-<h3 id="topic">Topic</h3>
+<p>브라우저에 <strong>이벤트 루프</strong>라는 시스템이 있기 때문이다.</p>
 
-<ul>
-  <li>Our project’s topic is <b>“Finding optimal routes &amp; fire emergency evacuation routes inside the building by using beacon”</b>.</li>
-</ul>
+<p><img width="40%" src="https://user-images.githubusercontent.com/34560965/196454205-868df681-6cdf-4423-baf4-07223062cdb8.png" /></p>
 
-<h3 id="current-role">Current role</h3>
+<p>위 그림처럼 이벤트 루프는 자바스크립트 엔진에 포함되어 있지 않기 때문에 자바스크립트의 기능이 아니고 브라우저나 node.js에서 자체적으로 관리한다.</p>
 
-<ul>
-  <li>I(Geonyeol Ryu) am in charge of <b>creating App</b>.</li>
-  <li>Namho Kim is in charge of <b>bluetooth connection and server</b>.</li>
-  <li>Minsu Sun is in charge of <b>image scanning &amp; finding route</b>.</li>
-  <li>Junseong Moon and Migyeong Kim are in charge of <b>IEEE &amp; arduino</b>.</li>
-</ul>
+<p>위 그림 우측 상단의 Web API는 브라우저에서 제공하는 API이다.</p>
 
-<h3 id="big-goals-we-should-achieve">Big goals we should achieve</h3>
+<p>Click과 같은 웹 이벤트나 Timer 등은 실행시킬 경우 브라우저에 위임된다.</p>
+
+<p>보통 Web API는 콜백함수를 넘기는데, 이 콜백함수는 비동기작업이 끝나면 Task Queue에 넣어져 순차적으로 꺼내 Call Stack에 push된다.</p>
+
+<p>그래서 이런 과정들은 멀티 쓰레드로 동작한다. 자바스크립트 엔진이 싱글 쓰레드일 뿐 브라우저는 멀티 쓰레드로 동작하기에 이런 과정들이 가능해진다.</p>
+
+<p><br /></p>
+
+<h3 id="모듈">모듈</h3>
+<p>일반적으로 웹 사이트는 여러개의 자바스크립트로 이루어져 있다. 대부분의 스크립트 언어의 특징이지만, 자바스크립트는 파일들을 각각 별개의 프로그램으로 취급한다. 문제는 웹사이트가 점점 하는일이 많아짐에 따라 스크립트 파일도 크게 증가하게 되었다는 점이다.</p>
+
+<p>예전 자바스크립트는 스크립트 파일간 통신을 위해 전역 스코프에 존재하는 변수와 함수를 사용해야 했다. 즉시 스코프를 활용하여 전역 스코프가 오염되는 것을 어느정도 막을 수는 있었지만, 스크립트 파일간 의존도를 확인하기 힘들고 실행 순서를 제어해야 한다는 한계점이 있었다.</p>
+
+<p>이런 불편한 점들 때문에 노드들이 등장했는데, 노드를 사용하면 스크립트간 의존도를 확인할 수 있고, 실행 순서를 쉽게 제어할 수 있게 된다.</p>
+
+<p><strong>모듈과 컴포넌트의 비교</strong></p>
+
+<p>모듈은 설계 시점에 의미있는 요소이고, 컴포넌트는 런타임 시점에 의미있는 요소이다. 즉, 모듈은 우리가 의식적으로 나눠놓은 요소이고, 컴포넌트는 나눠놓은 요소에 포함되어 실행되는 요소이다.</p>
+
+<p><strong>모듈</strong></p>
+
+<p>그런데 자바스크립트의 모듈은 직접적으로 런타임에 실행되는데, 왜 이름이 모듈일까?</p>
+
+<p>자바스크립트는 파일 하나가 프로그램이기 때문으로 추측된다.</p>
+
+<p>설계시 용어가 혼동되는 경우가 많기 때문에 디렉토리 단위를 모듈 개념에 가깝게 사용하는 경우가 많다.</p>
+
+<p>모듈은 로컬 파일에서 동작하지 않고 HTTP 또는 HTTPS 프로토콜을 통해서만 동작하기 때문에 서버를 실행시킬 필요가 있다.</p>
+
+<p><strong>모듈의 특징</strong></p>
 
 <ol>
-  <li>Provide users with the fastest escape route in the event of a fire.</li>
-  <li>Act as indoor navigation in peacetime.</li>
+  <li>항상 엄격 모드(use strict)로 실행된다.
+    <ul>
+      <li>예를 들어, 일반 스크립트는 let이나 var를 생략하고 변수 선언이 가능해 전역 스코프에 저장되는 반면 모듈 스크립트는 엄격 모드로 실행되기 때문에 허용되지 않는다.</li>
+    </ul>
+  </li>
+  <li>모듈 레벨 스코프가 있다.
+    <ul>
+      <li>모듈은 최상위에 변수를 선언하더라도, 전역 스코프에 올라가지 않고 자체적인 모듈 레벨 스코프에 올라간다. 일반 스크립트는 최상위에 선언하면 전역 스코프에 선언되어 다른 스크립트에서도 참조가 가능하지만, 모듈 스크립트에서는 import하지 않는 한 서로 참조가 불가능하다.</li>
+    </ul>
+  </li>
+  <li>단 한 번만 평가된다.
+    <ul>
+      <li>여러번 import 되어도 실행은 단 한 번만 된다. 만약 내보내기를 하더라도 이미 평가된 것을 불러와서 사용하기만 할 뿐이다.</li>
+    </ul>
+  </li>
+  <li>지연 실행된다.
+    <ul>
+      <li>일반 스크립트는 body 태그에 넣을 경우 순서에 따라 DOM이 생성되기 전에 실행될 수 있다. 하지만 모듈 스크립트는 defer 옵션을 넣지 않아도 자동으로 지연 실행이 되어 모든 DOM이 만들어진 후에 실행된다.</li>
+    </ul>
+  </li>
 </ol>
 
-<h3 id="what-i-did">What I did?</h3>
+<p>그러나 요즘에는 Webpack 등을 이용하여 번들링한 스크립트를 불러오면 모듈 스크립트를 사용할 일이 별로 없다.</p>
+
+<hr />
+
+<h2 id="️느낀점">❗️ 느낀점</h2>
+<p>여태까지 공부하면서 얼핏 들어보거나 대충만 알고 있던 내용이 많았다.</p>
+
+<p>2일차 강의를 수강하며 가장 크게 느낀점은 앞으로 모르거나 알아야할 것 같은 부분에 대한 학습을 진행할 때 나중에 편하게 다시 찾아보기 위함이나 기억에 더 잘 남을 수 있도록 블로그에 정리해야 겠다는 점이다.</p>
+
+<p>특히 프로토타입 부분에서 두 객체를 생성할 때 따로 중복된 메소드가 생성되어 메모리가 낭비된다는 점이 흥미로웠다.</p>
+
+<p>또 강사님께서 이벤트 루프에 대한 설명을 하실 때 이벤트 루프의 동작 과정에 대해 상세하게 설명해주셔서 이해하기 쉬웠다.</p>
+
+<p>근데 또 적다보니 노션에 너무 많이 적어서 정리하는데 너무 힘듦..😢 요약하는 습관이 아직 안들여진 것 같다..</p>
+
+<p>오늘도 고생했다👊</p>]]></content><author><name>류건열</name></author><category term="programmers" /><category term="cnu" /><category term="programmers" /><category term="dev-course" /><category term="javascript" /><category term="til" /><category term="today-i-learned" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">알고리즘 문제 풀이(프로그래머스 - 삼총사)</title><link href="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/18/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%82%BC%EC%B4%9D%EC%82%AC.html" rel="alternate" type="text/html" title="알고리즘 문제 풀이(프로그래머스 - 삼총사)" /><published>2022-10-18T00:00:00+09:00</published><updated>2022-10-18T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/18/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%82%BC%EC%B4%9D%EC%82%AC</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/18/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%82%BC%EC%B4%9D%EC%82%AC.html"><![CDATA[<h1 id="프로그래머스-level-1삼총사">프로그래머스 LEVEL 1(삼총사)</h1>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/196182682-668b6817-ed23-4e8b-9081-d610159160c2.png" alt="image" /></p>
 
 <ul>
-  <li>Uploading building’s blueprints for each floor.</li>
-  <li>Signup &amp; login</li>
-  <li>Navigation stack</li>
-  <li>Beacon detecting</li>
-</ul>
+  <li>
+    <p>사용 언어 : javascript</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2022-10-18</p>
+  </li>
+  <li>해결 방법 :
+    <ul>
+      <li>number 배열 속 3개의 원소를 가지는 조합 구하기</li>
+      <li>조합 돌며 합이 0일 때 answer 증가</li>
+    </ul>
+  </li>
+  <li>회고 :
+    <ul>
+      <li>x</li>
+    </ul>
+  </li>
+  <li>
+    <p>코드</p>
 
-<h3 id="difficulty">Difficulty</h3>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getCombinations</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">v</span><span class="p">]);</span>
+
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">fixed</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">origin</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">rest</span> <span class="o">=</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">combinations</span> <span class="o">=</span> <span class="nx">getCombinations</span><span class="p">(</span><span class="nx">rest</span><span class="p">,</span> <span class="nx">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">attached</span> <span class="o">=</span> <span class="nx">combinations</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">v</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">fixed</span><span class="p">,</span> <span class="p">...</span><span class="nx">v</span><span class="p">]);</span>
+        <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">attached</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="nx">results</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">combinations</span> <span class="o">=</span> <span class="nx">getCombinations</span><span class="p">(</span><span class="nx">number</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">combination</span> <span class="k">of</span> <span class="nx">combinations</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">combination</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges</li>
+</ul>]]></content><author><name>류건열</name></author><category term="algorithm" /><category term="cnu" /><category term="algorithm" /><category term="self-study" /><category term="javascript" /><summary type="html"><![CDATA[프로그래머스 LEVEL 1(삼총사)]]></summary></entry><entry><title type="html">알고리즘 문제 풀이(프로그래머스 - 보석 쇼핑)</title><link href="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/17/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EB%B3%B4%EC%84%9D-%EC%87%BC%ED%95%91.html" rel="alternate" type="text/html" title="알고리즘 문제 풀이(프로그래머스 - 보석 쇼핑)" /><published>2022-10-17T00:00:00+09:00</published><updated>2022-10-17T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/17/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EB%B3%B4%EC%84%9D%20%EC%87%BC%ED%95%91</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/17/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EB%B3%B4%EC%84%9D-%EC%87%BC%ED%95%91.html"><![CDATA[<h1 id="프로그래머스-level-3보석-쇼핑">프로그래머스 LEVEL 3(보석 쇼핑)</h1>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/196179424-689bf0c7-d447-4582-bc29-e6d099393aac.png" alt="image" /></p>
 
 <ul>
-  <li>It was my first time developing React Native, so it took a long time to study.</li>
-  <li>I had difficulty connecting beacons to start a project only when I could connect them.</li>
-  <li>As a result of experimenting with several packages, it was found that the react-native-kontaktio worked well.</li>
-</ul>
+  <li>
+    <p>사용 언어 : javascript</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2022-10-17</p>
+  </li>
+  <li>해결 방법 :
+    <ul>
+      <li>처음에 start부터 end 인덱스 까지 slice()를 활용하여 자른 배열을 비교하였으나, 효율성 문제에 막힘</li>
+      <li>Map() 자료구조를 활용하여 map의 size가 kind보다 작은 경우, end 증가 및 map에서 end 인덱스에 해당하는 값 1 증가</li>
+      <li>같은 경우, 정답 배열보다 구간이 짧다면 업데이트, start 증가, map에서 start 인덱스에 해당하는 값 1 감소
+        <ul>
+          <li>이 때, 감소시킨 값이 0이 된다면 map에서 제거 (why? size 비교를 위해)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>회고 :
+    <ul>
+      <li>Array.splice()나 Array.slice()도 Map().size와 똑같은 O(n)이지만, Map() 활용 시 중복 제거된 length 만큼만 돌기 때문에 훨씬 빠름</li>
+      <li>효율성 테스트 통과하기 위해 Map() 자료구조를 활용하는 습관 들이기</li>
+    </ul>
+  </li>
+  <li>
+    <p>코드</p>
 
-<h3 id="app-view">App view</h3>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">gems</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">kind</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">gems</span><span class="p">).</span><span class="nx">size</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nx">gems</span><span class="p">.</span><span class="nx">length</span><span class="p">];</span>
+        
+    <span class="kd">let</span> <span class="nx">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">([[</span><span class="nx">gems</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">]]);</span>
 
-<p><img src="https://user-images.githubusercontent.com/34560965/156065070-f69e8de0-e51f-4b2d-ace0-d8f0ea733d13.PNG" width="200" height="400" /> 
-<img src="https://user-images.githubusercontent.com/34560965/156065087-4dd0bcc9-a83b-4e24-a595-98aa22beb32b.PNG" width="200" height="400" />
-<img src="https://user-images.githubusercontent.com/34560965/156065095-3817ad10-9ff6-495a-95d9-85bf757799cc.PNG" width="200" height="400" />
-<img src="https://user-images.githubusercontent.com/34560965/156065103-de9cd447-164e-4edd-aaf7-877a5850b9c1.PNG" width="200" height="400" /></p>]]></content><author><name>류건열</name></author><category term="purdue" /><category term="purdue" /><category term="IITP" /><category term="react-native" /><summary type="html"><![CDATA[2nd post]]></summary></entry><entry><title type="html">Purdue IITP Program 1st post</title><link href="http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post.html" rel="alternate" type="text/html" title="Purdue IITP Program 1st post" /><published>2022-01-18T00:00:00+09:00</published><updated>2022-01-18T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/purdue/2022/01/18/Purdue_1st_post.html"><![CDATA[<h1 id="1st-post">1st post</h1>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">end</span> <span class="o">&lt;</span> <span class="nx">gems</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">size</span> <span class="o">&lt;</span> <span class="nx">kind</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">last</span> <span class="o">=</span> <span class="nx">map</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">gems</span><span class="p">[</span><span class="o">++</span><span class="nx">end</span><span class="p">]);</span>
+            <span class="nx">map</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">gems</span><span class="p">[</span><span class="nx">end</span><span class="p">],</span> <span class="nx">last</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="nx">last</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">answer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">answer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span><span class="p">)</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[</span><span class="nx">start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+            <span class="kd">const</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">gems</span><span class="p">[</span><span class="nx">start</span><span class="o">++</span><span class="p">];</span>
+            <span class="nx">map</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">current</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">current</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">map</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">current</span><span class="p">))</span> <span class="nx">map</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">current</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+        
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges</li>
+</ul>]]></content><author><name>류건열</name></author><category term="algorithm" /><category term="cnu" /><category term="algorithm" /><category term="self-study" /><category term="javascript" /><summary type="html"><![CDATA[프로그래머스 LEVEL 3(보석 쇼핑)]]></summary></entry><entry><title type="html">프로그래머스 데브코스 TIL Day 1</title><link href="https://rjsduf0503.github.io/Ryu_Blog/programmers/2022/10/17/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8D%B0%EB%B8%8C%EC%BD%94%EC%8A%A4-TIL-Day-1.html" rel="alternate" type="text/html" title="프로그래머스 데브코스 TIL Day 1" /><published>2022-10-17T00:00:00+09:00</published><updated>2022-10-17T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/programmers/2022/10/17/%5B%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%20%EB%8D%B0%EB%B8%8C%EC%BD%94%EC%8A%A4%5D%20TIL%20Day%201</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/programmers/2022/10/17/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8D%B0%EB%B8%8C%EC%BD%94%EC%8A%A4-TIL-Day-1.html"><![CDATA[<p><img src="https://capsule-render.vercel.app/api?type=waving&amp;color=auto&amp;height=300&amp;section=header&amp;text=Today%20I%20Learned...&amp;fontAlign=30&amp;fontAlignY=30&amp;fontSize=55&amp;desc=Programmers%20Devcourse%203rd&amp;descAlign=80&amp;descAlignY=55" alt="header" /></p>
 
-<h3 id="topic">Topic</h3>
-
+<h1 id="day-1---20221017">Day 1 - 2022/10/17</h1>
+<h2 id="새롭게-알게된-점">💡 새롭게 알게된 점</h2>
+<h3 id="메모리">메모리</h3>
 <ul>
-  <li>First, our project’s topic is <b>“Finding optimal routes &amp; fire emergency evacuation routes inside the building by using beacon”</b>.</li>
+  <li>자바스크립트 엔진은 Garbage Collector를 통해 메모리를 정리한다.</li>
+  <li>가비지 콜렉터는 가비지 콜렉션이라는 자동 메모리 관리 알고리즘을 통해 만들어진 객체로, 사용하지 않는 메모리를 해제하는 역할을 맡고 있다.</li>
+  <li>현대적인 브라우저의 가비지 콜렉터는 Mark and Sweep Algorithm을 통해 메모리를 정리
+    <ul>
+      <li>Mark and Sweep Algorithm 이란? 브라우저의 최상위 객체인 window에서 시작해 닿을 수 없는 주소를 더 이상 필요없는 주소로 정의하고 지우는 알고리즘이다</li>
+    </ul>
+  </li>
+  <li>자바스크립트 엔진은 Virtual Machine으로 구성된다
+    <ul>
+      <li>Heap
+        <ul>
+          <li>참조 타입이 들어간다.</li>
+          <li>동적으로 크기가 변한다. → 여기서 나오는 배열을 const로 선언해도 push()가 되는 이유: call stack에 할당된 메모리를 변경하는 것이 아닌 heap 메모리를 변경하는 것이기 때문</li>
+        </ul>
+      </li>
+      <li>Call Stack
+        <ul>
+          <li>원시 타입이 들어간다.</li>
+          <li>예) 배열을 선언 후 push()할 때
+Call Stack에 arr = (0x008, 0xFFB) → Heap에 0xFFB, [5, 3, 1]</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
-<h3 id="current-role">Current role</h3>
-
+<h3 id="배열에서의-key-value-">배열에서의 key-value ?</h3>
 <ul>
-  <li>I(Geonyeol Ryu) am in charge of <b>creating App</b>.</li>
-  <li>Namho Kim is in charge of <b>bluetooth connection and server</b>.</li>
-  <li>Minsu Sun is in charge of <b>image scanning</b>.</li>
-  <li>Junseong Moon and Migyeong Kim are in charge of <b>IEEE &amp; arduino</b>.</li>
+  <li>배열에서도 객체처럼 key-value 쌍을 추가할 수 있다.</li>
+  <li>추가는 되지만, <b>배열의 길이는 변하지 않는다!</b>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">arr</span><span class="p">);</span> <span class="c1">// object</span>
+<span class="nx">arr</span><span class="p">[</span><span class="dl">'</span><span class="s1">key</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">value</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr9</span><span class="p">);</span> <span class="c1">// [ 1, 2, 3, 4, 5, 6, key: 'value' ];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr9</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// expected 7 but 6</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
 
-<h3 id="big-goals-we-should-achieve">Big goals we should achieve</h3>
+<h3 id="클로저-">클로저 ?</h3>
+
+<h4 id="다음의-출력-결과는-무엇일까">다음의 출력 결과는 무엇일까?</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">function</span> <span class="nx">counting</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+            <span class="p">},</span> <span class="nx">i</span> <span class="o">*</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">counting</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>정답은 ‘5 5 5 5 5’</p>
+
+<h4 id="why">Why?</h4>
+
+<p>setTimeout의 대기 시간이 끝나 콜백 함수가 실행되는 시점에는 루프가 종료되어 i가 5가 되기 때문</p>
+
+<h4 id="어떻게-해결할까">어떻게 해결할까?</h4>
 
 <ol>
-  <li>Provide users with the fastest escape route in the event of a fire.</li>
-  <li>Act as indoor navigation in peacetime.</li>
+  <li>IIFE
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">function</span> <span class="nx">counting</span><span class="p">()</span> <span class="p">{</span>
+       <span class="k">for</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+       <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+           <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+               <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span>
+               <span class="p">},</span> <span class="nx">number</span> <span class="o">*</span> <span class="mi">100</span><span class="p">);</span>
+           <span class="p">})(</span><span class="nx">i</span><span class="p">);</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="nx">counting</span><span class="p">();</span>
+</code></pre></div>    </div>
+  </li>
+  <li>let 사용
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">function</span> <span class="nx">counting</span><span class="p">()</span> <span class="p">{</span>
+       <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+           <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+               <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+           <span class="p">},</span> <span class="nx">i</span> <span class="o">*</span> <span class="mi">100</span><span class="p">);</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="nx">counting</span><span class="p">();</span>
+        
+   <span class="c1">// let은 블록 수준 스코프라 매 루프마다 클로저가 생성되기 때문</span>
+</code></pre></div>    </div>
+  </li>
 </ol>
 
-<h3 id="how-to">How to?</h3>
+<hr />
+
+<h2 id="️느낀점">❗️ 느낀점</h2>
+
+<p>자바스크립트에 대한 기초 강의이다 보니 대부분은 아는 내용이었지만, 새로 알게된 점과 상기된 점이 있었다.</p>
+
+<p>특히 개발하거나 코딩 테스트 문제를 풀 때 변경할 일 없는 배열은 const로 생성하고, push() 및 pop() 등 배열의 요소를 변경할 수 있다는 점은 알고 있었는데, 그 정확한 이유는 궁금해 하지도 않고 찾아보지도 않았기 때문에 알리가 없었다. 1학년 때 자바 배우면서 얼핏 들었던 내용인 것 같은데 잘 기억나진 않는다..</p>
+
+<p>또 위에 적었듯이, 클로저 부분 강의에서 setTimeout의 대기 시간이 끝나 콜백 함수가 실행되는 시점에는 루프가 종료되어 i가 전부 5가 되는 문제를 해결하는 방법 중 정의와 동시에 즉시 실행되는 함수인 IIFE(Immediately Invoked Function Expression)을 이용해 해결할 수 있다는 점이 굉장히 흥미로웠다.</p>
+
+<p>첫 강의이다 보니 의욕이 앞서 수강하면서 모든 내용을 다 노션에 적고 필요한 것만 다시 옮겨서 정리했는데 앞으론 필요한 내용만 적는게 나을지도..😢</p>
+
+<p>이제 첫 TIL인데 앞으로 약 5달 동안 이 마음가짐을 갖고 끝까지 쓸 수 있기를 기원하며..⭐️</p>
+
+<p>화이팅👊</p>]]></content><author><name>류건열</name></author><category term="programmers" /><category term="cnu" /><category term="programmers" /><category term="dev-course" /><category term="javascript" /><category term="til" /><category term="today-i-learned" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">알고리즘 문제 풀이(프로그래머스 - 프렌즈4블록)</title><link href="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/16/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D.html" rel="alternate" type="text/html" title="알고리즘 문제 풀이(프로그래머스 - 프렌즈4블록)" /><published>2022-10-16T00:00:00+09:00</published><updated>2022-10-16T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/16/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/16/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%ED%94%84%EB%A0%8C%EC%A6%884%EB%B8%94%EB%A1%9D.html"><![CDATA[<h1 id="프로그래머스-level-2프렌즈4블록">프로그래머스 LEVEL 2(프렌즈4블록)</h1>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/196032962-4c559c06-8bd9-4105-9c47-27c49b61e37c.png" alt="image" /></p>
 
 <ul>
-  <li>When the manager uploads a blueprint for each floor, the app converts it to a map, and the administrator enters the name of each room.</li>
-  <li>Using a Bluetooth beacon, the user’s location data is obtained.</li>
-  <li>In peacetime, the app shows an optimized route to the destination that the user wants.</li>
-  <li>In the event of a fire, a fire alarm that is linked to the server notifies the server of the occurrence of the fire, and the server notifies the user of the fire through the app.</li>
-  <li>And the app displays the current population cluster and the fastest escape route from the current user location on the map.</li>
-</ul>
-
-<h3 id="app-view">App view</h3>
-
-<p><img src="https://user-images.githubusercontent.com/34560965/149961426-92775496-031d-4a4e-b400-0d090acdc817.png" width="200" height="400" /> 
-<img src="https://user-images.githubusercontent.com/34560965/149961464-35bd3a15-e17a-4298-8597-17798b23d887.png" width="200" height="400" />
-<img src="https://user-images.githubusercontent.com/34560965/149961496-e9198ff1-bcf6-40dc-adea-1ba81f3dbe52.png" width="200" height="400" /></p>]]></content><author><name>류건열</name></author><category term="purdue" /><category term="purdue" /><category term="IITP" /><category term="react-native" /><summary type="html"><![CDATA[1st post]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 10주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 10주차" /><published>2021-12-06T00:00:00+09:00</published><updated>2021-12-06T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/12/06/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_10%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
   <li>
-    <p>10주차 과제 : MLP</p>
-
-    <p><img src="https://user-images.githubusercontent.com/34560965/144801387-fc812211-9e36-4472-9dc8-56c00dca2559.png" alt="image" /></p>
-
+    <p>사용 언어 : javascript</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2022-10-16</p>
+  </li>
+  <li>해결 방법 :
     <ul>
-      <li>사용 언어 : python</li>
-      <li>해결 날짜 : 2021-12-06</li>
-      <li>
-        <p>코드 설명 :</p>
-
-        <ul>
-          <li>mnist 데이터를 다운 받아 불러온 후 1, 5, 8 클래스 데이터만 가지도록 재구성한다.</li>
-          <li>그 후 데이터를 train set : validation set : test set = 7 : 1 : 2 가 되도록 나눈다.</li>
-          <li>다음으로 validation을 set을 이용해 가장 좋은 모델을 가지도록, 노드의 개수를 10씩 늘려가며 solver의 옵션은 “adam, sgd”, activation function의 옵션은 “relu, logistic(sigmoid)”, 은닉층 수는 “2, 3”으로 검증한다. 총 경우의 수는 80개이다.</li>
-          <li>그 결과, 노드의 개수=90, solver=adam, activation function=relu, 은닉층 개수=3일 때의 validation 정확도가 0.9938…으로 가장 좋은 것으로 나타났고, 이에 동일한 모델에 train + validation set을 학습하여 test set으로 분류 정확도를 측정한 결과 0.99000…으로 약 99%의 분류 정확도를 가진다.</li>
-        </ul>
-      </li>
-      <li>
-        <p>결과 :
-<img src="https://user-images.githubusercontent.com/34560965/144801390-03421e16-a86f-45ab-9c79-c05d34061e1a.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801398-f9c8258a-2907-426d-9c06-f04d8c47b381.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801403-7d3ce6a8-97fc-4d04-8f75-d9c25cadc725.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801407-08e4f9a3-42bf-4603-8a19-0f9d94e7c6a1.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801409-8f821ee2-036a-4c98-bde4-626d3d9026a7.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801413-d0a8225d-b618-4d27-a387-8e23e76e4dee.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801417-28380a60-7b2c-4cc8-9a5b-6269e07124aa.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801425-5a328c51-d287-4337-93e6-ecb833d5445c.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801427-52fb9029-6e88-47c4-9ae7-3130e51f00cb.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801440-43751840-6708-4b01-84e4-28390053cf32.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801449-c22bdba9-9dcb-4666-8890-8567633ad1e9.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801451-e1fc1024-429e-4512-a438-0e33e1afd81f.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801459-8f3671cc-5c2f-4b88-aa24-f03be43da3f2.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/144801468-f988220d-b72d-4c3c-a916-67a2180584de.png" alt="image" /></p>
-      </li>
-      <li>
-        <p>코드</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
-
-<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s">'mnist_784'</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-
-<span class="n">X</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="n">data</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">mnist</span><span class="p">.</span><span class="n">target</span>
-
-<span class="c1"># 1,5,8 클래스 데이터만 가지도록 구성
-</span><span class="n">data</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">Y</span><span class="o">==</span><span class="s">'1'</span><span class="p">,</span> <span class="n">Y</span><span class="o">==</span><span class="s">'5'</span><span class="p">),</span> <span class="n">Y</span><span class="o">==</span><span class="s">'8'</span><span class="p">)]</span>
-<span class="n">target</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">Y</span><span class="o">==</span><span class="s">'1'</span><span class="p">,</span> <span class="n">Y</span><span class="o">==</span><span class="s">'5'</span><span class="p">),</span> <span class="n">Y</span><span class="o">==</span><span class="s">'8'</span><span class="p">)]</span>
-
-<span class="c1"># train : validation : test = 7 : 1 : 2 가 되도록 나눔
-</span><span class="n">train_x</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
-                                                            <span class="n">target</span><span class="p">,</span>
-                                                            <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
-                                                            <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="n">train_input</span><span class="p">,</span> <span class="n">val_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">val_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span>
-                                                <span class="n">train_y</span><span class="p">,</span>
-                                                <span class="n">test_size</span><span class="o">=</span><span class="mf">0.125</span><span class="p">,</span>
-                                                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-
-<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
-<span class="kn">import</span> <span class="nn">mglearn</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-
-    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
-
-    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
-
-    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
-
-    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
-
-    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
-
-    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
-
-    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
-
-    <span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'logistic'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span>
-    <span class="n">mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"노드의 개수가 {node}일 때 검증 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">node</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">val_input</span><span class="p">,</span> <span class="n">val_target</span><span class="p">)))</span>
-
-
-<span class="n">final_mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
-<span class="n">final_mlp</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">final_mlp</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">))</span>
-
-
-</code></pre></div>        </div>
-      </li>
+      <li>각 반복마다 board를 돌며 4블록인지 체크 후 정사각형이면 pop 배열에 push()</li>
+      <li>pop 배열에 값이 있다면 하나씩 꺼내어 4블록 부분 board에서 공백(‘ ‘)값으로 변경</li>
+      <li>위 아래 사이에 공백이 존재할 때 아래로 끌어 내림</li>
+      <li>board를 돌 때 4블록이 존재하지 않는 경우 break</li>
+      <li>board에 포함된 공백(‘ ‘) 값 return</li>
     </ul>
   </li>
-</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[10주차 과제 : MLP]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 9주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 9주차" /><published>2021-11-20T00:00:00+09:00</published><updated>2021-11-20T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/20/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_9%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
-  <li>
-    <p>9주차 과제 : Text data 처리 2</p>
-
-    <p><img src="https://user-images.githubusercontent.com/34560965/142651979-c6c532d1-536f-4199-b596-7aac58574f35.png" alt="image" /></p>
-
+  <li>회고 :
     <ul>
-      <li>사용 언어 : python</li>
-      <li>해결 날짜 : 2021-11-20</li>
-      <li>
-        <p>코드 설명 :</p>
-
-        <ul>
-          <li>bbcsport 데이터를 다운 받아 불러온 후 데이터 인코딩 방식 변경 및 전처리 과정을 진행한다.</li>
-          <li>그 후 Tfidvectorizer를 이용해 불용어 처리와 tf-idf, L2-normalization을 적용하고 5-cross-validation을 이용해 분류 정확도를 측정한다. 이 때 분류 정확도의 평균은 0.9755837470123184로 측정되었다.</li>
-          <li>다음으로 PCA 사용을 위해 x값을 todense()함수로 행렬로 변환 시켜 주고, 각 2차원과 10차원으로 감소시킨다. 이 때 마찬가지로 5-cross-validation을 이용해 분류 정확도를 측정한다. 2차원으로 감소시킬 때의 분류 정확도의 평균은 0.8656554513697371로 가장 낮았고, 10차원으로 감소시킬 때의 분류 정확도의 평균은 0.9701415701415701로 차원 감소 전 분류 정확도와 유사했다.</li>
-        </ul>
-      </li>
-      <li>
-        <p>결과 :
-<img src="https://user-images.githubusercontent.com/34560965/142652023-9bdbf39e-8461-41a1-a288-8c94942588cf.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/142652041-02eb54f5-81d6-424c-87fb-34cf7507f55c.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/142652056-ab2d7c21-7108-4683-a361-5381389dd39c.png" alt="image" /></p>
-      </li>
-      <li>
-        <p>코드</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">chardet</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_files</span>
-
-<span class="n">files</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="s">'./bbcsport/'</span><span class="p">)</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">files</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">files</span><span class="p">.</span><span class="n">target</span>
-
-<span class="c1">#데이터 인코딩 방식 변경
-</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">chardet</span><span class="p">.</span><span class="n">detect</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">!=</span><span class="s">'utf-8'</span><span class="p">):</span>
-        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">decode</span><span class="p">(</span><span class="n">chardet</span><span class="p">.</span><span class="n">detect</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])[</span><span class="s">'encoding'</span><span class="p">]).</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">)</span>
-
-<span class="c1">#데이터 전처리
-</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">''</span><span class="p">,</span><span class="sa">b</span><span class="s">''</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="sa">b</span><span class="s">' '</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">cross_val_score</span>
-
-<span class="c1">#기존 데이터
-</span><span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">kfold</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">stop_words</span> <span class="o">=</span> <span class="s">'english'</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s">'l2'</span><span class="p">)</span>
-<span class="n">x_transformed</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">x_transformed</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
-<span class="n">score_mean</span> <span class="o">=</span> <span class="n">score</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
-<span class="c1">#PCA 사용을 위해 행렬로 변환
-</span><span class="n">x_dense</span> <span class="o">=</span> <span class="n">x_transformed</span><span class="p">.</span><span class="n">todense</span><span class="p">()</span>
-
-<span class="c1">#2차원으로 감소
-</span><span class="n">pca_2</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">pca_2</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
-<span class="n">x_pca_2</span> <span class="o">=</span> <span class="n">pca_2</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
-<span class="n">score_2</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">x_pca_2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
-<span class="n">score_2_mean</span> <span class="o">=</span> <span class="n">score_2</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
-
-<span class="c1">#10차원으로 감소
-</span><span class="n">pca_10</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">pca_10</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
-<span class="n">x_pca_10</span> <span class="o">=</span> <span class="n">pca_10</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_dense</span><span class="p">)</span>
-<span class="n">score_10</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">x_pca_10</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">)</span>
-<span class="n">score_10_mean</span> <span class="o">=</span> <span class="n">score_10</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">"기존 데이터 크기 : {size}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x_transformed</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"데이터 차원 2로 감소시킨 데이터 크기 : {size}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x_pca_2</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"데이터 차원 10으로 감소시킨 데이터 크기 : {size}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x_pca_10</span><span class="p">.</span><span class="n">shape</span><span class="p">))</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">"기존 데이터 분류 정확도 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 2일 때 분류 정확도 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_2</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 10일 때 분류 정확도 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_10</span><span class="p">))</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">"기존 데이터 분류 정확도의 평균 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_mean</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 2일 때 분류 정확도의 평균 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_2_mean</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"변환되는 데이터 차원이 10일 때 분류 정확도의 평균 : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">score_10_mean</span><span class="p">))</span>
-</code></pre></div>        </div>
-      </li>
+      <li>4블록 제거 후 아래로 끌어 내리는 작업을 생각하는데에 시간이 소요됨</li>
     </ul>
   </li>
-</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[9주차 과제 : Text data 처리 2]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 8주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/15/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_8%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 8주차" /><published>2021-11-15T00:00:00+09:00</published><updated>2021-11-15T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/15/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_8%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/15/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_8%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
   <li>
-    <p>8주차 과제 : Text data 처리</p>
+    <p>코드</p>
 
-    <p><img src="https://user-images.githubusercontent.com/34560965/141695398-38151577-0b29-4c73-a74c-b5650acd55d6.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/141695401-c38ae5f0-20d2-4c0b-9755-6c59020b1133.png" alt="image" /></p>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">board</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">board</span> <span class="o">=</span> <span class="nx">board</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">row</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">row</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">));</span>
+    <span class="kd">const</span> <span class="nx">move</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]];</span>
+    <span class="kd">const</span> <span class="nx">pop</span> <span class="o">=</span> <span class="p">[];</span>
+        
+    <span class="kd">const</span> <span class="nx">isSquare</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">board</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">move</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">board</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">board</span><span class="p">[</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">move</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]][</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">move</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+        
+    <span class="kd">const</span> <span class="nx">removeSquare</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">board</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">move</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">board</span><span class="p">[</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">move</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]][</span><span class="nx">y</span> <span class="o">+</span> <span class="nx">move</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+        
+    <span class="kd">const</span> <span class="nx">pullToBottom</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">rest_column</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">({</span> <span class="na">length</span><span class="p">:</span> <span class="nx">m</span> <span class="p">},</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]).</span><span class="nx">filter</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>
+            <span class="kd">const</span> <span class="nx">result_column</span> <span class="o">=</span> <span class="p">[...</span><span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">({</span> <span class="na">length</span><span class="p">:</span> <span class="nx">m</span> <span class="o">-</span> <span class="nx">rest_column</span><span class="p">.</span><span class="nx">length</span> <span class="p">},</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">),</span> <span class="p">...</span><span class="nx">rest_column</span><span class="p">];</span>
+            <span class="nx">result_column</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">e</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">e</span><span class="p">;</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+        
+    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">isSquare</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nx">pop</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span><span class="p">])</span>    
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">pop</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+            
+        <span class="k">while</span> <span class="p">(</span><span class="nx">pop</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">removeSquare</span><span class="p">(...</span><span class="nx">pop</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span>
+        <span class="p">}</span>
+            
+        <span class="nx">pullToBottom</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">board</span><span class="p">.</span><span class="nx">flat</span><span class="p">().</span><span class="nx">filter</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">e</span> <span class="o">===</span> <span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges</li>
+</ul>]]></content><author><name>류건열</name></author><category term="algorithm" /><category term="cnu" /><category term="algorithm" /><category term="self-study" /><category term="javascript" /><summary type="html"><![CDATA[프로그래머스 LEVEL 2(프렌즈4블록)]]></summary></entry><entry><title type="html">알고리즘 문제 풀이(프로그래머스 - 연속 부분 수열 합의 개수)</title><link href="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/15/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%97%B0%EC%86%8D-%EB%B6%80%EB%B6%84-%EC%88%98%EC%97%B4-%ED%95%A9%EC%9D%98-%EA%B0%9C%EC%88%98.html" rel="alternate" type="text/html" title="알고리즘 문제 풀이(프로그래머스 - 연속 부분 수열 합의 개수)" /><published>2022-10-15T00:00:00+09:00</published><updated>2022-10-15T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/15/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%97%B0%EC%86%8D%20%EB%B6%80%EB%B6%84%20%EC%88%98%EC%97%B4%20%ED%95%A9%EC%9D%98%20%EA%B0%9C%EC%88%98</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/15/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%97%B0%EC%86%8D-%EB%B6%80%EB%B6%84-%EC%88%98%EC%97%B4-%ED%95%A9%EC%9D%98-%EA%B0%9C%EC%88%98.html"><![CDATA[<h1 id="프로그래머스-level-2연속-부분-수열-합의-개수">프로그래머스 LEVEL 2(연속 부분 수열 합의 개수)</h1>
 
+<p><img src="https://user-images.githubusercontent.com/34560965/195969073-3976f5d2-0e75-4d63-80ac-f1a4917a1c17.png" alt="image" /></p>
+
+<ul>
+  <li>
+    <p>사용 언어 : javascript</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2022-10-15</p>
+  </li>
+  <li>해결 방법 :
     <ul>
-      <li>사용 언어 : python</li>
-      <li>해결 날짜 : 2021-11-15</li>
-      <li>
-        <p>코드 설명 :</p>
-
-        <ul>
-          <li>aclimdb 데이터를 train과 test로 나누어서 가져오고, train/test 데이터 안의 HTML 줄바꿈 태그인 <br />을 삭제해준다.</li>
-          <li>CounterVectorizer()로 텍스트에서 단위별로 등장 횟수를 카운팅하여 수치 벡터화 하되, 불용어를 사용하지 않은 BOW 표현법/불용어를 사용한 BOW 표현법과 min_df 값을 변화시킬 때의 4가지 경우를 측정하였다.</li>
-          <li>또한 train/data 데이터를 각각 BOW 방법으로 나타낼 경우 각 feature의 값이 달라 같은 분류기를 사용하지 못하기 때문에 두 데이터 모두 사용하여 단어 사전 구축 및 불용어 처리를 하였다.</li>
-          <li>분류기로는 LogisticRegression을 사용하였고, 그 결과 데이터 단어 사전 미구축 및 불용어 처리를 안한 경우가 0.88943999999로 가장 높은 성능을 가졌다.</li>
-        </ul>
-      </li>
-      <li>
-        <p>결과 :
-<img src="https://user-images.githubusercontent.com/34560965/141695403-a5b1d545-d295-45b6-a9e8-3c1e59c431d1.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/141695405-25134af5-ad10-428e-81e3-a0b87f1f622f.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/141695407-59aa7351-c768-4d0c-91c1-303c271c86d0.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/141695410-b012a5ae-7406-400f-ae97-d009f0876813.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/141695412-3daff2f8-3f00-4bac-b20b-2e6a0070e470.png" alt="image" /></p>
-      </li>
-      <li>
-        <p>코드</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_files</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-
-<span class="n">reviews_train</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="s">"./aclimdb/train/"</span><span class="p">)</span>
-<span class="n">reviews_test</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="s">"./aclimdb/test/"</span><span class="p">)</span>
-
-<span class="n">train_text</span><span class="p">,</span> <span class="n">train_target</span> <span class="o">=</span> <span class="n">reviews_train</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">reviews_train</span><span class="p">.</span><span class="n">target</span>
-<span class="n">test_text</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">reviews_test</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">reviews_test</span><span class="p">.</span><span class="n">target</span>
-
-<span class="n">train_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">"&lt;br /&gt;"</span><span class="p">,</span> <span class="sa">b</span><span class="s">" "</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">train_text</span><span class="p">]</span>
-<span class="n">test_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">b</span><span class="s">"&lt;br /&gt;"</span><span class="p">,</span> <span class="sa">b</span><span class="s">" "</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">test_text</span><span class="p">]</span>
-
-
-<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">ENGLISH_STOP_WORDS</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-
-<span class="c1"># train, test 데이터 모두 단어 사전 구축 및 불용어 처리한 경우 (min df = 5)
-</span><span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="s">"english"</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text</span> <span class="o">+</span> <span class="n">test_text</span><span class="p">)</span>
-<span class="n">train_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
-<span class="n">test_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_text</span><span class="p">)</span>
-
-<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text_transformed</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">logreg</span><span class="p">,</span> <span class="n">test_text_transformed</span><span class="p">,</span> <span class="n">test_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
-
-
-<span class="c1"># train, test 데이터 단어 사전 구축만 한 경우 (불용어 처리 x)
-</span><span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span> <span class="o">=</span> <span class="mi">5</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text</span> <span class="o">+</span> <span class="n">test_text</span><span class="p">)</span>
-<span class="n">train_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
-<span class="n">test_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_text</span><span class="p">)</span>
-
-<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text_transformed</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">logreg</span><span class="p">,</span> <span class="n">test_text_transformed</span><span class="p">,</span> <span class="n">test_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
-
-
-<span class="c1"># train, test 불용어 처리 한 경우 (min_df = default)
-</span><span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s">"english"</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text</span> <span class="o">+</span> <span class="n">test_text</span><span class="p">)</span>
-<span class="n">train_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
-<span class="n">test_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_text</span><span class="p">)</span>
-
-<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text_transformed</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">logreg</span><span class="p">,</span> <span class="n">test_text_transformed</span><span class="p">,</span> <span class="n">test_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
-
-
-<span class="c1"># train, test 데이터 단어 사전 구축 및 불용어 처리 둘 다 안한 경우
-</span><span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">().</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text</span> <span class="o">+</span> <span class="n">test_text</span><span class="p">)</span>
-<span class="n">train_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
-<span class="n">test_text_transformed</span> <span class="o">=</span> <span class="n">vect</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_text</span><span class="p">)</span>
-
-<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">).</span><span class="n">fit</span><span class="p">(</span><span class="n">train_text_transformed</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">logreg</span><span class="p">,</span> <span class="n">test_text_transformed</span><span class="p">,</span> <span class="n">test_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
-</code></pre></div>        </div>
-      </li>
+      <li>circular를 위해 elements 뒤에 elements를 붙임 - sequence (마지막 인덱스 제외)</li>
+      <li>elements의 길이만큼 반복하며 (1, 2, …, n) slice()를 사용해 sequence를 잘라 합 push()</li>
+      <li>마지막 인덱스는 한번만 수행하면 되기 때문에 for문 밖에서 따로 push()</li>
+      <li>중복 제거를 위해 Set()으로 변경 후 size 반환</li>
     </ul>
   </li>
-</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[8주차 과제 : Text data 처리]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 7주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/07/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_7%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 7주차" /><published>2021-11-07T00:00:00+09:00</published><updated>2021-11-07T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/07/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_7%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/07/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_7%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
-  <li>
-    <p>7주차 과제 : SVM</p>
-
-    <p><img src="https://user-images.githubusercontent.com/34560965/140646570-6f8275f0-90e7-46f8-b3ed-35bd1b69fb07.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/140646573-8869af06-72bf-49db-abb3-8c08032c6e54.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/140646576-926df7ba-da4c-48de-94f0-be03571526a9.png" alt="image" /></p>
-
+  <li>회고 :
     <ul>
-      <li>사용 언어 : python</li>
-      <li>해결 날짜 : 2021-11-07</li>
-      <li>
-        <p>코드 설명 :</p>
-
-        <ul>
-          <li>Mnist data를 Sklearn 라이브러리를 이용하여 가져오고, 이 값은 총 7만개지만 train 데이터와 test 데이터가 섞여 있으므로 train_test_split을 사용하여 6:1로 나누어 주었다.</li>
-          <li>처음에 스케일링을 하지 않고 c값만 변화시켜 정확도를 측정했더니 최대치가 0.85로 매우 낮았다. 성능을 높이기 위하여, 데이터 스케일링이 필요하다고 생각되어 QuantileTransformer 스케일러를 사용하여 데이터를 균등분포 시켰다.</li>
-          <li>그 다음 최대 성능을 내는 C값을 찾기 위해 반복문을 사용하여 우선 0부터 10까지 1씩 늘려가며 (단 C는 양수여야 하기 때문에 0일 때는 0.1로 하였다.) 최적의 C값을 찾았고, 가장 클 때는 0.1이었다. 그 다음 최대일 때는 2로 그 차이가 미미하다고 생각되었기 때문에 C값을 0.1부터 2.9까지 0.1씩 늘려가며 다시 최적의 C값을 찾았다.</li>
-          <li>이 때 훈련 및 성능 측정 모델로 SVC가 아닌 LinearSVC를 사용했는데, SVC를 사용하려니 몇시간 동안 훈련이 되지 않아 진행이 되지 않아서 어쩔 수 없이 LinearSVC를 사용했다.</li>
-          <li>최적의 C값인 1.7로 성능을 측정한 결과 0.882의 정확도를 얻을 수 있었다. 아마 LInearSVC가 아닌 그냥 SVC를 사용했다면 더 높은 결과를 얻었을 수도 있을 것 같다.</li>
-        </ul>
-      </li>
-      <li>
-        <p>결과 :
-<img src="https://user-images.githubusercontent.com/34560965/140646579-66d56113-2585-4a9d-af46-35dc92d331dd.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/140646584-3b288a9d-dc63-4120-ad6d-ab8ff807a932.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/140646588-0133b184-0d9b-4563-9d71-b7bcdf1ed931.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/140646590-adbedefe-ab7f-42b7-ae30-f0fa37c8eb21.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/140646594-61fd5fe6-16f6-4f5a-a04b-3391f4165f1f.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/140646602-57953dc1-d780-4eb8-8a79-9e5cc0c31dc2.png" alt="image" /></p>
-      </li>
-      <li>
-        <p>코드</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="n">mnist</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s">'mnist_784'</span><span class="p">)</span>
-
-<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">mnist</span><span class="p">[</span><span class="s">'data'</span><span class="p">],</span>
-                                                                    <span class="n">mnist</span><span class="p">[</span><span class="s">'target'</span><span class="p">],</span>
-                                                                    <span class="n">test_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">),</span>
-                                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">train_input</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
-
-
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">QuantileTransformer</span>
-
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">QuantileTransformer</span><span class="p">()</span>
-<span class="n">scaler</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">)</span>
-<span class="n">train_input_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_input</span><span class="p">)</span>
-<span class="n">test_input_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_input</span><span class="p">)</span>
-
-
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span>
-
-<span class="n">c_max</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">c_max</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input_scaled</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="n">score_max</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input_scaled</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">score_max</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input_scaled</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="n">temp_score</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input_scaled</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">score_max</span> <span class="o">&lt;</span> <span class="n">temp_score</span><span class="p">:</span>
-        <span class="n">score_max</span> <span class="o">=</span> <span class="n">temp_score</span>
-        <span class="n">c_max</span> <span class="o">=</span> <span class="n">i</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">temp_score</span><span class="p">)</span>
-
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-
-<span class="n">li</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input_scaled</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-    <span class="n">temp_score</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input_scaled</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">score_max</span> <span class="o">&lt;</span> <span class="n">temp_score</span><span class="p">:</span>
-        <span class="n">score_max</span> <span class="o">=</span> <span class="n">temp_score</span>
-        <span class="n">c_max</span> <span class="o">=</span> <span class="n">i</span>
-
-
-<span class="k">print</span><span class="p">(</span><span class="s">"C값이 {c}일 때 Accuracy : {score}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">c_max</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">score</span><span class="o">=</span><span class="n">score_max</span><span class="p">))</span>
-</code></pre></div>        </div>
-      </li>
+      <li>Set에 바로 add()</li>
     </ul>
   </li>
-</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[7주차 과제 : SVM]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 6주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 6주차" /><published>2021-11-01T00:00:00+09:00</published><updated>2021-11-01T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/11/01/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_6%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
   <li>
-    <p>6주차 과제 : K-Means++</p>
+    <p>코드</p>
 
-    <p><img src="https://user-images.githubusercontent.com/34560965/139595445-ebdb1fed-24aa-4b40-b269-cd435460c365.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/139595446-ab0e6949-fceb-4536-9912-cd4ff08adc30.png" alt="image" /></p>
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">elements</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">const</span> <span class="nx">sequence</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">elements</span><span class="p">,</span> <span class="p">...</span><span class="nx">elements</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)];</span>
+        
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">elements</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">elements</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sequence</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">j</span><span class="p">,</span> <span class="nx">j</span> <span class="o">+</span> <span class="nx">i</span><span class="p">).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">elements</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+        
+    <span class="k">return</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">answer</span><span class="p">)).</span><span class="nx">size</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges</li>
+</ul>]]></content><author><name>류건열</name></author><category term="algorithm" /><category term="cnu" /><category term="algorithm" /><category term="self-study" /><category term="javascript" /><summary type="html"><![CDATA[프로그래머스 LEVEL 2(연속 부분 수열 합의 개수)]]></summary></entry><entry><title type="html">알고리즘 문제 풀이(프로그래머스 - 땅따먹기)</title><link href="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/14/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EB%95%85%EB%94%B0%EB%A8%B9%EA%B8%B0.html" rel="alternate" type="text/html" title="알고리즘 문제 풀이(프로그래머스 - 땅따먹기)" /><published>2022-10-14T00:00:00+09:00</published><updated>2022-10-14T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/14/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EB%95%85%EB%94%B0%EB%A8%B9%EA%B8%B0</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/14/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EB%95%85%EB%94%B0%EB%A8%B9%EA%B8%B0.html"><![CDATA[<h1 id="프로그래머스-level-2땅따먹기">프로그래머스 LEVEL 2(땅따먹기)</h1>
 
+<p><img src="https://user-images.githubusercontent.com/34560965/195561672-1a9663b3-91c5-4d71-9e02-defd47c4c60a.png" alt="image" /></p>
+
+<ul>
+  <li>
+    <p>사용 언어 : javascript</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2022-10-14</p>
+  </li>
+  <li>해결 방법 :
     <ul>
-      <li>사용 언어 : python</li>
-      <li>해결 날짜 : 2021-11-01</li>
-      <li>
-        <p>코드 설명 :</p>
-
-        <ul>
-          <li>1번 코드 설명
-            <ul>
-              <li>pandas의 read_csv 함수로 iris.csv 파일을 읽어오고, 0~3열의 값들은 data로, 4열의 값들은 target으로 설정한다.</li>
-              <li>plt.scatter를 사용하여 특징 값 네 개중 처음 두 개의 특징 값을 x축과 y축의 값으로 사용하고, target값으로 클래스(점 색깔)을 나눈다.</li>
-            </ul>
-          </li>
-          <li>2번 코드 설명
-            <ul>
-              <li>이 전에 사용한 plt를 clf()함수로 초기화한다.</li>
-              <li>cluster의 개수를 3으로 지정하여 KMeans++ Clustering을 시행하고, 1번에서의 data로 훈련시킨다. 그 후 1번과 마찬가지로 scatter를 사용하여 특징 값 네 개중 처음 두 개의 특징 값을 x축과 y축의 값으로 사용하고, target값으로 방금 훈련시킨 모델의 라벨을 사용하여 점을 찍는다.</li>
-            </ul>
-          </li>
-          <li>3번 코드 설명
-            <ul>
-              <li>2번에서와 마찬가지로 KMeans++ Clustering을 수행하되, cluster의 개수를 2,3,4,5,6으로 변화해가며 수행한다. Adjusted Rand Index(ARI)를 사용하여 실제 정답 cluster와 비교하여 평가한다. 이 결과 2일 때 0.54, 3일 때 0.73, 4일 때 0.65, 5일 때 0.62, 6일 때 0.45로 cluster의 개수가 3일 때가 적합도가 가장 높으므로 가장 적합하다고 볼 수 있다.</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <p>결과 :
-<img src="https://user-images.githubusercontent.com/34560965/139595454-8bc286b2-a9be-4f74-ba76-eaa0139909a1.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/139595455-c9a465da-e8c3-44bd-ba14-fd39b5099eef.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/139595458-9ea2b918-2faf-4b3f-8c70-4e46022190c3.png" alt="image" /></p>
-      </li>
-      <li>
-        <p>코드</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'iris.csv'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'feature1'</span><span class="p">)</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'feature2'</span><span class="p">)</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
-
-
-<span class="c1"># In[33]:
-</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">clf</span><span class="p">()</span>
-<span class="n">model_3</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">model_3</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">model_3</span><span class="p">.</span><span class="n">labels_</span><span class="p">)</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
-
-
-<span class="c1"># In[36]:
-</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.metrics.cluster</span> <span class="kn">import</span> <span class="n">adjusted_rand_score</span>
-
-<span class="n">model_2</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">model_2</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="n">model_4</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">model_4</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="n">model_5</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">model_5</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="n">model_6</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">model_6</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 2일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_2</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 3일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_3</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 4일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_4</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 5일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_5</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"n clusters가 6일 때 : {:.2f}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">model_6</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">target</span><span class="p">)))</span>
-</code></pre></div>        </div>
-      </li>
+      <li>land를 돌며 0~3 인덱스까지 현재 인덱스를 제외한 나머지 인덱스의 최대값을 더함</li>
+      <li>land의 마지막 인덱스에 최종값이 저장되므로 마지막 인덱스에서의 Math.max()를 구함</li>
     </ul>
   </li>
-</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[6주차 과제 : K-Means++]]></summary></entry><entry><title type="html">2021년 2학기 기계학습 5주차</title><link href="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/17/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_5%EC%A3%BC%EC%B0%A8.html" rel="alternate" type="text/html" title="2021년 2학기 기계학습 5주차" /><published>2021-10-17T00:00:00+09:00</published><updated>2021-10-17T00:00:00+09:00</updated><id>http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/17/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_5%EC%A3%BC%EC%B0%A8</id><content type="html" xml:base="http://localhost:4000/Ryu_Blog/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5/2021/10/17/%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5_5%EC%A3%BC%EC%B0%A8.html"><![CDATA[<ul>
-  <li>
-    <p>5주차 과제 : Random Forest</p>
-
-    <p><img src="https://user-images.githubusercontent.com/34560965/137598032-cd933ebc-ed45-4416-9f84-8a3f554afa90.png" alt="image" />
-<img src="https://user-images.githubusercontent.com/34560965/137598033-31ef4460-6d53-428a-b2ea-1bc8145c1dd7.png" alt="image" /></p>
-
+  <li>회고 :
     <ul>
-      <li>사용 언어 : python</li>
-      <li>해결 날짜 : 2021-10-17</li>
-      <li>
-        <p>코드 설명 :</p>
-
-        <ul>
-          <li>pandas의 read_csv 함수로 wdbc.data 파일을 읽어오고, 2열 이후의 값들은 data로, 2열의 값들은 target으로 설정한다.</li>
-          <li>train_test_split 함수로 data와 target을 3:1로 랜덤하게 분리한다.</li>
-          <li>decision tree, Random Forest(5), Random Forest(100)를 각 classifier로 생성 후 cross_val_score 함수를 통해 5-cross validation을 진행한 다음 평균을 프린트하였다.</li>
-          <li>그 결과 트리의 개수가 100개인 Random Forest 방식의 성능이 가장 높았기 때문에 트리의 개수가 100개인 랜덤 포레스트에 데이터를 학습시키고, score 함수로 Test data에 대한 성능을 측정하였다.</li>
-        </ul>
-      </li>
-      <li>
-        <p>결과 :
-<img src="https://user-images.githubusercontent.com/34560965/137598041-e9c9fdac-bdca-4d07-8503-e71fd8903d73.png" alt="image" /></p>
-      </li>
-      <li>
-        <p>코드</p>
-
-        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python
-# coding: utf-8
-</span>
-<span class="c1"># In[63]:
-</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
-
-<span class="n">datas</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'wdbc.data'</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">datas</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span>
-<span class="n">target</span> <span class="o">=</span> <span class="n">datas</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">train_input</span><span class="p">,</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">test_target</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="c1"># decision tree
-</span><span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"한 개의 DecisionTree일 때 교차 검증 점수 평균 : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">.</span><span class="n">mean</span><span class="p">()))</span>
-
-<span class="c1"># Random Forest (트리 개수 5개)
-</span><span class="n">forest_1</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">score_1</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">forest_1</span><span class="p">,</span> <span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"트리 개수 5개인 RandomForest일 때 교차 검증 점수 평균 : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score_1</span><span class="p">.</span><span class="n">mean</span><span class="p">()))</span>
-
-<span class="c1"># Random Forest (트리 개수 100개)
-</span><span class="n">forest_100</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">score_100</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">forest_100</span><span class="p">,</span> <span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"트리 개수 100개인 RandomForest일 때 교차 검증 점수 평균 : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">score_100</span><span class="p">.</span><span class="n">mean</span><span class="p">()))</span>
-
-<span class="n">forest_100</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_input</span><span class="p">,</span> <span class="n">train_target</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Test Data에 대한 성능 : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">forest_100</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_input</span><span class="p">,</span> <span class="n">test_target</span><span class="p">)))</span>
-</code></pre></div>        </div>
-      </li>
+      <li>x</li>
     </ul>
   </li>
-</ul>]]></content><author><name>류건열</name></author><category term="기계학습" /><category term="cnu" /><category term="기계학습" /><category term="machine-learning" /><category term="과제" /><summary type="html"><![CDATA[5주차 과제 : Random Forest]]></summary></entry></feed>
+  <li>
+    <p>코드</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">land</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">land</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]);</span>
+        <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]);</span>
+        <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]);</span>
+        <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="nx">land</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="p">}</span>
+        
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">land</span><span class="p">[</span><span class="nx">land</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges</li>
+</ul>]]></content><author><name>류건열</name></author><category term="algorithm" /><category term="cnu" /><category term="algorithm" /><category term="self-study" /><category term="javascript" /><summary type="html"><![CDATA[프로그래머스 LEVEL 2(땅따먹기)]]></summary></entry><entry><title type="html">알고리즘 문제 풀이(프로그래머스 - 위장)</title><link href="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/13/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%9C%84%EC%9E%A5.html" rel="alternate" type="text/html" title="알고리즘 문제 풀이(프로그래머스 - 위장)" /><published>2022-10-13T00:00:00+09:00</published><updated>2022-10-13T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/13/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%9C%84%EC%9E%A5</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/13/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EC%9C%84%EC%9E%A5.html"><![CDATA[<h1 id="프로그래머스-level-2위장">프로그래머스 LEVEL 2(위장)</h1>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/195002246-e97e287c-bfb3-4ab0-824d-9928337643dc.png" alt="image" /></p>
+
+<ul>
+  <li>
+    <p>사용 언어 : javascript</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2022-10-13</p>
+  </li>
+  <li>해결 방법 :
+    <ul>
+      <li>예전에 c++로 풀었던 문제를 다시 풀어 보았다.</li>
+      <li>옷의 이름은 중요하지 않으므로 Map()을 이용해 종류 별 개수를 저장</li>
+      <li>map을 돌며 종류 별 경우의 수 구함</li>
+    </ul>
+  </li>
+  <li>회고 :
+    <ul>
+      <li>x</li>
+    </ul>
+  </li>
+  <li>
+    <p>코드</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">clothes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">();</span>
+        
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">cloth</span> <span class="k">of</span> <span class="nx">clothes</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="p">[</span><span class="nx">name</span><span class="p">,</span> <span class="nx">kind</span><span class="p">]</span> <span class="o">=</span> <span class="nx">cloth</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">map</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">kind</span><span class="p">))</span> <span class="nx">map</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">kind</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">kind</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">else</span> <span class="nx">map</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">kind</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">map</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">value</span> <span class="o">+</span> <span class="nx">value</span> <span class="o">*</span> <span class="nx">answer</span><span class="p">;</span>
+    <span class="p">});</span>
+        
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges</li>
+</ul>]]></content><author><name>류건열</name></author><category term="algorithm" /><category term="cnu" /><category term="algorithm" /><category term="self-study" /><category term="javascript" /><summary type="html"><![CDATA[프로그래머스 LEVEL 2(위장)]]></summary></entry><entry><title type="html">알고리즘 문제 풀이(프로그래머스 - 다리를 지나는 트럭)</title><link href="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/12/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EB%8B%A4%EB%A6%AC%EB%A5%BC-%EC%A7%80%EB%82%98%EB%8A%94-%ED%8A%B8%EB%9F%AD.html" rel="alternate" type="text/html" title="알고리즘 문제 풀이(프로그래머스 - 다리를 지나는 트럭)" /><published>2022-10-12T00:00:00+09:00</published><updated>2022-10-12T00:00:00+09:00</updated><id>https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/12/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EB%8B%A4%EB%A6%AC%EB%A5%BC%20%EC%A7%80%EB%82%98%EB%8A%94%20%ED%8A%B8%EB%9F%AD</id><content type="html" xml:base="https://rjsduf0503.github.io/Ryu_Blog/algorithm/2022/10/12/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4_%EB%8B%A4%EB%A6%AC%EB%A5%BC-%EC%A7%80%EB%82%98%EB%8A%94-%ED%8A%B8%EB%9F%AD.html"><![CDATA[<h1 id="프로그래머스-level-2다리를-지나는-트럭">프로그래머스 LEVEL 2(다리를 지나는 트럭)</h1>
+
+<p><img src="https://user-images.githubusercontent.com/34560965/194919623-5cd917ce-9eb7-4b00-b276-229bec38caa3.png" alt="image" /></p>
+
+<ul>
+  <li>
+    <p>사용 언어 : javascript</p>
+  </li>
+  <li>
+    <p>해결 날짜 : 2022-10-12</p>
+  </li>
+  <li>해결 방법 :
+    <ul>
+      <li>다리를 지나는 과정을 표현할 bridge 0으로 초기화</li>
+      <li>while문 반복 시(반복 한 번당 1초를 의미) bridge의 최상단 pop()</li>
+      <li>다리가 최대 견딜 수 있는 무게가 현재 지날 트럭의 무게와 현재 다리의 무게의 합보다 크거나 같으면 현재 지날 트럭을 bridge에 unshift() 및 무게 update</li>
+      <li>그렇지 않으면 다리에 더 오를 수 없다는 뜻이므로 bridge에 0 unshift()</li>
+    </ul>
+  </li>
+  <li>회고 :
+    <ul>
+      <li>while문 속 조건을 truck_weights.length로 주고 truck_weight.length 조건을 가진 if문을 삭제한 뒤 answer과 bridge_length(마지막에 건너는 차량의 소요 시간)의 합을 return해도 동일한 결과</li>
+      <li>console문으로 현재 다리의 지나는 트럭을 시각화 하기 위해 아래 코드와 같이 작성함</li>
+      <li><img src="https://user-images.githubusercontent.com/34560965/194919644-1058af1a-0a88-4a0c-ad07-f0bdba80db03.png" alt="image" /></li>
+    </ul>
+  </li>
+  <li>
+    <p>코드</p>
+
+    <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">bridge_length</span><span class="p">,</span> <span class="nx">weight</span><span class="p">,</span> <span class="nx">truck_weights</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">bridge</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">({</span><span class="na">length</span><span class="p">:</span> <span class="nx">bridge_length</span><span class="p">},</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">bridge_weight</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">truck_weights</span><span class="p">.</span><span class="nx">reverse</span><span class="p">();</span>
+        
+    <span class="k">while</span> <span class="p">(</span><span class="nx">bridge</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">bridge_weight</span> <span class="o">-=</span> <span class="nx">bridge</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+            
+        <span class="k">if</span> <span class="p">(</span><span class="nx">truck_weights</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">truck_weights</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">weight</span> <span class="o">&gt;=</span> <span class="nx">current</span> <span class="o">+</span> <span class="nx">bridge_weight</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">bridge</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">truck_weights</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span>
+                <span class="nx">bridge_weight</span> <span class="o">+=</span> <span class="nx">current</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="nx">bridge</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+            
+        <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges</li>
+</ul>]]></content><author><name>류건열</name></author><category term="algorithm" /><category term="cnu" /><category term="algorithm" /><category term="self-study" /><category term="javascript" /><summary type="html"><![CDATA[프로그래머스 LEVEL 2(다리를 지나는 트럭)]]></summary></entry></feed>

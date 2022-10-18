@@ -1,1 +1,1 @@
-Sitemap: http://localhost:4000/Ryu_Blog/sitemap.xml
+Sitemap: https://rjsduf0503.github.io/Ryu_Blog/sitemap.xml
