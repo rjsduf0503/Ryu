@@ -1,7 +1,7 @@
 ---
 layout: post
 author: 류건열
-title: [TIL] VueJS의 Life Cycle
+title: '[TIL] VueJS의 Life Cycle'
 categories: programmers
 tags: [cnu, programmers, dev-course, javascript, til, today-i-learned]
 ---
